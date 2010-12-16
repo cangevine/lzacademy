@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title><%= yield(:title) or 'LinguaZone Academy' %></title>
+	<%= stylesheet_link_tag 'layout' %>
+	<%= javascript "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js", :cache => true %>
+	<%= yield(:head) %>
+	<%= yield(:page_script) %>
+</head>
+<body>
+	<div id="header">
+		<%= link_to root_path do %>
+			<div id="header_home_link"></div>
+		<% end %>
+		<div id="header_frog"></div>
+		<br class="clearFloat" />
+		<div id="nav">
+			<%= render :partial => "layouts/standard_nav" %>
+		</div>
+	</div>
+ 	<div id="body">
+		<div id="body_header"></div>
+		<div class="wrapper">
+			<% unless flash[:notice].nil? %>
+				<p class="flash_notice"><%= flash[:notice]%></p>
+			<% end %>
+			<% unless flash[:error].nil? %>
+				<p class="flash_error"><%= flash[:error] %></p>
+			<% end %>
+			<%= yield %>
+			<br class="clearFloat" />
+		</div>
+		<div id="body_footer"></div>
+	</div>
+	<div id="footer">
+		<div id="animat_links">
+			<div id="prima_lingua">
+				<%= link_to image_tag("footer/prima_lingua_frog.gif"), "http://www.primalingua.net" %>
+				<h4>PRIMA LINGUA</h4>
+				<p class="tag_line">The preparatory course<br /> for the study of foreign languages</p>
+			</div>
+			<div id="lz_camps">
+				<%= link_to image_tag("footer/camp_frog.gif"), "http://www.linguazonecamps.com" %>
+				<h4>LINGUAZONE.COM</h4>
+				<p class="tag_line">Customized teaching tools<br /> for language teachers around the world</p>
+			</div>
+			<br class="clearFloat" />
+		</div>
+		<div id="get_to_know_us">
+			<h4>GET TO KNOW US</h4>
+			<p>We love languages, games, and technology. LinguaZone.com is the way we fuse all three together and offer fun and creative ways for teachers to interact with their 21st century students. We're all about activity-based programs and engaging language learning. <%= link_to "Get in touch" %> if you're interested in learning more.</p>
+		</div>
+		<br class="clearFloat" />
+		<p class="copyright">&copy; Animat, LLC 2006 - 2010</p>
+	</div>
+</body>
+</html>
