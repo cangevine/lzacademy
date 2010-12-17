@@ -1,0 +1,19 @@
+/* ~~~	Schedule	~~~	*/
+div#schedule {
+	margin-left: 28%;
+}
+div#schedule table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 10px;
+}
+div#schedule table td {
+	width: 50%;
+	padding: 5px;
+	border: 1px solid #999;
+}
+
+/* ~~~	Languages	~~~	*/
+div#available_languages a {
+	margin: 10px 5px;
+}
