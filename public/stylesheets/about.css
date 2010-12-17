@@ -1,7 +1,14 @@
+/* ~~~	Index	~~~	*/
 div#student_close_up {
 	margin: 25px auto;
 }
 
 div#language_list {
 	margin: 0px auto;
+}
+
+/* ~~~	Gallery	~~~	*/
+div#gallery {
+	width: 620px;
+	float: right;
 }

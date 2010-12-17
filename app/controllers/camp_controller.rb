@@ -4,6 +4,9 @@ class CampController < ApplicationController
 
   def schedule
   end
+  
+  def typical_day
+  end
 
   def languages
   end

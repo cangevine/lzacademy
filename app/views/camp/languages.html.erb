@@ -1,2 +1,40 @@
-<h1>Camp#languages</h1>
-<p>Find me in app/views/camp/languages.html.erb</p>
+<% stylesheet "/fancybox/jquery.fancybox-1.3.4.css" %>
+<% stylesheet 'camp' %>
+
+<%= content_for(:page_script) do %>
+<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<script type="text/javascript" src="/fancybox/jquery.easing-1.3.pack.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#available_languages a").button();
+	
+	$(".courseDescription").fancybox();
+	
+});
+</script>
+<% end %>
+
+<%= render :partial => "layouts/about_nav" %>
+
+<h1>Offering 11 languages in 2011</h1>
+<p>Try something new, advance a level in school, or practice your skills over the summer.</p>
+
+<div id="available_languages">
+	<h2>4 - 10 year-olds</h2>
+	<p><%= link_to "Spanish Explorers", course_description_spanish_explorers_path, :id => "spanishExplorers", :class => "courseDescription", :rel => "descrip" %></p>
+	<h2>11 - 17 year-olds</h2>
+	<p>
+		<%= link_to "Spanish", course_description_spanish_path, :id => "spanish", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "French", course_description_french_path, :id => "french", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "Latin", course_description_latin_path, :id => "latin", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "German", course_description_german_path, :id => "german", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "Italian", course_description_italian_path, :id => "italian", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "Chinese", course_description_chinese_path, :id => "chinese", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "Arabic", course_description_arabic_path, :id => "arabic", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "Hebrew", course_description_hebrew_path, :id => "hebrew", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "Ancient Greek", course_description_ancient_greek_path, :id => "ancient_greek", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "American Sign Language", course_description_asl_path, :id => "asl", :class =>"courseDescription", :rel => "descrip" %>
+		<%= link_to "Russian", course_description_russian_path, :id => "russian", :class =>"courseDescription", :rel => "descrip" %>
+	</p>
+</div>

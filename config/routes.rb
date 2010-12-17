@@ -8,8 +8,22 @@ Lzacademy::Application.routes.draw do
   
   get "camp/locations"
   get "camp/schedule"
+  get "camp/typical_day"
   get "camp/languages"
   get "camp/register"
+  
+  get "course_description/spanish_explorers"
+  get "course_description/spanish"
+  get "course_description/french"
+  get "course_description/latin"
+  get "course_description/german"
+  get "course_description/italian"
+  get "course_description/chinese"
+  get "course_description/arabic"
+  get "course_description/hebrew"
+  get "course_description/ancient_greek"
+  get "course_description/asl"
+  get "course_description/russian"
   
   get "about/index"
   get "about/philosophy"
