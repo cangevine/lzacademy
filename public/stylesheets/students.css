@@ -1,0 +1,34 @@
+div.student_header {
+	float: left;
+	background-color: white;
+	padding: 3px 15px;
+	margin: 0;
+	height: 1.75em;
+	position: relative;
+	top: 5px;
+	border: 1px solid #999;
+	border-bottom: none;
+}
+div.student_body {
+	background-color: white;
+	padding: 20px 15px 10px 15px;
+	margin-top: 4px;
+	border: 1px solid #999;
+}
+
+table.required_forms {
+	width: 100%;
+}
+table.required_forms td {
+	width: 33%;
+	text-align: center;
+	border: none;
+}
+table.required_forms td.incomplete a {
+	font-size: 1em;
+	font-weight: normal;
+}
+table.required_forms td a span.edit {
+	font-size: .5em;
+	display: block;
+}

@@ -8,8 +8,10 @@
 	<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" %>
 	<%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.7/jquery-ui.min.js" %>
 	<%= javascript_include_tag "/javascripts/application.js" %>
+	<%= javascript_include_tag "/javascripts/rails.js" %>
+	<%= csrf_meta_tag %>
 	<%= yield(:head) %>
-	<%= yield(:page_script) %>
+	<script type="text/javascript"><%= yield(:page_script) %></script>
 </head>
 <body>
 	<div id="header">
@@ -31,8 +33,12 @@
 			<% unless flash[:error].nil? %>
 				<p class="flash_error"><%= flash[:error] %></p>
 			<% end %>
+			<% unless flash[:success].nil? %>
+				<p class="flash_success"><%= flash[:success]%></p>
+			<% end %>
 			<%= yield %>
 			<br class="clearFloat" />
+			<%= yield(:jstemplates) %>
 		</div>
 		<div id="body_footer"></div>
 	</div>

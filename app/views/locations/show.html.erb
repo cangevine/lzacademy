@@ -1,0 +1,23 @@
+<h1>Location: <%= @location.name %></h1>
+<p>
+	<%= @location.name %>
+	<br /><%= @location.address %>
+	<br /><%= @location.city %>, PA <%= @location.zip %>
+</p>
+
+<table>
+	<tr>
+		<th>Dates</th>
+		<th>Program</th>
+		<th>Teacher</th>
+	</tr>
+	<% @location.courses.each do |c| %>
+		<tr>
+			<td><%= c.session.date_range %></td>
+			<td><%= link_to c.program.name, program_path(c.program) %></td>
+			<td>taught by <%= link_to c.teacher.display_name, teacher_path(c.teacher) %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p><%= link_to "View all locations", locations_path %> | <%= link_to "Edit this location", edit_location_path(@location) %></p>

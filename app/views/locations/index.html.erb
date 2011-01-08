@@ -1,0 +1,20 @@
+<h1>All locations hosting LinguaZone Academy</h1>
+
+<table>
+	<tr>
+		<th>School name</th>
+		<th>Address</th>
+		<th>URL</th>
+		<th></th>
+	</tr>
+	<% @locations.each do |l| %>
+		<tr>
+			<td><%= l.name %></td>
+			<td><%= l.address %>, <%= l.city %></td>
+			<td><em><%= link_to l.url, l.url %></em></td>
+			<td><%= link_to "Edit", edit_location_path(l) %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p><%= link_to "Add a new location", new_location_path %></p>

@@ -1,0 +1,25 @@
+<% stylesheet 'registrations' %>
+
+<h1>Registrations</h1>
+<p>All registrations</p>
+
+<table class="registration_listings">
+	<tr>
+		<th>Student name</th>
+		<th>Parent name</th>
+		<th>Course name</th>
+		<th>Course session</th>
+		<th>Course location</th>
+		<th>Course teacher</th>
+	</tr>
+	<% @registrations.each do |r| %>
+		<tr>
+			<td><%= r.student.display_name %></td>
+			<td><%= r.parent.display_name %></td>
+			<td><%= r.course.program.name %></td>
+			<td><%= r.course.session.date_range %></td>
+			<td><%= r.course.location.name %></td>
+			<td><%= r.course.teacher.display_name %></td>
+		</tr>
+	<% end %>
+</table>

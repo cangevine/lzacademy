@@ -1,0 +1,34 @@
+<div class="registration_details">
+	<div class="registration_title">
+		<h3><%= reg.course.program.name %> at <%= reg.course.location.name %></h3>
+		<span class="schedule"><%= reg.course.session.date_range %> from <%= "#{reg.course.start_time} to #{reg.course.end_time}" %></span>
+	</div>
+	
+	<table>
+		<tr>
+			<td>Background</td>
+			<td>No experience with this language</td>
+		</tr>
+		<tr>
+			<td>Payment status</td>
+			<td>$450</td>
+		</tr>
+		<tr>
+			<td>Reminders...</td>
+			<td>Drop-off and pick-up details, brown bag lunch, more</td>
+		</tr>
+		<tr>
+			<td>Teacher comments...</td>
+			<td>
+				No teacher comments yet.
+			</td>
+		</tr>
+		<tr>
+			<td>Cancel</td>
+			<td><%= link_to "Cancel registration", reg, :class => "warning",
+						:confirm => "Are you sure you want to cancel your registration in this class?", 			
+						:method => :delete %>
+			</td>
+		</tr>
+	</table>
+</div>

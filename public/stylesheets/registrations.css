@@ -1,0 +1,52 @@
+form {
+	margin-top: 30px;
+}
+
+table.course_listings th span {
+	display: block;
+	font-size: .8em;
+	font-weight: normal;
+	color: #dadada;
+}
+table.course_listings td span.course_unavailable {
+	font-size: .75em;
+	color: #666;
+}
+table.course_listings td span.course_details {
+	display: block;
+	font-size: .7em;
+	color: #458B00;
+}
+table.course_listings td label {
+	margin: 0px;
+	padding: 0px;
+}
+
+div.registration_details table td:first-child {
+	padding-left: 20px;
+}
+div.registration_details table td {
+	border: none;
+	border-bottom: 1px dotted #ccc;
+	font-size: .9em;
+}
+div.registration_details div.registration_title {
+	margin-bottom: 10px;
+	padding: 5px 5px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	background-color: #ddecff;
+}
+div.registration_details div.registration_title h3 {
+	font-weight: normal;
+}
+div.registration_details div.registration_title span.schedule {
+	float: right;
+	font-size: .9em;
+	padding-top: 5px;
+}
+
+a.new_registration {
+	color: #458B00;
+	padding: 5px;
+}

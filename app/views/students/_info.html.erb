@@ -1,0 +1,38 @@
+<% content_for :page_script do %>
+$(function() {
+	$(".required_forms td.complete a").addClass('subtle');
+	
+	$(".required_forms td.incomplete a").button({
+		icons: {
+			primary: "ui-icon-alert"
+		}
+	});
+})
+<% end %>
+
+<div class="student_details">
+	<div>
+		<%= link_to "edit", edit_student_path(student), :class => "edit_info right_control_btn" %>
+		<%= render :partial => "students/info_header", :locals => { :student => student } %>
+	</div>
+	<br class="clearFloat" />
+	<div class="student_body ui-corner-tr ui-corner-br ui-corner-bl">
+		<table class="required_forms">
+			<tr>
+				<td class="complete"><%= link_to root_path do %>Classroom info form <span class="edit">VIEW / EDIT</span><% end %></td>
+				<td class="incomplete"><%= link_to root_path do %>Emergency contact form <span class="edit">COMPLETE FORM NOW</span><% end %></td>
+				<td class="complete"><%= link_to root_path do %>Teacher recommendation <span class="edit">VIEW / EDIT</span><% end %></td>
+			</tr>
+		</table>
+		
+		<% if student.registrations.empty? %>
+			<p><%= student.first_name %> is not registered in any classes.</p>
+		<% else %>
+			<% student.registrations.each do |reg| %>
+				<%= render :partial => "registrations/info", :locals => { :reg => reg } %>
+			<% end %>
+		<% end %>
+		<p><%= link_to "Register #{student.first_name} in a new class", new_student_registration_path(student), :class => "new_registration" %></p>
+	</div>
+	<br class="clearFloat" />
+</div>

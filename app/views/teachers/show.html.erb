@@ -1,0 +1,29 @@
+<% stylesheet 'teachers' %>
+
+<h1>Teacher: <%= @teacher.display_name %></h1>
+<p>
+	<%= @teacher.display_name %> 
+	<%= "("+@teacher.nickname+")" unless @teacher.nickname.nil? %>
+	<br /><%= @teacher.email %>
+	<br /><%= @teacher.cell_phone %>
+	<br /><%= @teacher.shirt_size %>
+</p>
+
+<% @teacher.courses.each do |c| %>
+	<table>
+		<tr>
+			<th><%= link_to c.program.name, program_path(c.program) %></th>
+			<th>at <%= link_to c.location.name, location_path(c.location) %></th>
+			<th><%= c.session.date_range %></th>
+		</tr>
+		<% c.registrations.each do |r| %>
+			<tr>
+				<td><%= link_to r.student.display_name %><span class="student_age">(<%= r.student.age %> years old)</span></td>
+				<td>6 comments (1/5/11)</td>
+				<td><%= link_to "Write a comment" %></td>
+			</tr>
+		<% end %>
+	</table>
+<% end %>
+
+<p><%= link_to "View all teachers", teachers_path %> | <%= link_to "Edit this teacher", edit_teacher_path(@teacher) %></p>

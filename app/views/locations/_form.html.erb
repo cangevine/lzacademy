@@ -1,0 +1,4 @@
+<%= semantic_form_for @location do |f| %>
+	<%= f.inputs :name, :address, :city, :zip, :url %>
+	<%= f.buttons %> or <%= link_to "cancel", locations_path %>
+<% end %>

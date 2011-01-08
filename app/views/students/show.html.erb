@@ -1,0 +1,9 @@
+<% content_for :page_script do %>
+$(function() {
+	$("a.edit_info, a.return_btn").button();
+})
+<% end %>
+
+<p><%= link_to "return to parent page", parent_path(@student.parent), :class => "return_btn right_control_btn" %></p>
+<h1>View student information</h1>
+<%= render :partial => "info", :locals => { :student => @student } %>

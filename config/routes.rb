@@ -1,4 +1,17 @@
 Lzacademy::Application.routes.draw do
+
+  resources :comments
+
+  resources :registrations, :courses, :locations, :programs, :sessions, :teachers, :parents, :students
+  
+  resources :parents do
+    resources :students
+  end
+  
+  resources :students do
+    resources :registrations
+  end
+  
   root :to => "about#index"
   
   get "school/locations"
@@ -33,6 +46,7 @@ Lzacademy::Application.routes.draw do
   get "about/testimonials"
   get "about/us"
   get "about/contact"
+  match "contact" => "about#contact"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

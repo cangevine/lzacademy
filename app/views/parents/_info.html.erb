@@ -1,0 +1,7 @@
+<p><%= parent.display_name %></p>
+<p><%= parent.address %><br /><%= parent.city %>, <%= parent.zip %></p>
+<ul class="contact_info">
+	<li><%= parent.email %></li>
+	<li><%= parent.home_phone %> (home)</li>
+	<li><%= parent.cell_phone ? parent.cell_phone+" (cell)" : "No cell phone on file" %></li>
+</ul>

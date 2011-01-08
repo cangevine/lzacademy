@@ -1,0 +1,28 @@
+<%= stylesheet 'parents' %>
+<%= stylesheet 'students' %>
+<%= stylesheet 'registrations' %>
+
+<% content_for :page_script do %>
+$(function() {
+	$("a.edit_info, a.add_new").button();
+})
+<% end %>
+
+<h1>Parent homepage</h1>
+<p>Manage your students' registration information, check teacher comments, and more. Have questions? <%= link_to "Contact us", contact_path %>.</p>
+
+<div class="parent_info ui-corner-all">
+	<%= link_to "edit", edit_parent_path(@parent), :class => "edit_info right_control_btn" %>
+	<h2>Parent info</h2>
+	<%= render :partial => "info", :locals => { :parent => @parent } %>
+</div>
+
+<% if @parent.students.nil? %>
+	<p>There are no students associated with this account yet.</p>
+<% else %>
+	<div class="students_info ui-corner-all">
+		<h2>Student info</h2>
+		<%= render :partial => "students/info", :collection => @parent.students, :as => :student %>
+	</div>
+<% end %>
+<p><%= link_to "add a student", new_parent_student_path(@parent), :class => "add_new right_control_btn"%>

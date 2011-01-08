@@ -1,0 +1,4 @@
+<%= semantic_form_for @parent do |f| %>
+	<%= f.inputs :first_name, :last_name, :address, :city, :zip, :email, :home_phone, :cell_phone %>
+	<%= f.buttons %> or <%= link_to "cancel", :back %>
+<% end %>

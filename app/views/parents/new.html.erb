@@ -1,0 +1,24 @@
+<%= stylesheet 'parents' %>
+
+<div>
+	<%= render :partial => "layouts/short_about_nav" %>
+	<h1>Apply to LinguaZone Academy</h1>
+	<p>Applying to LinguaZone takes just a moment. Please feel free to <%= link_to "call", about_contact_path %> with any questions.</p>
+</div>
+
+<br class="clearFloat" />
+
+<%= semantic_form_for @parent do |parent_form| %>
+	<%= parent_form.semantic_errors %>
+		
+	<%= parent_form.inputs :name => "Student info", :id => "student_info", :for => :students do |stu_form| %>
+		<%= render :partial => "students/form", :locals => { :f => stu_form, :removable_link => true } %>
+		<%= link_to_add_fields "Add a student", parent_form, :students %>
+	<% end %>
+	<%= new_child_fields_template parent_form, :students %>
+	
+	<%= parent_form.inputs :name => "Parent info", :id => "parent_info" %>
+	
+	<%= parent_form.commit_button "Continue" %>
+
+<% end %>

@@ -1,0 +1,20 @@
+<h1>All teachers at LinguaZone Academy</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th></th>
+	</tr>
+	<% @teachers.each do |t| %>
+		<tr>
+			<td><%= link_to t.display_name, teacher_path(t) %></td>
+			<td><%= t.email %></td>
+			<td><%= t.cell_phone %></td>
+			<td><%= link_to "Edit", edit_teacher_path(t) %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p><%= link_to "Add a new teacher", new_teacher_path %></p>

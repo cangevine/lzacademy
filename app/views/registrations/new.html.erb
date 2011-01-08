@@ -1,0 +1,17 @@
+<% stylesheet 'registrations' %>
+
+<h1>Register to join a new class with LinguaZone</h1>
+
+<%= semantic_form_for @registration do |f| %>
+	<%= f.semantic_errors %>
+	<table class="course_listings">
+		<%= build_course_header_and_rows("Camps for 4 &mdash; 10 year-olds", @young_camp_courses) %>
+	</table>
+
+	<table class="course_listings">
+		<%= build_course_header_and_rows("Camps for 11 &mdash; 17 year-olds", @old_camp_courses) %>
+	</table>
+	
+	<%= f.hidden_field :student_id %>
+	<%= f.commit_button "Continue" %>
+<% end %>

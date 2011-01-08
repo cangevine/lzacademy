@@ -1,0 +1,5 @@
+<h1>Edit student information</h1>
+<%= semantic_form_for @student do |f| %>
+	<%= render :partial => "form", :locals => { :f => f, :removable_link => false } %>
+	<p><%= f.buttons %> or <%= link_to "cancel", :back %></p>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>All LinguaZone Academy parents</h1>
+
+<table>
+	<tr>
+		<th>Full name</th>
+		<th>Email</th>
+		<th>Cell phone</th>
+		<th></th>
+	</tr>
+	<% @parents.each do |p| %>
+		<tr>
+			<td><%= p.display_name %></td>
+			<td><%= p.email %></td>
+			<td><%= p.cell_phone %></td>
+			<td><%= link_to "Edit", edit_parent_path(p) %></td>
+		</tr>
+	<% end %>
+</table>

@@ -34,6 +34,7 @@ h2 {
 h3 {
 	font-family: Helvetica, Lucida Sans Unicode, sans-serif;
 	color: #333;
+	display: inline;
 }
 input {
 	font-family: Helvetica, Lucida Sans Unicode, sans-serif;
@@ -60,13 +61,19 @@ a:hover {
 	color:#FF6600;
 	text-decoration: none;
 }
-a.invis {
+a.warning:link, a.warning:visited, a.warning:active {
+	color: #FF0000;
+}
+a.warning:hover {
+	background-color: #FF0000;
 	color: #FFF;
+}
+a.subtle:link, a.subtle:visited, a.subtle:active {
+	color: inherit;
 	text-decoration: none;
 }
-a.warning {
-	color: #FF0000;
-	text-decoration: none;
+a.subtle:hover {
+	text-decoration: underline;
 }
 ul {
 	padding-left: 2em;
@@ -79,10 +86,18 @@ hr {
 	color: #999;
 }
 fieldset {
-	width: 50%;
 	padding: 15px;
 	margin: 0px auto;
 	border: 1px dotted #CCC;
+}
+fieldset label {
+	margin-right: 10px;
+}
+ol {
+	margin-left: 15px;
+}
+ol li {
+	margin: 10px 0px;
 }
 blockquote {
 	margin-bottom: 25px;
@@ -107,7 +122,15 @@ br.clearFloat {
 	clear: both;
 }
 p.flash_notice {
-	border: 5px solid #476A34;
+	border: 2px solid #ffd324;
+	color: #847333; 
+	background-color: #fff6bf; 
+	padding: 5px; 
+	margin-bottom: 20px; 
+	text-align: center;
+}
+p.flash_success {
+	border: 2px solid #476A34;
 	color: #FFF; 
 	background-color: #458B00; 
 	padding: 5px; 
@@ -115,7 +138,7 @@ p.flash_notice {
 	text-align: center;
 }
 p.flash_error {
-	border: 5px solid #CC1100;
+	border: 2px solid #CC1100;
 	color: #FFF; 
 	background-color: #FF6666; 
 	padding: 5px; 
@@ -374,6 +397,27 @@ div::-moz-focus-inner {
 /*	--------------------- *
  *	Shared pages elements *
  *	--------------------- */
+table {
+	width: 100%;
+	margin: 15px 0px;
+	border-collapse: collapse;
+}
+th {
+	padding: 5px 10px;
+	border: 1px solid #1f3860;
+	color: #FFF;
+	background-color: #1f3860;
+}
+td {
+	padding: 5px;
+	border: 1px solid #666;
+	background-color: white;
+}
+
+a.right_control_btn:link {
+	float: right;
+	font-size: .8em;
+}
 .supercheckbox_left_blank {
 	float: left;
 	width: 64px;
