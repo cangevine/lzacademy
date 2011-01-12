@@ -18,10 +18,10 @@ Program.create(:name => "Intermediate Spanish", :language => "Spanish", :level =
 Program.create(:name => "Beginning French", :language => "French", :level => "beginner", :description => "French 1 class descrip")
 Program.create(:name => "Spanish Explorers", :language => "Spanish", :level => "explorer", :description => "Spanish Explorers class descrip")
 
-Session.create(:start_date => "2011-06-27 00:00:00", :end_date => "2011-07-15 00:00:00", :name => "Session 1",  :description => "Sess 1 descrip")
-Session.create(:start_date => "2011-07-18 00:00:00", :end_date => "2011-08-05 00:00:00", :name => "Session 2",  :description => "Sess 2 descrip")
-Session.create(:start_date => "2011-07-05 00:00:00", :end_date => "2011-07-15 00:00:00", :name => "Session 1",  :description => "Sess 1 descrip")
-Session.create(:start_date => "2011-07-18 00:00:00", :end_date => "2011-07-29 00:00:00", :name => "Session 2",  :description => "Sess 2 descrip")
+Term.create(:start_date => "2011-06-27 00:00:00", :end_date => "2011-07-15 00:00:00", :name => "Session 1",  :description => "Sess 1 descrip")
+Term.create(:start_date => "2011-07-18 00:00:00", :end_date => "2011-08-05 00:00:00", :name => "Session 2",  :description => "Sess 2 descrip")
+Term.create(:start_date => "2011-07-05 00:00:00", :end_date => "2011-07-15 00:00:00", :name => "Session 1",  :description => "Sess 1 descrip")
+Term.create(:start_date => "2011-07-18 00:00:00", :end_date => "2011-07-29 00:00:00", :name => "Session 2",  :description => "Sess 2 descrip")
 
 Teacher.create(:first_name => "Colin", :last_name => "Angevine", :nickname => "BC", :cell_phone => "555-555-5555", :bio => "BC's teacher bio", 
                  :shirt_size => "Adult large")
@@ -30,15 +30,15 @@ Teacher.create(:first_name => "Katie", :last_name => "Pidot", :cell_phone => "12
 Teacher.create(:first_name => "Lauren", :last_name => "Betz", :cell_phone => "333-555-6666", :bio => "Lauren's teacher bio", 
                   :shirt_size => "Adult small")
 
-Course.create(:program_id => 1, :teacher_id => 1, :location_id => 1, :session_id => 1, :days_of_week => "Mon - Fri", 
+Course.create(:program_id => 1, :teacher_id => 1, :location_id => 1, :term_id => 1, :days_of_week => "Mon - Fri", 
                  :start_time => "8:30", :end_time => "2:30", :cost => "1500", :min_age => 11, :max_age => 17)
-Course.create(:program_id => 2, :teacher_id => 1, :location_id => 1, :session_id => 2, :days_of_week => "Mon - Fri", 
+Course.create(:program_id => 2, :teacher_id => 1, :location_id => 1, :term_id => 2, :days_of_week => "Mon - Fri", 
                  :start_time => "8:30", :end_time => "2:30", :cost => "1500", :min_age => 11, :max_age => 17)
-Course.create(:program_id => 6, :teacher_id => 2, :location_id => 1, :session_id => 3, :days_of_week => "Mon - Fri", 
+Course.create(:program_id => 6, :teacher_id => 2, :location_id => 1, :term_id => 3, :days_of_week => "Mon - Fri", 
                  :start_time => "8:30", :end_time => "2:30", :cost => "1500", :min_age => 4, :max_age => 10)
-Course.create(:program_id => 6, :teacher_id => 2, :location_id => 2, :session_id => 4, :days_of_week => "Mon - Fri", 
+Course.create(:program_id => 6, :teacher_id => 2, :location_id => 2, :term_id => 4, :days_of_week => "Mon - Fri", 
                  :start_time => "8:30", :end_time => "2:30", :cost => "1500", :min_age => 4, :max_age => 10)
-Course.create(:program_id => 5, :teacher_id => 3, :location_id => 1, :session_id => 2, :days_of_week => "Mon - Fri", 
+Course.create(:program_id => 5, :teacher_id => 3, :location_id => 1, :term_id => 2, :days_of_week => "Mon - Fri", 
                   :start_time => "8:30", :end_time => "2:30", :cost => "1500", :min_age => 11, :max_age => 17)
 
 Parent.create(:first_name => "Judy", :last_name => "Parent", :address => "123 Street Rd.", :city => "Townville", :zip => "55555", 

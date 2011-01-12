@@ -26,7 +26,7 @@ $(function() {
 			<th colspan="3">
 				<%= link_to c.program.name, program_path(c.program), :class => "subtle" %>
 				at <%= link_to c.location.name, location_path(c.location), :class => "subtle" %>
-				<span class="schedule"><%= c.session.date_range %></span>
+				<span class="schedule"><%= c.term.date_range %></span>
 			</th>
 		</tr>
 		<% c.registrations.each do |r| %>

@@ -15,21 +15,21 @@
 #  cost         :integer(10)
 #  min_age      :integer(4)
 #  max_age      :integer(4)
-#  session_id   :integer(4)
+#  term_id      :integer(4)
 #
 
 class Course < ActiveRecord::Base
   belongs_to :program
   belongs_to :teacher
   belongs_to :location
-  belongs_to :session
+  belongs_to :term
   
   has_many :registrations
   
-  validates_presence_of :program, :teacher, :location, :session, :days_of_week, :start_time, :end_time, :min_age, :max_age, :cost
+  validates_presence_of :program, :teacher, :location, :term, :days_of_week, :start_time, :end_time, :min_age, :max_age, :cost
   
   scope :camp, lambda { |year|
-    joins(:session, :program) & Session.summer(year)
+    joins(:term, :program) & Term.summer(year)
   }
   
   scope :younger, lambda {
@@ -40,8 +40,8 @@ class Course < ActiveRecord::Base
     where("min_age > ?", 10)
   }
   
-  def is_match?(pid, sid)
-    return self.program.id == pid && self.session.id == sid
+  def is_match?(pid, tid)
+    return self.program.id == pid && self.term.id == tid
   end
   
 end

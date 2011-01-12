@@ -1,0 +1,9 @@
+<%= semantic_form_for @term do |f| %>
+	<%= f.input :name %>
+	<%= f.input :description %>
+	<%= f.input :start_date, :as => :date, :start_year => 2009, :end_year => Time.now.year + 1 %>
+	<%= f.input :end_date, :as => :date, :start_year => 2009, :end_year => Time.now.year + 1 %>
+	<%= f.buttons do %>
+		<%= f.commit_button %>
+	<% end %>
+<% end %>

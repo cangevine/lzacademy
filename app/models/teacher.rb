@@ -19,6 +19,7 @@ class Teacher < ActiveRecord::Base
   
   has_many :courses
   has_many :registrations, :through => :courses
+  has_and_belongs_to_many :roles, :join_table => :roles_users
   
   def display_name
     self.first_name+" "+self.last_name

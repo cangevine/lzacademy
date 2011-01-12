@@ -37,6 +37,7 @@ class Parent < ActiveRecord::Base
   
   has_many :students
   has_many :registrations, :through => :students
+  has_and_belongs_to_many :roles, :join_table => :roles_users
   
   accepts_nested_attributes_for :students, :reject_if => :all_blank
   
@@ -45,5 +46,9 @@ class Parent < ActiveRecord::Base
   
   def display_name
     "#{self.first_name} #{self.last_name}"
+  end
+  
+  def role?(role)
+    return !!self.roles.find_by_name(role.to_s)
   end
 end

@@ -1,0 +1,20 @@
+<h1>All sessions at LinguaZone Academy</h1>
+
+<table>
+	<tr>
+		<th>Session name</th>
+		<th>Description</th>
+		<th>Dates</th>
+		<th></th>
+	</tr>
+	<% @terms.each do |t| %>
+		<tr>
+			<td><%= link_to t.name, term_path(t) %></td>
+			<td><%= t.description %></td>
+			<td><%= t.date_range %></td>
+			<td><%= link_to "Edit", edit_term_path(t) %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p><%= link_to "Add a new session", new_term_path %></p>

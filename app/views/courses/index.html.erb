@@ -12,7 +12,7 @@
 	<% @courses.each do |c| %>
 		<tr>
 			<td><%= link_to c.id, course_path(c) %></td>
-			<td><%= c.session.date_range %></td>
+			<td><%= c.term.date_range %></td>
 			<td><%= link_to c.program.name, program_path(c.program) %></td>
 			<td><%= link_to c.location.name, location_path(c.location) %></td>
 			<td><%= link_to c.teacher.display_name, teacher_path(c.teacher) %></td>

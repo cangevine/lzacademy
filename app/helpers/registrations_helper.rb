@@ -1,34 +1,34 @@
 module RegistrationsHelper
   
   def build_course_header_and_rows(title, courses)
-    sessions = []
+    terms = []
     programs = []
     
     courses.each do |c|
-      sessions.push(c.session) unless sessions.include?(c.session)
+      terms.push(c.term) unless terms.include?(c.term)
       programs.push(c.program) unless programs.include?(c.program)
     end
     
-    content = build_course_headers(title, sessions)
-    content << build_course_rows(courses, programs, sessions)
+    content = build_course_headers(title, terms)
+    content << build_course_rows(courses, programs, terms)
   end
   
-  def build_course_rows(courses, programs, sessions)  
+  def build_course_rows(courses, programs, terms)  
    content = ""
    programs.map do |program|
      content << content_tag(:tr) do
        concat (content_tag :td, program.name)
-       sessions.map do |session|
-         concat (content_tag :td, build_session_cell(courses, session, program))
+       terms.map do |term|
+         concat (content_tag :td, build_term_cell(courses, term, program))
        end
      end
    end
    content.html_safe
   end
   
-  def build_session_cell(courses, session, program)
+  def build_term_cell(courses, term, program)
     courses.each do |c|
-      if c.is_match?(program.id, session.id)
+      if c.is_match?(program.id, term.id)
         content = content_tag(:label) do
           concat(content_tag :input, nil, :type => "checkbox", :id => "registration_course_id_"+String(c.id), 
                               :name => "registration[course_id][]", :value => String(c.id))
@@ -41,14 +41,14 @@ module RegistrationsHelper
     content_tag :span, "N/A", :class => "course_unavailable"
   end
   
-  def build_course_headers(title, sessions)
+  def build_course_headers(title, terms)
     content = ""
     content << content_tag(:tr) do
       concat(content_tag :th, title.html_safe)
-      sessions.map do |session|
+      terms.map do |term|
         concat(content_tag(:th) do
-          concat(session.name)
-          concat(content_tag(:span, session.date_range))
+          concat(term.name)
+          concat(content_tag(:span, term.date_range))
         end) 
       end
     end

@@ -2,7 +2,7 @@
 
 <p>
 	<%= @course.program.name %>, taught by <%= @course.teacher.full_name %> at <%= @course.location.name %>.<br />
-	<%= @course.days_of_week %> from <%= @course.start_time %> to <%= @course.end_time %>, <%= @course.session.date_range %>.
+	<%= @course.days_of_week %> from <%= @course.start_time %> to <%= @course.end_time %>, <%= @course.term.date_range %>.
 </p>
 
 <p><%= link_to "View all courses", courses_path %> | <%= link_to "Edit this course", edit_course_path(@course) %></p>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110112170531) do
+ActiveRecord::Schema.define(:version => 20110112194255) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20110112170531) do
     t.decimal  "cost",         :precision => 10, :scale => 0
     t.integer  "min_age"
     t.integer  "max_age"
-    t.integer  "session_id"
+    t.integer  "term_id"
   end
 
   create_table "locations", :force => true do |t|
@@ -91,13 +91,15 @@ ActiveRecord::Schema.define(:version => 20110112170531) do
     t.datetime "updated_at"
   end
 
-  create_table "sessions", :force => true do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
+  create_table "roles", :force => true do |t|
     t.string   "name"
-    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
   end
 
   create_table "students", :force => true do |t|
@@ -119,6 +121,15 @@ ActiveRecord::Schema.define(:version => 20110112170531) do
     t.string   "email"
     t.text     "bio"
     t.string   "shirt_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "terms", :force => true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "name"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
