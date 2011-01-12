@@ -1,8 +1,8 @@
 Lzacademy::Application.routes.draw do
 
-  resources :comments
+  devise_for :parents
 
-  resources :registrations, :courses, :locations, :programs, :sessions, :teachers, :parents, :students
+  resources :registrations, :courses, :locations, :programs, :sessions, :teachers, :parents, :students, :comments
   
   resources :parents do
     resources :students
@@ -10,6 +10,10 @@ Lzacademy::Application.routes.draw do
   
   resources :students do
     resources :registrations
+  end
+  
+  resources :registrations do
+    resources :comments
   end
   
   root :to => "about#index"
@@ -94,10 +98,4 @@ Lzacademy::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # See how all your routes lay out with "rake routes"
-
-  # This is a legacy wild controller route that's not recommended for RESTful applications.
-  # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
 end

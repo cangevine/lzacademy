@@ -18,7 +18,7 @@ class RegistrationsController < ApplicationController
     if @registration.save
       flash[:success] = "Registration information saved."
     else
-      flash[:error] = "Could not save your registration information."
+      flash[:alert] = "Could not save your registration information."
     end
     respond_with @registration
   end

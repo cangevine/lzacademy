@@ -27,7 +27,7 @@ class StudentsController < ApplicationController
     if @student.save
       flash[:success] = "Student information saved successfully."
     else
-      flash[:error] = "Sorry! We could not save the new student information."
+      flash[:alert] = "Sorry! We could not save the new student information."
     end
     respond_with @student
   end
@@ -37,7 +37,7 @@ class StudentsController < ApplicationController
     if @student.update_attributes(params[:student])
       flash[:success] = "Updated the student successfully."
     else
-      flash[:error] = "Could not update the student."
+      flash[:alert] = "Could not update the student."
     end
     respond_with @student
   end

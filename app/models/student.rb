@@ -18,11 +18,13 @@ class Student < ActiveRecord::Base
   belongs_to :parent
   has_many :registrations
   
+  attr_accessible :first_name, :last_name, :nickname, :birthday, :shirt_size, :parent_id
+  
   validates_presence_of :first_name, :last_name, :birthday
   
   def display_name
     name = self.first_name+" "+self.last_name
-    name << "("+self.nickname+")" unless self.nickname.nil?
+    name << " ("+self.nickname+")" unless self.nickname.nil?
     name
   end
   

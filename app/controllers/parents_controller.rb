@@ -1,6 +1,8 @@
 class ParentsController < ApplicationController
   respond_to :html, :xml, :json
   
+  before_filter :authenticate_parent!
+  
   def index
     @parents = Parent.all
     respond_with @parents
@@ -32,7 +34,7 @@ class ParentsController < ApplicationController
       flash[:success] = "Information saved successfully."
       respond_with @parent, :location => parent_path(@parent)
     else
-      flash[:error] = "We could not save your information. Please check for errors below."
+      flash[:alert] = "We could not save your information. Please check for errors below."
       respond_with @parent, :location => new_parent_path
     end
   end
@@ -42,7 +44,7 @@ class ParentsController < ApplicationController
     if @parent.update_attributes(params[:parent])
       flash[:success] = "Updated your information successfully."
     else
-      flash[:error] = "Sorry! We couldn't save your information."
+      flash[:alert] = "Sorry! We couldn't save your information."
     end
     respond_with @parent
   end

@@ -12,12 +12,23 @@
 	<%= parent_form.semantic_errors %>
 		
 	<%= parent_form.inputs :name => "Student info", :id => "student_info", :for => :students do |stu_form| %>
-		<%= render :partial => "students/form", :locals => { :f => stu_form, :removable_link => true } %>
+		<%= render :partial => "students/form", :locals => { :f => stu_form } %>
 		<%= link_to_add_fields "Add a student", parent_form, :students %>
 	<% end %>
 	<%= new_child_fields_template parent_form, :students %>
 	
-	<%= parent_form.inputs :name => "Parent info", :id => "parent_info" %>
+	<%= parent_form.inputs :name => "Parent info", :id => "parent_info" do %>
+		<%= parent_form.input :first_name %>
+		<%= parent_form.input :last_name %>
+		<%= parent_form.input :address %>
+		<%= parent_form.input :city %>
+		<%= parent_form.input :zip %>
+		<%= parent_form.input :email %>
+		<%= parent_form.input :home_phone %>
+		<%= parent_form.input :cell_phone %>
+		<%= parent_form.input :password %>
+		<%= parent_form.input :password_confirmation %>
+	<% end %>
 	
 	<%= parent_form.commit_button "Continue" %>
 

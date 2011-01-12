@@ -16,6 +16,8 @@ module NavigationHelpers
       edit_parent_path(Parent.find($1))
     when /the edit (\d+)(?:st|nd|rd|th) student page/
       edit_student_path(Student.find($1))
+    when /the (\d+)(?:st|nd|rd|th) teacher page/
+      teacher_path(Teacher.find($1))
     
 
     # Add more mappings here.

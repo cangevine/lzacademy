@@ -22,7 +22,7 @@ class ProgramsController < ApplicationController
     if @program.save
       flash[:success] = "New program saved successfully."
     else
-      flash[:error] = "Could not save the new program."
+      flash[:alert] = "Could not save the new program."
     end
     respond_with @program, :location => programs_path
   end
@@ -37,7 +37,7 @@ class ProgramsController < ApplicationController
     if @program.update_attributes(params[:program])
       flash[:success] = "Updated the program successfully."
     else
-      flash[:error] = "Could not update the program."
+      flash[:alert] = "Could not update the program."
     end
     respond_with @program
   end

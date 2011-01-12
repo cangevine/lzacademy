@@ -112,10 +112,10 @@ cite {
 	font-size: .9em;
 	color: #666;
 }
-.floatLeft {
+.float_left {
 	float: left;
 }
-.floatRight {
+.float_right {
 	float: right;
 }
 br.clearFloat {
@@ -137,7 +137,7 @@ p.flash_success {
 	margin-bottom: 20px; 
 	text-align: center;
 }
-p.flash_error {
+p.flash_alert {
 	border: 2px solid #CC1100;
 	color: #FFF; 
 	background-color: #FF6666; 

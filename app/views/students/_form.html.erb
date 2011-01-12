@@ -1,6 +1,11 @@
 <ul class="nested_fields">
 	<%= f.input :first_name %>
 	<%= f.input :last_name %>
+	<%= f.input :nickname %>
+	<%= f.input :shirt_size, :as => :select, 
+			:collection => ["Youth small", "Youth medium", "Youth large", "Adult small", "Adult medium", "Adult large"] %>
 	<%= f.input :birthday, :as => :date, :start_year => Time.now.year - 17, :end_year => Time.now.year - 4 %>
-	<%= link_to_remove_fields("Remove student", f) if removable_link %>
+	<%= link_to_remove_fields("Remove student", f) %>
 </ul>
+
+<%# TODO: Only include remove student if removable is true %>

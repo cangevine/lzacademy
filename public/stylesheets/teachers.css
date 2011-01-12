@@ -1,5 +1,18 @@
-span.student_age {
+span.detail {
 	font-size: .75em;
 	color: #999;
 	margin-left: 5px;
+}
+
+table.course_listing th, table.course_listing th a {
+	color: white;
+}
+table.course_listing th span.schedule {
+	font-size: .8em;
+	color: #ccc;
+	margin-left: 20px;
+}
+table.course_listing td {
+	border: none;
+	border-bottom: 1px dotted #CCC;
 }

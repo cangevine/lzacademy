@@ -15,7 +15,7 @@
 			<td><%= c.session.date_range %></td>
 			<td><%= link_to c.program.name, program_path(c.program) %></td>
 			<td><%= link_to c.location.name, location_path(c.location) %></td>
-			<td><%= link_to c.teacher.full_name, teacher_path(c.teacher) %></td>
+			<td><%= link_to c.teacher.display_name, teacher_path(c.teacher) %></td>
 			<td><%= link_to "Edit", edit_course_path(c) %></td>
 		</tr>
 	<% end %>

@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
     if @session.save
       flash[:success] = "New session saved successfully."
     else
-      flash[:error] = "Could not save the new session."
+      flash[:alert] = "Could not save the new session."
     end
     respond_with @session, :location => sessions_path
   end
@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
     if @session.update_attributes(params[:session])
       flash[:success] = "Updated the session successfully."
     else
-      flash[:error] = "Could not update the session."
+      flash[:alert] = "Could not update the session."
     end
     respond_with @session
   end

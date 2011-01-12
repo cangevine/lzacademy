@@ -1,0 +1,28 @@
+<% stylesheet 'comments' %>
+
+<% content_for :page_script do %>
+$(function() {
+	$("a.write_new_link").button({
+		icons: {
+			primary: "ui-icon-pencil"
+		}
+	});
+})
+<% end %>
+
+<h1>Teacher comments</h1>
+<%= link_to "Write a new comment", new_registration_comment_path(@registration), :class => "write_new_link float_right" %>
+<p>Comments for <%= @registration.student.display_name %> in <%= @registration.course.program.name %></p>
+
+<%= @comments %>
+
+<div id="comments">
+	<% unless @comments.nil? %>
+		<% @comments.each do |c| %>
+			<div class="comment">
+				<h2><%= c.published_at %></h2>
+				<p><%= c.body %></p>
+			</div>
+		<% end %>
+	<% end %>
+</div>

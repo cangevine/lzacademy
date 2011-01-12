@@ -58,7 +58,6 @@ Feature: Parents manage student info
 		When I follow "edit" within ".parent_info"
 		Then I should be on the edit 1st parent page
 	
-	@wip
 	Scenario: Edit student information
 		Given I am on the 1st parent page
 		When I follow "edit" within ".students_info"

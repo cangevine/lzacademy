@@ -1,4 +1,15 @@
 <% stylesheet 'teachers' %>
+<% stylesheet 'comments' %>
+
+<% content_for :page_script do %>
+$(function() {
+	$("a.write_new_link").button({
+		icons: {
+			primary: "ui-icon-pencil"
+		}
+	})
+})
+<% end %>
 
 <h1>Teacher: <%= @teacher.display_name %></h1>
 <p>
@@ -10,17 +21,22 @@
 </p>
 
 <% @teacher.courses.each do |c| %>
-	<table>
+	<table class="course_listing">
 		<tr>
-			<th><%= link_to c.program.name, program_path(c.program) %></th>
-			<th>at <%= link_to c.location.name, location_path(c.location) %></th>
-			<th><%= c.session.date_range %></th>
+			<th colspan="3">
+				<%= link_to c.program.name, program_path(c.program), :class => "subtle" %>
+				at <%= link_to c.location.name, location_path(c.location), :class => "subtle" %>
+				<span class="schedule"><%= c.session.date_range %></span>
+			</th>
 		</tr>
 		<% c.registrations.each do |r| %>
 			<tr>
-				<td><%= link_to r.student.display_name %><span class="student_age">(<%= r.student.age %> years old)</span></td>
-				<td>6 comments (1/5/11)</td>
-				<td><%= link_to "Write a comment" %></td>
+				<td><%= link_to r.student.display_name %><span class="detail">(<%= r.student.age %> years old)</span></td>
+				<td>
+					<%= link_to pluralize(r.comments.length, "comment"), registration_comments_path(r) %>
+					<span class="detail"><%= "(last on #{format_short_date(r.last_comment_date)})" unless r.comments.empty? %></span>
+				</td>
+				<td align="right"><%= link_to "Write a new comment", new_registration_comment_path(r), :class => "write_new_link" %></td>
 			</tr>
 		<% end %>
 	</table>

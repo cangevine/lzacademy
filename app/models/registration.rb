@@ -1,11 +1,10 @@
 # == Schema Information
-# Schema version: 20101220225117
+# Schema version: 20110108054022
 #
 # Table name: registrations
 #
 #  id         :integer(4)      not null, primary key
 #  student_id :integer(4)
-#  parent_id  :integer(4)
 #  course_id  :integer(4)
 #  experience :text
 #  balance    :integer(4)
@@ -17,4 +16,14 @@ class Registration < ActiveRecord::Base
   belongs_to :student
   belongs_to :teacher
   belongs_to :course
+  
+  has_many :comments
+  
+  def last_comment_date
+    unless self.comments.empty?
+      c = self.comments.last
+      c.updated_at
+    end
+  end
+  
 end

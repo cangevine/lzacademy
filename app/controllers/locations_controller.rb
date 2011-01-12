@@ -26,7 +26,7 @@ class LocationsController < ApplicationController
     if @location.save
       flash[:success] = "New location saved successfully."
     else
-      flash[:error] = "Could not save the new location."
+      flash[:alert] = "Could not save the new location."
     end
     respond_with @location, :location => locations_path
   end
@@ -36,7 +36,7 @@ class LocationsController < ApplicationController
     if @location.update_attributes(params[:location])
       flash[:success] = "Updated the location successfully."
     else
-      flash[:error] = "Could not update the location."
+      flash[:alert] = "Could not update the location."
     end
     respond_with @location
   end

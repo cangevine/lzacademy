@@ -46,3 +46,7 @@ Parent.create(:first_name => "Judy", :last_name => "Parent", :address => "123 St
 
 Student.create(:first_name => "Robert", :last_name => "Student", :nickname => "Bob", :birthday => "10-05-1999 00:00:00", 
                 :shirt_size => "Adult small", :parent_id => 1)
+                
+Registration.create(:student_id => 1, :course_id => 1, :balance => 0)
+
+Comment.create(:registration_id => 1, :body => "This is a test comment")

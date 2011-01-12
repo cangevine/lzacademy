@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
     if @course.save
       flash[:success] = "New course saved successfully."
     else
-      flash[:error] = "Could not save the new course."
+      flash[:alert] = "Could not save the new course."
     end
     respond_with @course, :location => courses_path
   end
@@ -36,7 +36,7 @@ class CoursesController < ApplicationController
     if @course.update_attributes(params[:course])
       flash[:success] = "Updated the course successfully."
     else
-      flash[:error] = "Could not update the course."
+      flash[:alert] = "Could not update the course."
     end
     respond_with @course
   end

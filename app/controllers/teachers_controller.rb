@@ -26,7 +26,7 @@ class TeachersController < ApplicationController
     if @teacher.save
       flash[:success] = "New teacher saved successfully."
     else
-      flash[:error] = "Could not save the new teacher."
+      flash[:alert] = "Could not save the new teacher."
     end
     respond_with @teacher, :location => teachers_path
   end
@@ -36,7 +36,7 @@ class TeachersController < ApplicationController
     if @teacher.update_attributes(params[:teacher])
       flash[:success] = "Updated the teacher successfully."
     else
-      flash[:error] = "Could not update the teacher."
+      flash[:alert] = "Could not update the teacher."
     end
     respond_with @teacher
   end
