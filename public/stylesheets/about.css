@@ -7,6 +7,10 @@ div#language_list {
 	margin: 0px auto;
 }
 
+img.example {
+	margin: 5px 10px;
+}
+
 /* ~~~	Gallery	~~~	*/
 div#gallery {
 	width: 620px;

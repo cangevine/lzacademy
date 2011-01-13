@@ -1,5 +1,4 @@
 class CourseDescriptionController < ApplicationController
-  
   respond_to :html, :js
   
   def spanish_explorers

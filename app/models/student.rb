@@ -23,8 +23,8 @@ class Student < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :birthday
   
   def display_name
-    name = self.first_name+" "+self.last_name
-    name << " ("+self.nickname+")" unless self.nickname.nil?
+    name = "#{self.first_name} #{self.last_name}"
+    name << " (#{self.nickname})" unless self.nickname.empty?
     name
   end
   

@@ -1,3 +1,7 @@
 <h1>Edit course</h1>
 
 <%= render :partial => "form" %>
+
+<br />
+<p><%= link_to "Delete this course", course_path(@course), :method => :delete, :class => "warning",
+				:confirm => "Are you sure you want to delete this course?" %></p>

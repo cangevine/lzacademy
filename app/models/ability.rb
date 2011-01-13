@@ -5,12 +5,19 @@ class Ability
     
     user ||= Parent.new # guest parent user (not logged in)
     
-    if user.role? :admin
+    if user.role?(:admin)
       can :manage, :all
-    elsif user.role? :parent
-      can :read, [Locations, Parents]
+    elsif user.role?(:parent)
+      can :read, Location
+      can [:show, :update], Parent, :id => user.id
+      can :manage, Student do |s|
+        s.try(:parent) == user
+      end
     elsif user.role? :teacher
-      can :manage, [Locations, Parents, Comments]
+      can :manage, [Location, Parent, Comment]
+    else
+      can [:create, :sign_in, :sign_out], Parent
+      can :read, [Course, Program, Location]
     end
     
     # Define abilities for the passed in user here. For example:

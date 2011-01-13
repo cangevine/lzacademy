@@ -23,6 +23,10 @@ Term.create(:start_date => "2011-07-18 00:00:00", :end_date => "2011-08-05 00:00
 Term.create(:start_date => "2011-07-05 00:00:00", :end_date => "2011-07-15 00:00:00", :name => "Session 1",  :description => "Sess 1 descrip")
 Term.create(:start_date => "2011-07-18 00:00:00", :end_date => "2011-07-29 00:00:00", :name => "Session 2",  :description => "Sess 2 descrip")
 
+Role.create(:name => "admin")
+Role.create(:name => "teacher")
+Role.create(:name => "parent")
+
 Teacher.create(:first_name => "Colin", :last_name => "Angevine", :nickname => "BC", :cell_phone => "555-555-5555", :bio => "BC's teacher bio", 
                  :shirt_size => "Adult large")
 Teacher.create(:first_name => "Katie", :last_name => "Pidot", :cell_phone => "123-555-1111", :bio => "Katie's teacher bio", 
@@ -50,3 +54,4 @@ Student.create(:first_name => "Robert", :last_name => "Student", :nickname => "B
 Registration.create(:student_id => 1, :course_id => 1, :balance => 0)
 
 Comment.create(:registration_id => 1, :body => "This is a test comment")
+

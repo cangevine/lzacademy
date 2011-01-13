@@ -2,26 +2,6 @@ form {
 	margin-top: 30px;
 }
 
-table.course_listings th span {
-	display: block;
-	font-size: .8em;
-	font-weight: normal;
-	color: #dadada;
-}
-table.course_listings td span.course_unavailable {
-	font-size: .75em;
-	color: #666;
-}
-table.course_listings td span.course_details {
-	display: block;
-	font-size: .7em;
-	color: #458B00;
-}
-table.course_listings td label {
-	margin: 0px;
-	padding: 0px;
-}
-
 div.registration_details table td:first-child {
 	padding-left: 20px;
 }

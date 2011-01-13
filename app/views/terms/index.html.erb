@@ -17,4 +17,4 @@
 	<% end %>
 </table>
 
-<p><%= link_to "Add a new session", new_term_path %></p>
+<p><%= link_to "Add a new session", new_term_path if can? :create, Term %></p>

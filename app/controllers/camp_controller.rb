@@ -3,15 +3,18 @@ class CampController < ApplicationController
   end
 
   def schedule
+    @young_camp_courses = Course.camp(2011).younger.all
+    @old_camp_courses = Course.camp(2011).older.all
   end
   
   def typical_day
   end
 
-  def languages
+  def discounts
   end
 
   def register
+    redirect_to new_parent_path
   end
 
 end

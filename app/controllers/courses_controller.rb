@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   respond_to :html, :xml, :json
+  load_and_authorize_resource
   
   def index
     @courses = Course.all
@@ -7,7 +8,6 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:id])
     respond_with @course
   end
 
@@ -17,7 +17,6 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:id])
     respond_with @course
   end
 
@@ -32,7 +31,6 @@ class CoursesController < ApplicationController
   end
 
   def update
-    @course = Course.find(params[:id])
     if @course.update_attributes(params[:course])
       flash[:success] = "Updated the course successfully."
     else
@@ -42,7 +40,6 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    @course = Course.find(params[:id])
     @course.destroy
     flash[:notice] = "Deleted the course successfully."
     respond_with @course

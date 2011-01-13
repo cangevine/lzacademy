@@ -40,8 +40,8 @@ class Course < ActiveRecord::Base
     where("min_age > ?", 10)
   }
   
-  def is_match?(pid, tid)
-    return self.program.id == pid && self.term.id == tid
+  def is_match?(language, tid)
+    return self.program.language == language && self.term.id == tid
   end
   
 end

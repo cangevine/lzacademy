@@ -17,4 +17,4 @@
 	<% end %>
 </table>
 
-<p><%= link_to "Add a new location", new_location_path %></p>
+<p><%= link_to "Add a new location", new_location_path if can? :create, Location %></p>

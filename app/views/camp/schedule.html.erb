@@ -6,39 +6,13 @@
 <p>We're looking forward to seeing you this summer!</p>
 
 <div id="schedule">
-	<h2>Ages 4-10: Spanish Explorers</h2>
-	<p>Join us for one week or all four!</p>
-	<table>
-		<tr>
-			<td>June 28 - July 1</td>
-			<td>at the Haverford School</td>
-		</tr>
-		<tr>
-			<td>July 3 - July 8</td>
-			<td>at the Haverford School</td>
-		</tr>
-		<tr>
-			<td>July 11 - July 15</td>
-			<td>at Episcopal Academy</td>
-		</tr>
-		<tr>
-			<td>June 18 - July 22</td>
-			<td>at Episcopal Academy</td>
-		</tr>
+	<h2>Ages 4-10</h2>
+	<table class="course_listings">
+		<%= build_course_header_and_rows("Ages 4 - 10", @young_camp_courses, false) %>
 	</table>
-	<p>Languages available: Spanish Explorers</p>
 
-	<h2>Ages 11-17: Conversation and Culture</h2>
-	<p>Offered in three-week sessions</p>
-	<table>
-		<tr>
-			<td>June 28 - July 16</td>
-			<td>at Episcopal Academy</td>
-		</tr>
-		<tr>
-			<td>July 19 - August 5</td>
-			<td>at Episcopal Academy</td>
-		</tr>
+	<h2>Ages 11-17</h2>
+	<table class="course_listings">
+		<%= build_course_header_and_rows("Ages 11 - 17", @old_camp_courses, false) %>
 	</table>
-	<p>Languages available: Spanish, French, Latin, German, Italian, Chinese, Arabic, Hebrew, Ancient Greek, American Sign Language, Russian</p>
 </div>

@@ -1,6 +1,6 @@
-class ProgramsController < ApplicationController
-  
+class ProgramsController < ApplicationController  
   respond_to :html, :xml, :json
+  load_and_authorize_resource
   
   def index
     @programs = Program.all
@@ -8,7 +8,6 @@ class ProgramsController < ApplicationController
   end
 
   def show
-    @program = Program.find(params[:id])
     respond_with @program
   end
   
@@ -28,12 +27,10 @@ class ProgramsController < ApplicationController
   end
 
   def edit
-    @program = Program.find(params[:id])
     respond_with(@program)
   end
 
   def update
-    @program = Program.find(params[:id])
     if @program.update_attributes(params[:program])
       flash[:success] = "Updated the program successfully."
     else
@@ -43,7 +40,6 @@ class ProgramsController < ApplicationController
   end
 
   def destroy
-    @program = Program.find(params[:id])
     @program.destroy
     flash[:notice] = "Deleted the program from the database."
     respond_with @program

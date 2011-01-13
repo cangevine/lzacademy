@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110112194255) do
+ActiveRecord::Schema.define(:version => 20110113044938) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -99,7 +99,8 @@ ActiveRecord::Schema.define(:version => 20110112194255) do
 
   create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
-    t.integer "user_id"
+    t.integer "parent_id"
+    t.integer "teacher_id"
   end
 
   create_table "students", :force => true do |t|

@@ -1,7 +1,6 @@
 class ParentsController < ApplicationController
   respond_to :html, :xml, :json
-  
-  before_filter :authenticate_parent!
+  load_and_authorize_resource
   
   def index
     @parents = Parent.all
@@ -23,7 +22,6 @@ class ParentsController < ApplicationController
   end
 
   def edit
-    @parent = Parent.find(params[:id])
     respond_with @parent
   end
 
@@ -40,7 +38,6 @@ class ParentsController < ApplicationController
   end
 
   def update
-    @parent = Parent.find(params[:id])
     if @parent.update_attributes(params[:parent])
       flash[:success] = "Updated your information successfully."
     else
@@ -50,7 +47,6 @@ class ParentsController < ApplicationController
   end
 
   def destroy
-    @parent = Parent.find(params[:id])
     @parent.destroy
     flash[:notice] = "Deleted the parent successfully."
     respond_with @parent

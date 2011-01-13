@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   respond_to :html, :xml, :json
+  load_and_authorize_resource
   
   def index
     @locations = Location.all
@@ -7,7 +8,6 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:id])
     respond_with @location
   end
 
@@ -17,7 +17,6 @@ class LocationsController < ApplicationController
   end
 
   def edit
-    @location = Location.find(params[:id])
     respond_with @location
   end
 
@@ -32,7 +31,6 @@ class LocationsController < ApplicationController
   end
 
   def update
-    @location = Location.find(params[:id])
     if @location.update_attributes(params[:location])
       flash[:success] = "Updated the location successfully."
     else
@@ -42,7 +40,6 @@ class LocationsController < ApplicationController
   end
 
   def destroy
-    @location = Location.find(params[:id])
     @location.destroy
     flash[:notice] = "Deleted the location successfully."
     respond_with @location

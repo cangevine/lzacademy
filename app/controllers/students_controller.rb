@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   respond_to :html, :xml, :json
+  load_and_authorize_resource
   
   def index
     @students = Student.all
@@ -7,7 +8,6 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = Student.find(params[:id])
     respond_with @student
   end
 
@@ -18,7 +18,6 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    @student = Student.find(params[:id])
     respond_with @student
   end
 
@@ -33,7 +32,6 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @student = Student.find(params[:id])
     if @student.update_attributes(params[:student])
       flash[:success] = "Updated the student successfully."
     else
@@ -43,7 +41,6 @@ class StudentsController < ApplicationController
   end
 
   def destroy
-    @student = Student.find(params[:id])
     @student.destroy
     flash[:notice] = "Deleted the student successfully."
     respond_with @student

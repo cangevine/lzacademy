@@ -289,6 +289,7 @@ div::-moz-focus-inner {
 	left: -60px;
 	width: 225px;
 	height: 48px;
+	display: block;
 	color: #FFF;
 	font-weight: normal;
 	text-shadow: 1px 1px 2px #d14717;
@@ -394,6 +395,36 @@ div::-moz-focus-inner {
 #get_to_know_us a {
 	color: #122d5d;
 }
+
+
+
+table.course_listings th span {
+	display: block;
+	font-size: .8em;
+	font-weight: normal;
+	color: #dadada;
+}
+table.course_listings td p.course_unavailable {
+	font-size: .75em;
+	color: #666;
+	width: 50px;
+	margin: 0px auto;
+}
+table.course_listings td span.course_details {
+	display: block;
+	font-size: .7em;
+	color: #458B00;
+}
+table.course_listings td div.course_info {
+	width: 200px;
+	margin: 8px auto;
+	padding: 0px;
+}
+table.course_listings td input {
+	margin-right: 10px;
+}
+
+
 /*	--------------------- *
  *	Shared pages elements *
  *	--------------------- */

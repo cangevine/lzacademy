@@ -26,7 +26,7 @@ Lzacademy::Application.routes.draw do
   get "camp/locations"
   get "camp/schedule"
   get "camp/typical_day"
-  get "camp/languages"
+  get "camp/discounts"
   get "camp/register"
   
   get "course_description/spanish_explorers"

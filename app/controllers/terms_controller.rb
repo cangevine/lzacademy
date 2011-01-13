@@ -1,5 +1,6 @@
 class TermsController < ApplicationController
   respond_to :html, :xml, :json
+  load_and_authorize_resource
   
   def index
     @terms = Term.all
@@ -7,7 +8,6 @@ class TermsController < ApplicationController
   end
 
   def show
-    @term = Term.find(params[:id])
     respond_with @term
   end
 
@@ -17,7 +17,6 @@ class TermsController < ApplicationController
   end
 
   def edit
-    @term = Term.find(params[:id])
     respond_with @term
   end
 
@@ -32,7 +31,6 @@ class TermsController < ApplicationController
   end
 
   def update
-    @term = Term.find(params[:id])
     if @term.update_attributes(params[:term])
       flash[:success] = "Updated the term successfully."
     else
@@ -42,7 +40,6 @@ class TermsController < ApplicationController
   end
 
   def destroy
-    @term = Term.find(params[:id])
     @term.destroy
     flash[:notice] = "Deleted the term successfully."
     respond_with @term

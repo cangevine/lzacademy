@@ -8,7 +8,20 @@ class ApplicationController < ActionController::Base
   end
   
   def current_user
-    current_parent || current_teacher
+    current_parent
   end
+  
+  def return_back
+    redirect_to :back
+  rescue ActionController::RedirectBackError
+    redirect_to root_path
+  end
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:alert] = "Access denied."
+    return_back
+  end
+  
+  
   
 end
