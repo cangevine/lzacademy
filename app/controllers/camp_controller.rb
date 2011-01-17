@@ -14,7 +14,6 @@ class CampController < ApplicationController
   end
 
   def register
-    redirect_to new_parent_path
   end
 
 end
