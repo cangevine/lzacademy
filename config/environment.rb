@@ -6,10 +6,10 @@ Lzacademy::Application.initialize!
 
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
-  :address              => "spring.joyent.us",
+  :address              => "smtp.sendgrid.net",
   :port                 => 25,
-  :domain               => "spring.joyent.us",
-  :user_name            => "info-linguazone",
-  :password             => "tamina01",
+  :domain               => ENV['SENDGRID_DOMAIN'],
+  :user_name            => ENV['SENDGRID_USERNAME'],
+  :password             => ENV['SENDGRID_PASSWORD'],
   :authentication       => :plain
 }
