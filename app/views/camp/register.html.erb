@@ -1,5 +1,13 @@
+<% content_for :page_script do %>
+$(function() {
+	$("a.apply_now_btn").button();
+})
+<% end %>
+
 <%= render :partial => "layouts/about_nav" %>
 
 <h1>Application process</h1>
 <p>Once you choose the language and session that works for your child, click on the Apply Now link. You will be led through the online application process. Here we will ask for information on what your child's goals are for the summer with this language, what background they have, if any, and we will ask you to provide the name and email address of a teacher who can fill in an online recommendation. We will handle contact with the teacher although we suggest that you contact the teacher to ask them in advance as well. A recommendation from a language teacher is preferable, if your child has studied a language before. </p>
 <p>Once we have your completed application and the teacher submits the recommendation, we will notify you of acceptance of the application. Please keep in mind also that we run each class with a minimum of three students and will also notify you when that minimum has been met.</p>
+
+<p><%= link_to "Apply now", new_parent_path, :class => "apply_now_btn" %></p>
