@@ -1,21 +1,13 @@
 <div class="registration_details">
 	<div class="registration_title">
 		<h3><%= reg.course.program.name %> at <%= reg.course.location.name %></h3>
-		<span class="schedule"><%= reg.course.term.date_range %> from <%= "#{reg.course.start_time} to #{reg.course.end_time}" %></span>
+		<span class="schedule"><%= reg.course.session_term.date_range %> from <%= "#{reg.course.start_time} to #{reg.course.end_time}" %></span>
 	</div>
 	
 	<table>
 		<tr>
-			<td>Background</td>
-			<td>No experience with this language</td>
-		</tr>
-		<tr>
-			<td>Payment status</td>
-			<td>$450</td>
-		</tr>
-		<tr>
-			<td>Reminders...</td>
-			<td>Drop-off and pick-up details, brown bag lunch, more</td>
+			<td>Remaining balance</td>
+			<td><%= reg.remaining_balance %></td>
 		</tr>
 		<tr>
 			<td>Teacher comments...</td>

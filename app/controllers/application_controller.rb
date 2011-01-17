@@ -8,7 +8,17 @@ class ApplicationController < ActionController::Base
   end
   
   def current_user
-    current_parent
+    current_parent || current_teacher
+  end
+  
+  def after_sign_in_path_for(resource_or_scope)
+    if resource_or_scope.is_a?(Parent)
+      parent_path(resource_or_scope)
+    elsif resource_or_scope.is_a?(Teacher)
+      teacher_path(resource_or_scope)
+    else
+      super
+    end
   end
   
   def return_back

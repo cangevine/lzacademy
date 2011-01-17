@@ -19,6 +19,14 @@ class Registration < ActiveRecord::Base
   
   has_many :comments
   
+  def remaining_balance
+    if self.balance.nil?
+      "Pending"
+    else
+      "$#{self.balance}"
+    end
+  end
+  
   def last_comment_date
     unless self.comments.empty?
       c = self.comments.last

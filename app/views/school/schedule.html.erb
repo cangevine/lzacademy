@@ -1,4 +1,13 @@
+<% stylesheet 'school' %>
+
 <%= render :partial => "layouts/about_nav" %>
 
-<h1>School#schedule</h1>
-<p>Find me in app/views/school/schedule.html.erb</p>
+<h1>Classes during the school year</h1>
+<p>Registration is open to all students attending New Eagle Elementary.</p>
+
+<div id="schedule">
+	<h2>Ages 4-10</h2>
+	<table class="course_listings">
+		<%= build_course_header_and_rows("K - 4th Grade", @new_eagle_courses, false, true) %>
+	</table>
+</div>

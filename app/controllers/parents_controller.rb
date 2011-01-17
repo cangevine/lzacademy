@@ -27,9 +27,11 @@ class ParentsController < ApplicationController
 
   def create
     @parent = Parent.new(params[:parent])
-    logger.debug params[:parent]
     if @parent.save
+      r = Role.find_by_name("parent")
+      RolesUsers.create(:parent_id => @parent.id, :role_id => r.id)
       flash[:success] = "Information saved successfully."
+      sign_in(:parent, @parent)
       respond_with @parent, :location => parent_path(@parent)
     else
       flash[:alert] = "We could not save your information. Please check for errors below."

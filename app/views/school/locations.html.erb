@@ -1,4 +1,24 @@
+<% content_for :page_script do %>
+$(function() {
+	$(".map").hide();
+	
+	$("#view_map_ne").click(function() {
+		$("#map_ne").show();
+	});
+})
+<% end %>
+
 <%= render :partial => "layouts/about_nav" %>
 
-<h1>School#locations</h1>
-<p>Find me in app/views/school/locations.html.erb</p>
+<h1>Quality programs at your school</h1>
+<p>LinguaZone Language Academy currently offers before- and after-school classes at New Eagle Elementary. Registration is open <em>only to students attending this school</em>. For information on bringing LinguaZone to your school, please <%= link_to "contact us", contact_path %>.</p>
+
+<%= image_tag "school/locations/neweagle.jpg", :class => "float_right" %>
+<h2>New Eagle Elementary</h2>
+<p>Before- and after-school programs for K - 4th grade.</p>
+<p>Languages offered: Spanish, French.</p>
+<p>Website: <a href="http://tesd.schoolwires.net/neweagle/site/default.asp">Visit the New Eagle Elementary online</a></p>
+<p>Address: 507 Pugh Road, Wayne, PA 19087 (<%= link_to "view map", "#", :remote => true, :id => "view_map_ne" %>)</p>
+<div class="map" id="map_ne">
+	<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=New+Eagle+Elementary+School,+507+Pugh+Road,+Wayne,+PA+19087&amp;sll=37.0625,-95.677068&amp;sspn=47.080837,67.675781&amp;ie=UTF8&amp;hq=New+Eagle+Elementary+School,&amp;hnear=507+Pugh+Rd,+Wayne,+Chester,+Pennsylvania+19087&amp;cid=8822305395304013357&amp;ll=40.082012,-75.417023&amp;spn=0.045576,0.072956&amp;z=13&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=New+Eagle+Elementary+School,+507+Pugh+Road,+Wayne,+PA+19087&amp;sll=37.0625,-95.677068&amp;sspn=47.080837,67.675781&amp;ie=UTF8&amp;hq=New+Eagle+Elementary+School,&amp;hnear=507+Pugh+Rd,+Wayne,+Chester,+Pennsylvania+19087&amp;cid=8822305395304013357&amp;ll=40.082012,-75.417023&amp;spn=0.045576,0.072956&amp;z=13&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+</div>

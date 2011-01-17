@@ -1,0 +1,52 @@
+form.formtastic {
+	margin-top: 1.5em;
+}
+form.formtastic fieldset {
+	margin-top: 25px;
+	border: 1px dashed #999;
+}
+form.formtastic fieldset legend { margin-left: 20px; padding: 5px; background-color: white; border: 1px solid #999; border-top: 1px solid #999; }
+form.formtastic input[type="text"] {
+	font-family: Helvetica, Lucida Sans Unicode, sans-serif;
+	font-size: 1.2em;
+	color: #333;
+	width: 300px;
+}
+form.formtastic fieldset ol li p.inline-hints, p.inline-hints { font-size: .8em; color: #666; margin: 2px 0 2px 20px; }
+
+form.formtastic fieldset ol li { margin: 8px 8px 8px 12px; }
+
+form.formtastic li { list-style-type: none; }
+
+form.formtastic fieldset ol li.date fieldset { border: none; margin-top: 0px; margin-left: 0px; }
+form.formtastic fieldset ol li.date fieldset ol {float: right; width: 75%;}
+form.formtastic fieldset ol li.date fieldset ol li { margin-left:10px; display: inline; }
+form.formtastic fieldset ol li.date fieldset ol li label { display:none; }
+form.formtastic fieldset ol li.date fieldset legend { border: 1px solid #FFF1E8; margin-left: 0; padding: 0; background-color: inherit; }
+
+
+/*---------------------------------------------------
+					parents
+---------------------------------------------------*/
+form.formtastic #parent_info {
+	background-color: #ddecff;
+}
+
+/*---------------------------------------------------
+					students
+---------------------------------------------------*/
+form.formtastic fieldset ol ul.nested_fields li label { display:block; width:25%; float:left; padding-top:.2em; }
+form.formtastic #student_info ul.nested_fields {
+	margin: 5px 30px;
+	border: 1px dotted #CCC;
+	background-color: #FFF1E8;
+}
+a.add_student_link {
+	font-size: .9em;
+	float: right;
+	margin: 5px 30px 10px 0px;
+}
+a.remove_student_link {
+	float: right;
+	margin: 10px;
+}

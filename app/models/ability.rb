@@ -7,16 +7,29 @@ class Ability
     
     if user.role?(:admin)
       can :manage, :all
+      
     elsif user.role?(:parent)
       can :read, Location
       can [:show, :update], Parent, :id => user.id
       can :manage, Student do |s|
         s.try(:parent) == user
       end
-    elsif user.role? :teacher
-      can :manage, [Location, Parent, Comment]
+      can :create, Registration
+      can [:read, :destroy], Registration do |r|
+        r.try(:student).try(:parent).id == user.id
+      end
+      
+    elsif user.role?(:teacher)
+      can :read, [Location, SessionTerm, Course, Program, Registration, Parent, Student]
+      can :manage, Comment do |c|
+        c.try(:registration).try(:course).try(:teacher) == user
+      end
+      can :read, Teacher
+      can :manage, Teacher, :id => user.id
+      
     else
       can [:create, :sign_in, :sign_out], Parent
+      can [:sign_in, :sign_out], Teacher
       can :read, [Course, Program, Location]
     end
     

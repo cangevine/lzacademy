@@ -3,12 +3,11 @@ class SchoolController < ApplicationController
   end
 
   def schedule
-  end
-
-  def languages
+    @new_eagle_courses = Course.school(2010).younger.all
   end
 
   def register
+    redirect_to new_parent_path
   end
 
 end

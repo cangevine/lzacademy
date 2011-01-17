@@ -1,8 +1,10 @@
 Lzacademy::Application.routes.draw do
 
+  devise_for :teachers
+
   devise_for :parents
 
-  resources :registrations, :courses, :locations, :programs, :terms, :teachers, :parents, :students, :comments
+  resources :registrations, :courses, :locations, :programs, :session_terms, :teachers, :parents, :students, :comments
   
   resources :parents do
     resources :students

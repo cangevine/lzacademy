@@ -1,4 +1,12 @@
 <%= semantic_form_for @teacher do |f| %>
-	<%= f.inputs :first_name, :last_name, :nickname, :email, :cell_phone, :shirt_size %>
+	<%= f.input :first_name %>
+	<%= f.input :last_name %>
+	<%= f.input :nickname %>
+	<%= f.input :email %>
+	<%= f.input :cell_phone %>
+	<%= f.input :shirt_size, :as => :select, 
+			:collection => ["Youth small", "Youth medium", "Youth large", "Adult small", "Adult medium", "Adult large"] %>
+	<%= f.input :password %>
+	<%= f.input :password_confirmation %>
 	<%= f.buttons %>
 <% end %>

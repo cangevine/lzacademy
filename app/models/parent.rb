@@ -51,4 +51,10 @@ class Parent < ActiveRecord::Base
   def role?(role)
     return !!self.roles.find_by_name(role.to_s)
   end
+  
+  def role=(role)
+    @r = Role.find_by_name("parent")
+    self.roles.create(@r)
+  end
+  
 end

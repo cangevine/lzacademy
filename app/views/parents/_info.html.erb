@@ -3,5 +3,5 @@
 <ul class="contact_info">
 	<li><%= parent.email %></li>
 	<li><%= parent.home_phone %> (home)</li>
-	<li><%= parent.cell_phone ? parent.cell_phone+" (cell)" : "No cell phone on file" %></li>
+	<li><%= parent.cell_phone.empty? ? "No cell phone on file" : parent.cell_phone+" (cell)" %></li>
 </ul>

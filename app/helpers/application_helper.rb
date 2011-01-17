@@ -51,54 +51,56 @@ module ApplicationHelper
       end
     end
   end
-  def link_to_remove_fields(name, f)
-    f.hidden_field(:_destroy) + link_to(name, "javascript:void(0)", :class => "remove_child")
+  def link_to_remove_fields(name, f, extra_class = "")
+    f.hidden_field(:_destroy) + link_to(name, "javascript:void(0)", :class => "remove_child #{extra_class}")
   end
-  def link_to_add_fields(name, f, association)
-    link_to(name, "javascript:void(0)", :class => "add_child", :"data-association" => association)
+  def link_to_add_fields(name, f, association, extra_class = "")
+    link_to(name, "javascript:void(0)", :class => "add_child #{extra_class}", :"data-association" => association)
   end
   
   ## Display course registration information dynamically ##
-  def build_course_header_and_rows(title, courses, registerable)
-    terms = []
+  def build_course_header_and_rows(title, courses, registerable, show_schedule)
+    session_terms = []
     languages = []
     
     courses.each do |c|
-      terms.push(c.term) unless terms.include?(c.term)
+      session_terms.push(c.session_term) unless session_terms.include?(c.session_term)
       languages.push(c.program.language) unless languages.include?(c.program.language)
     end
     
-    content = build_course_headers(title, terms)
-    content << build_course_rows(languages, courses, terms, registerable)
+    content = build_course_headers(title, session_terms)
+    content << build_course_rows(languages, courses, session_terms, registerable, show_schedule)
   end
   
-  def build_course_rows(languages, courses, terms, registerable)  
+  def build_course_rows(languages, courses, session_terms, registerable, show_schedule)  
    content = ""
    languages.map do |language|
      content << content_tag(:tr) do
        concat (content_tag :td, language)
-       terms.map do |term|
-         concat (content_tag :td, build_term_cell(courses, term, language, registerable))
+       session_terms.map do |st|
+         concat (content_tag :td, build_term_cell(courses, st, language, registerable, show_schedule))
        end
      end
    end
    content.html_safe
   end
   
-  def build_term_cell(courses, term, language, registerable)
-    logger.debug "Writing cell for #{term.id} in #{language}..."
+  def build_term_cell(courses, st, language, registerable, show_schedule)
     content = ""
     na = true
     courses.map do |c| 
-      logger.debug "\tFound... #{c.id} is that a match?"
-      if c.is_match?(language, term.id)
+      if c.is_match?(language, st.id)
         content << content_tag(:div, :class => "course_info") do
           if registerable
             concat(content_tag :input, nil, :type => "checkbox", :id => "registration_course_id_"+String(c.id), 
                               :name => "registration[course_id][]", :value => String(c.id))
           end
           concat(c.program.name)
-          concat(content_tag :span, "at #{c.location.name}  $#{c.cost}", :class => "course_details")
+          if show_schedule
+            concat(content_tag :span, "#{c.schedule_details}", :class => "course_details")
+          else
+            concat(content_tag :span, "at #{c.location.name}  $#{c.cost}", :class => "course_details")
+          end
         end
         na = false
       end
@@ -110,14 +112,14 @@ module ApplicationHelper
     end
   end
   
-  def build_course_headers(title, terms)
+  def build_course_headers(title, session_terms)
     content = ""
     content << content_tag(:tr) do
       concat(content_tag :th, title.html_safe)
-      terms.map do |term|
+      session_terms.map do |st|
         concat(content_tag(:th) do
-          concat(term.name)
-          concat(content_tag(:span, term.date_range))
+          concat(st.name)
+          concat(content_tag(:span, st.date_range))
         end) 
       end
     end

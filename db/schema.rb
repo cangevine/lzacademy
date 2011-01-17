@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110113044938) do
+ActiveRecord::Schema.define(:version => 20110114132839) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(:version => 20110113044938) do
     t.string   "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "cost",         :precision => 10, :scale => 0
+    t.decimal  "cost",            :precision => 10, :scale => 0
     t.integer  "min_age"
     t.integer  "max_age"
-    t.integer  "term_id"
+    t.integer  "session_term_id"
   end
 
   create_table "locations", :force => true do |t|
@@ -103,6 +103,15 @@ ActiveRecord::Schema.define(:version => 20110113044938) do
     t.integer "teacher_id"
   end
 
+  create_table "session_terms", :force => true do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "students", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -124,15 +133,20 @@ ActiveRecord::Schema.define(:version => 20110113044938) do
     t.string   "shirt_size"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password"
+    t.string   "encrypted_password"
+    t.string   "password_salt"
+    t.string   "reset_password_token"
+    t.string   "remember_token"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",        :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
-  create_table "terms", :force => true do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "teachers", ["email"], :name => "index_teachers_on_email", :unique => true
+  add_index "teachers", ["reset_password_token"], :name => "index_teachers_on_reset_password_token", :unique => true
 
 end

@@ -6,9 +6,9 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'formtastic'
 gem 'devise'
 gem 'cancan'
+gem 'formtastic'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -27,7 +27,6 @@ gem 'cancan'
 group :development do
 	gem 'rspec-rails', '2.0.1'
 	gem 'annotate-models', '1.0.4'
-	gem 'formtastic'
 end
 
 group :test do

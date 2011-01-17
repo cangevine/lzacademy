@@ -19,11 +19,10 @@ Feature: Parents manage student info
 		And I fill in "Email" with "suzy@example.com" within the parent info section
 		And I fill in "Home phone" with "555-555-5555" within the parent info section
 		And I fill in "Cell phone" with "123-555-6789" within the parent info section
-		And I press "Continue" within the body
+		And I press "Save and continue" within the body
 		
 		Then I should see "Information saved successfully" within the success flash
 		And I should see "Suzy" within the body
-		And show me the page
 		And I should see "Joe" within the body
 
 	@javascript
@@ -36,7 +35,7 @@ Feature: Parents manage student info
 		And I select "March" from "Month" within the student info section
 		And I select "13" from "Day" within the student info section
 		
-		And I click "Add a student" within the student info section
+		And I click "Add a student" within the body
 		And I fill in "First name" with "Bobby" within the student info section
 		
 		And I fill in "First name" with "Suzy" within the parent info section
@@ -47,7 +46,7 @@ Feature: Parents manage student info
 		And I fill in "Email" with "suzy@example.com" within the parent info section
 		And I fill in "Home phone" with "555-555-5555" within the parent info section
 		And I fill in "Cell phone" with "123-555-6789" within the parent info section
-		And I press "Continue" within the body
+		And I press "Save and continue" within the body
 
 		Then I should see "Information saved successfully" within the success flash
 		And I should see "Suzy" within the body

@@ -1,0 +1,4 @@
+<h1>Session: <%= @session_term.date_range %></h1>
+<p>Session running <%= @session_term.date_range %>.</p>
+
+<p><%= link_to "View all sessions", session_terms_path %> | <%= link_to "Edit this session", edit_session_term_path(@session_term) %></p>

@@ -32,10 +32,10 @@ production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: lzacademy_production
+  database: animat_lzacademy
   pool: 5
-  username: root
-  password:
+  username: animat
+  password: tamina01
   socket: /tmp/mysql.sock
 
 cucumber:

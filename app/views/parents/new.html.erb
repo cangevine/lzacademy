@@ -1,4 +1,27 @@
 <%= stylesheet 'parents' %>
+<% content_for :head do %>
+<%= formtastic_stylesheet_link_tag %>
+<% end %>
+
+<% content_for :page_script do %>
+
+$(function() {
+	$(".phone_number").keyup(function() {
+		var curchr = this.value.length;
+		var curval = $(this).val();
+		if (curchr == 3) {
+			$(this).val("(" + curval + ")" + " ");
+		} else if (curchr == 9) {
+			$(this).val(curval + "-");
+		}
+	});
+	$("a.add_student_link").button({
+		icons: {
+			primary: "ui-icon-circle-plus"
+		}
+	});
+});
+<% end %>
 
 <div>
 	<%= render :partial => "layouts/short_about_nav" %>
@@ -12,8 +35,8 @@
 	<%= parent_form.semantic_errors %>
 		
 	<%= parent_form.inputs :name => "Student info", :id => "student_info", :for => :students do |stu_form| %>
-		<%= render :partial => "students/form", :locals => { :f => stu_form } %>
-		<%= link_to_add_fields "Add a student", parent_form, :students %>
+		<%= render :partial => "students/form", :locals => { :f => stu_form, :removable => true } %>
+		<p><%= link_to_add_fields "Add a student", parent_form, :students, "add_student_link" %></p>
 	<% end %>
 	<%= new_child_fields_template parent_form, :students %>
 	
@@ -24,12 +47,13 @@
 		<%= parent_form.input :city %>
 		<%= parent_form.input :zip %>
 		<%= parent_form.input :email %>
-		<%= parent_form.input :home_phone %>
-		<%= parent_form.input :cell_phone %>
-		<%= parent_form.input :password %>
-		<%= parent_form.input :password_confirmation %>
+		<%= parent_form.input :home_phone, :input_html => { :class => "phone_number" } %>
+		<%= parent_form.input :cell_phone, :input_html => { :class => "phone_number" } %>
+		<%= parent_form.input :password, :label => "Create a password", :hint => "Create a password to login to LZAcademy.com in the future" %>
 	<% end %>
 	
-	<%= parent_form.commit_button "Continue" %>
+	<%= parent_form.buttons do %>
+	 	<%= parent_form.commit_button "Save and continue" %>
+	<% end %>
 
 <% end %>

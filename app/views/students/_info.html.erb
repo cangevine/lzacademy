@@ -17,13 +17,7 @@ $(function() {
 	</div>
 	<br class="clearFloat" />
 	<div class="student_body ui-corner-tr ui-corner-br ui-corner-bl">
-		<table class="required_forms">
-			<tr>
-				<td class="complete"><%= link_to root_path do %>Classroom info form <span class="edit">VIEW / EDIT</span><% end %></td>
-				<td class="incomplete"><%= link_to root_path do %>Emergency contact form <span class="edit">COMPLETE FORM NOW</span><% end %></td>
-				<td class="complete"><%= link_to root_path do %>Teacher recommendation <span class="edit">VIEW / EDIT</span><% end %></td>
-			</tr>
-		</table>
+		<%# render :partial => "students/required_forms" %>
 		
 		<% if student.registrations.empty? %>
 			<p><%= student.first_name %> is not registered in any classes.</p>

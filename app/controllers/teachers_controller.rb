@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
   respond_to :html, :xml, :json
+  load_and_authorize_resource
   
   def index
     @teachers = Teacher.all
@@ -17,7 +18,6 @@ class TeachersController < ApplicationController
   end
 
   def edit
-    @teacher = Teacher.find(params[:id])
     respond_with @teacher
   end
 
@@ -32,7 +32,6 @@ class TeachersController < ApplicationController
   end
 
   def update
-    @teacher = Teacher.find(params[:id])
     if @teacher.update_attributes(params[:teacher])
       flash[:success] = "Updated the teacher successfully."
     else
@@ -42,7 +41,6 @@ class TeachersController < ApplicationController
   end
 
   def destroy
-    @teacher = Teacher.find(params[:id])
     @teacher.destroy
     flash[:notice] = "Deleted the teacher from the database."
     respond_with @teacher
