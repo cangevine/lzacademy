@@ -17,7 +17,7 @@ $(function() {
 	</div>
 	<br class="clearFloat" />
 	<div class="student_body ui-corner-tr ui-corner-br ui-corner-bl">
-		<%# render :partial => "students/required_forms" %>
+		<%= render :partial => "students/required_forms", :locals => { :student => student  } %>
 		
 		<% if student.registrations.empty? %>
 			<p><%= student.first_name %> is not registered in any classes.</p>

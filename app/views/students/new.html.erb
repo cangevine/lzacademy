@@ -1,6 +1,13 @@
+<% content_for :head do %>
+<%= formtastic_stylesheet_link_tag %>
+<% end %>
+
+
 <h1>Create a new student</h1>
 <%= semantic_form_for @student do |f| %>
-	<%= render :partial => "form", :locals => { :f => f, :removable_link => false } %>
+	<%= f.inputs :name => "Student info", :id => "student_info" do %>
+		<%= render :partial => "form", :locals => { :f => f, :removable_link => false } %>
+	<% end %>
 	<%= f.hidden_field :parent_id %>
 	<p><%= f.buttons %> or <%= link_to "cancel", :back %></p>
 <% end %>

@@ -1,9 +1,12 @@
+<% stylesheet 'students' %>
 <% content_for :head do %>
 <%= formtastic_stylesheet_link_tag %>
 <% end %>
 
 <h1>Edit student information</h1>
 <%= semantic_form_for @student do |f| %>
-	<%= render :partial => "form", :locals => { :f => f, :removable_link => false } %>
+	<%= f.inputs :name => "Student info", :id => "student_info" do %>
+		<%= render :partial => "form", :locals => { :f => f, :removable_link => false } %>
+	<% end %>
 	<p><%= f.buttons %> or <%= link_to "cancel", :back %></p>
 <% end %>

@@ -1,0 +1,109 @@
+<% content_for :page_script do %>
+$(function() {
+	$("a.edit_info, a.return_btn").button();
+})
+<% end %>
+
+
+
+<%= link_to "return to parent page", parent_path(@emergency_form.student.parent), :class => "return_btn right_control_btn" %>
+<h1>Information form</h1>
+<%= link_to "edit", edit_student_emergency_form_path(@emergency_form.student), :class => "edit_info right_control_btn" %>
+<p>Please keep this information up-to-date.</p>
+
+<table>
+	<tr>
+		<th colspan="2">Health information</th>
+	</tr>
+	<tr>
+		<td>Health insurance company</td>
+		<td><%= @emergency_form.health_insurance_company %></td>
+	</tr>
+	<tr>
+		<td>Health insurance numbers</td>
+		<td><%= @emergency_form.health_insurance_numbers %></td>
+	</tr>
+	<tr>
+		<td>Physician's name</td>
+		<td><%= @emergency_form.physician_name %></td>
+	</tr>
+	<tr>
+		<td>Physician's phone number</td>
+		<td><%= @emergency_form.physician_phone_number %></td>
+	</tr>
+	<tr>
+		<td>Allergies</td>
+		<td><%= @emergency_form.allergies %></td>
+	</tr>
+	<tr>
+		<td>Dietary restrictions</td>
+		<td><%= @emergency_form.food_restrictions %></td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th colspan="2">Contact information</th>
+	</tr>
+	<tr>
+		<td>Additional phone number</td>
+		<td><%= @emergency_form.addl_phone_number %></td>
+	</tr>
+	<tr>
+		<td>Emergency contact name</td>
+		<td><%= @emergency_form.ec_name %></td>
+	</tr>
+	<tr>
+		<td>Relationship to your student</td>
+		<td><%= @emergency_form.ec_relationship %></td>
+	</tr>
+	<tr>
+		<td>Emergency contact phone number</td>
+		<td><%= @emergency_form.ec_phone_number %></td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th colspan="2">Help us be prepared</th>
+	</tr>
+	<tr>
+		<td>Learning differences, issues with behavior or social situations</td>
+		<td><%= @emergency_form.learning_differences %></td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th colspan="2">Student conduct expectations</th>
+	</tr>
+	<tr>
+		<td colspan="2">
+			LinguaZone Language Academy expects all students to behave with respect for each other and for the learning environment we foster. A fun camp experience requires that all students behave responsibly and remain attentive to their teachers. When we study world languages, we come to appreciate and celebrate our diversity; it is important that every student respect the differences among us (age, race, gender, learning ability, background, etc).
+		</td>
+	</tr>
+	<tr>
+		<td>Your initials marked as agreement</td>
+		<td><%= @emergency_form.conduct_expectations %></td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th colspan="2">Cancellation policy</th>
+	</tr>
+	<tr>
+		<td colspan="2">Classes run with a minimum enrollment of 3 students during the summer and 5 students during the school year. If LinguaZone cancels class due to insufficient enrollment, any payments made will be returned to you. Refunds will not be issued for cancellations made by parents within two weeks of class. All other cancellations are subject to a 20% cancellation fee. Expulsion from class due to inappropriate behavior will be subject to refund.
+		</td>
+	</tr>
+</table>
+
+<table>
+	<tr>
+		<th colspan="2">Pictures and video</th>
+	</tr>
+	<tr>
+		<td>Your permission to use pictures and video in LinguaZone advertising materials</td>
+		<td><%= @emergency_form.advertisement_permission %></td>
+	</tr>
+</table>

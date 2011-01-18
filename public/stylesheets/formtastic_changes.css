@@ -18,6 +18,8 @@ form.formtastic fieldset ol li { margin: 8px 8px 8px 12px; }
 
 form.formtastic li { list-style-type: none; }
 
+form.formtastic textarea { padding: 5px; }
+
 form.formtastic fieldset ol li.date fieldset { border: none; margin-top: 0px; margin-left: 0px; }
 form.formtastic fieldset ol li.date fieldset ol {float: right; width: 75%;}
 form.formtastic fieldset ol li.date fieldset ol li { margin-left:10px; display: inline; }
@@ -50,3 +52,22 @@ a.remove_student_link {
 	float: right;
 	margin: 10px;
 }
+
+/*---------------------------------------------------
+					emergency form
+---------------------------------------------------*/
+form.emergency_form fieldset {
+	background-color: #ddecff;
+	margin-top: 10px;
+}
+form.emergency_form h2 { margin-top: 20px; }
+form.emergency_form fieldset p { padding: 10px; }
+form.emergency_form fieldset ol li label { width: 100%; display: block; float: none; margin-bottom: 3px; }
+form.emergency_form fieldset ol li label p.inline-hints { margin-top: 8px; }
+form.emergency_form fieldset input { float: none; display: block; }
+form.emergency_form fieldset textarea {	width: 300px; height: 50px; }
+#emergency_form_advertisement_permission_input fieldset legend.label { 
+	display: block; position: static; float: none; background-color: inherit; border: none; height: 1.2em;
+}
+form.emergency_form fieldset ol li fieldset ol { padding: 5px 5px 5px 40px; width: inherit; }
+#emergency_form_advertisement_permission_input fieldset { border: none; position: static; overflow: visible; }

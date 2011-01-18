@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110114132839) do
+ActiveRecord::Schema.define(:version => 20110118044722) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -37,6 +37,25 @@ ActiveRecord::Schema.define(:version => 20110114132839) do
     t.integer  "min_age"
     t.integer  "max_age"
     t.integer  "session_term_id"
+  end
+
+  create_table "emergency_forms", :force => true do |t|
+    t.string   "addl_phone_number"
+    t.string   "ec_name"
+    t.string   "ec_phone_number"
+    t.string   "ec_relationship"
+    t.string   "health_insurance_company"
+    t.string   "health_insurance_numbers"
+    t.string   "physician_name"
+    t.string   "physician_phone_number"
+    t.text     "allergies"
+    t.boolean  "advertisement_permission"
+    t.string   "conduct_expectations"
+    t.text     "food_restrictions"
+    t.text     "learning_differences"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "locations", :force => true do |t|

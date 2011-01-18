@@ -1,7 +1,15 @@
 <table class="required_forms">
 	<tr>
-		<td class="complete"><%= link_to root_path do %>Classroom info form <span class="edit">VIEW / EDIT</span><% end %></td>
-		<td class="incomplete"><%= link_to root_path do %>Emergency contact form <span class="edit">COMPLETE FORM NOW</span><% end %></td>
-		<td class="complete"><%= link_to root_path do %>Teacher recommendation <span class="edit">VIEW / EDIT</span><% end %></td>
+		<td class="complete"><%# link_to root_path do Classroom info form <span class="edit">VIEW / EDIT</span> end %></td>
+		<% if student.emergency_form.nil? %>
+			<td class="incomplete">
+				<%= link_to new_student_emergency_form_path(student) do %>Emergency contact form <span class="edit">COMPLETE FORM NOW</span><% end %>
+			</td>
+		<% else %>
+			<td class="complete">
+				<%= link_to student_emergency_form_path(student) do %>Emergency contact form <span class="edit">VIEW / EDIT</span><% end %>
+			</td>
+		<% end %>
+		<td class="complete"><%# link_to root_path do Teacher recommendation <span class="edit">VIEW / EDIT</span> end %></td>
 	</tr>
 </table>

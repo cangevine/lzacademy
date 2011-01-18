@@ -1,0 +1,53 @@
+<%= semantic_form_for @emergency_form do |f| %>
+	<%= f.semantic_errors %>
+	
+	<h2>Health information</h2>
+	<%= f.inputs do %>
+		<%= f.input :health_insurance_company %>
+		<%= f.input :health_insurance_numbers %>
+		<%= f.input :physician_name, :label => "Physician's name" %>
+		<%= f.input :physician_phone_number, :label => "Physician's phone number", :class => "phone_number" %>
+		<%= f.input :allergies, :label => "Allergies", :hint => "Does your child have any allergies? If yes, please list." %>
+		<%= f.input :food_restrictions, :label => "Are there any foods we should avoid offering in class?" %>
+	<% end %>
+	
+	<h2>Contact information</h2>
+	<%= f.inputs do %>
+		<%= f.input :addl_phone_number, :label => "Please provide a phone number where we can reach you during your child's class",
+		 				:class => "phone_number" %>
+		<%= f.input :ec_name, :label => "Additional emergency contact name" %>
+		<%= f.input :ec_relationship, :label => "Contact's relationship to student", :hint => "e.g. grandmother, neighbor" %>
+		<%= f.input :ec_phone_number, :label => "Emergency contact phone number", :class => "phone_number" %>
+	<% end %>	
+	
+	<h2>Help us be prepared</h2>
+	<%= f.inputs do %>
+		<%= f.input :learning_differences, :label => "Does your child have any learning differences or issues with behavior or social situations?",
+		 				:hint => "Please share your insights about your child." %>
+	<% end %>
+		
+	<h2>Student conduct expectations</h2>
+	<%= f.inputs do %>
+		<p>LinguaZone Language Academy expects all students to behave with respect for each other and for the learning environment we foster. A fun camp experience requires that all students behave responsibly and remain attentive to their teachers. When we study world languages, we come to appreciate and celebrate our diversity; it is important that every student respect the differences among us (age, race, gender, learning ability, background, etc).</p>
+		<%= f.input :conduct_expectations, :label => "Agree to terms of conduct expectations", :hint => "Please initial to mark your agreement to the student conduct expectations" %>
+	<% end %>
+		
+	<h2>Cancellation policy</h2>
+	<%= f.inputs do %>
+		<p>Classes run with a minimum enrollment of 3 students during the summer and 5 students during the school year. If LinguaZone cancels class due to insufficient enrollment, any payments made will be returned to you. Refunds will not be issued for cancellations made by parents within two weeks of class. All other cancellations are subject to a 20% cancellation fee. Expulsion from class due to inappropriate behavior will be subject to refund.</p>
+	<% end %>
+		
+	<h2>Pictures and video taken during class</h2>
+	<%= f.inputs do %>
+		<%= f.input :advertisement_permission, :as => :radio,
+						:collection => [["Yes, I give my permission", true], ["No, please do not use any images of my student", false]],
+						:label => "I give LinguaZone permission to use pictures of my student in future advertising materials", 
+						:hint => "e.g. brochure, flyers, website" %>
+	<% end %>
+	
+	
+	<%= f.hidden_field :student_id %>
+	<% f.buttons do %>
+		<%= f.commit_button "Save" %>
+	<% end %>
+<% end %>

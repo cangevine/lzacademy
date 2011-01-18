@@ -4,7 +4,6 @@
 <% end %>
 
 <% content_for :page_script do %>
-
 $(function() {
 	$(".phone_number").keyup(function() {
 		var curchr = this.value.length;
@@ -35,7 +34,7 @@ $(function() {
 	<%= parent_form.semantic_errors %>
 		
 	<%= parent_form.inputs :name => "Student info", :id => "student_info", :for => :students do |stu_form| %>
-		<%= render :partial => "students/form", :locals => { :f => stu_form, :removable => true } %>
+		<%= render :partial => "students/form", :locals => { :f => stu_form, :removable_link => true } %>
 		<p><%= link_to_add_fields "Add a student", parent_form, :students, "add_student_link" %></p>
 	<% end %>
 	<%= new_child_fields_template parent_form, :students %>

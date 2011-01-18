@@ -11,12 +11,17 @@ class Ability
     elsif user.role?(:parent)
       can :read, Location
       can [:show, :update], Parent, :id => user.id
+      can :create, Student
       can :manage, Student do |s|
         s.try(:parent) == user
       end
       can :create, Registration
       can [:read, :destroy], Registration do |r|
         r.try(:student).try(:parent).id == user.id
+      end
+      can :create, EmergencyForm
+      can :manage, EmergencyForm do |ef|
+        ef.try(:student).try(:parent).try(:id) == user.id
       end
       
     elsif user.role?(:teacher)
