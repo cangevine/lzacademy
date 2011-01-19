@@ -1,0 +1,22 @@
+<h1>All students at LinguaZone Academy</h1>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Age</th>
+		<th>Registrations</th>
+	</tr>
+	<% @students.each do |s| %>
+		<tr>
+			<td><%= link_to s.id, student_path(s) %></td>
+			<td><%= s.display_name %></td>
+			<td><%= "#{s.age} years old" %></td>
+			<td>
+				<% s.registrations.each do |r| %>
+					<%= link_to "#{r.program.name} at #{r.location.name}", registration_path(r) %>
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
+</table>
