@@ -5,4 +5,26 @@
 	<%= @course.days_of_week %> from <%= @course.start_time %> to <%= @course.end_time %>, <%= @course.session_term.date_range %>.
 </p>
 
+<h2>Registrations</h2>
+<table>
+	<tr>
+		<th>Student</th>
+		<th>Age</th>
+		<th>Emergency form</th>
+	</tr>
+	<% if @course.registrations.empty? %>
+	<tr>
+		<td colspan="3">No students have registered for this course yet.</td>
+	</tr>
+	<% else %>
+		<% @course.registrations.each do |r| %>
+		<tr>
+			<td><%= r.student.display_name %></td>
+			<td><%= r.student.name %></td>
+			<td><%= if r.student.emergency_form.nil? then "No emergency form on file" else link_to "View emergency form", student_emergency_form_path(r.student) end %></td>
+		</tr>
+		<% end %>
+	<% end %>
+</table>
+
 <p><%= link_to "View all courses", courses_path %> | <%= link_to "Edit this course", edit_course_path(@course) %></p>
