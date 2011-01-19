@@ -14,7 +14,7 @@
 			<td><%= "#{s.age} years old" %></td>
 			<td>
 				<% s.registrations.each do |r| %>
-					<%= link_to "#{r.program.name} at #{r.location.name}", registration_path(r) %>
+					<%= link_to "#{r.course.program.name} at #{r.course.location.name}", registration_path(r) %>
 				<% end %>
 			</td>
 		</tr>
