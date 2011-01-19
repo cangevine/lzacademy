@@ -8,10 +8,12 @@ $(function() {
 			primary: "ui-icon-pencil"
 		}
 	})
+	$("a.edit_info").button();
 })
 <% end %>
 
 <h1>Teacher: <%= @teacher.display_name %></h1>
+<p><%= link_to "edit details", edit_teacher_path(@teacher), :class => "edit_info right_control_btn" if can? :edit, @teacher %></p>
 <p>
 	<%= @teacher.display_name %> 
 	<%= "("+@teacher.nickname+")" unless @teacher.nickname.nil? %>
@@ -54,4 +56,4 @@ $(function() {
 	<% end %>
 <% end %>
 
-<p><%= link_to "View all teachers", teachers_path %> | <%= link_to "Edit this teacher", edit_teacher_path(@teacher) %></p>
+<p><%= link_to "View all teachers", teachers_path if can? :manage, Teacher.new %></p>

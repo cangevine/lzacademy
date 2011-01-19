@@ -1,12 +1,18 @@
+<% content_for :head do %>
+<%= formtastic_stylesheet_link_tag %>
+<% end %>
+
 <%= semantic_form_for @teacher do |f| %>
-	<%= f.input :first_name %>
-	<%= f.input :last_name %>
-	<%= f.input :nickname %>
-	<%= f.input :email %>
-	<%= f.input :cell_phone %>
-	<%= f.input :shirt_size, :as => :select, 
-			:collection => ["Youth small", "Youth medium", "Youth large", "Adult small", "Adult medium", "Adult large"] %>
-	<%= f.input :password %>
-	<%= f.input :password_confirmation %>
+	<%= f.inputs do %>
+		<%= f.input :first_name %>
+		<%= f.input :last_name %>
+		<%= f.input :nickname %>
+		<%= f.input :email %>
+		<%= f.input :cell_phone %>
+		<%= f.input :shirt_size, :as => :select, 
+				:collection => ["Youth small", "Youth medium", "Youth large", "Adult small", "Adult medium", "Adult large"] %>
+		<%= f.input :password %>
+		<%= f.input :password_confirmation %>
+	<% end %>
 	<%= f.buttons %>
 <% end %>

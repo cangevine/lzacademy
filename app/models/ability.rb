@@ -29,8 +29,9 @@ class Ability
       can :manage, Comment do |c|
         c.try(:registration).try(:course).try(:teacher) == user
       end
-      can :read, Teacher
-      can :manage, Teacher, :id => user.id
+      can :manage, Teacher do |t|
+        t.id == user.id
+      end
       
     else
       can [:create, :sign_in, :sign_out], Parent
