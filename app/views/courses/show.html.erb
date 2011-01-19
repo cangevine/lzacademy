@@ -20,7 +20,7 @@
 		<% @course.registrations.each do |r| %>
 		<tr>
 			<td><%= r.student.display_name %></td>
-			<td><%= r.student.name %></td>
+			<td><%= "#{r.student.age} years old" %></td>
 			<td><%= if r.student.emergency_form.nil? then "No emergency form on file" else link_to "View emergency form", student_emergency_form_path(r.student) end %></td>
 		</tr>
 		<% end %>
