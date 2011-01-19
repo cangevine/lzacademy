@@ -29,7 +29,7 @@ class RegistrationsController < ApplicationController
       
       if @success
         flash[:success] = "Registration information saved."
-        #RegistrationMailer.application_received(@regs).deliver
+        RegistrationMailer.application_received(@regs).deliver
       else
         flash[:alert] = "Could not save your registration information."
       end
@@ -48,7 +48,7 @@ class RegistrationsController < ApplicationController
   end
 
   def destroy
-    #RegistrationMailer.registration_canceled(@registration).deliver
+    RegistrationMailer.registration_canceled(@registration).deliver
     @registration.destroy
     flash[:notice] = "The registration has been cancelled."
     respond_with @registration, :location => :back
