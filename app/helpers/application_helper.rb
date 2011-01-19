@@ -96,10 +96,10 @@ module ApplicationHelper
                               :name => "registration[course_id][]", :value => String(c.id))
           end
           concat(c.program.name)
+          concat(link_to (image_tag "info.jpg", :alt => "Learn more"), program_path(c.program))
           if show_schedule
             concat(content_tag :span, "#{c.schedule_details}", :class => "course_details")
           else
-            concat(link_to (image_tag "info.jpg", :alt => "Learn more"), program_path(c.program))
             concat(content_tag :span, "at #{c.location.name}  $#{c.cost}", :class => "course_details")
           end
         end
