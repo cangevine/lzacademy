@@ -5,6 +5,7 @@
 		<th>Program name</th>
 		<th>Language</th>
 		<th>Level</th>
+		<th>Description</th>
 		<th></th>
 	</tr>
 	<% @programs.each do |p| %>
@@ -12,6 +13,7 @@
 			<td><%= link_to p.name, program_path(p) %></td>
 			<td><%= p.language %></td>
 			<td><%= p.level %></td>
+			<td><%= (p.description.length < 150) ? "N" : "" %></td>
 			<td><%= link_to "Edit", edit_program_path(p) %></td>
 		</tr>
 	<% end %>
