@@ -36,7 +36,11 @@
 		<div id="nav">
 			<% if current_user %>
 				<% if current_user.role?(:teacher) %>
-					<%= render :partial => "layouts/teachers_nav" %>
+					<% if current_user.role?(:admin) %>
+						<%= render :partial => "layouts/admin_nav" %>
+					<% else %>
+						<%= render :partial => "layouts/teachers_nav" %>
+					<% end %>
 				<% elsif current_user.role?(:parent) %>
 					<%= render :partial => "layouts/parents_nav" %>
 				<% end %>

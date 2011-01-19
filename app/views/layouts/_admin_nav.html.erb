@@ -1,0 +1,10 @@
+<ul>
+	<li><%= link_to "HOMEPAGE" , teacher_path(current_user) %></li>
+	<li><%= link_to "TEACHERS" , teachers_path %></li>
+	<li><%= link_to "LOCATIONS" , locations_path %></li>
+	<li><%= link_to "COURSES" , courses_path %></li>
+	<li><%= link_to "STUDENTS" , students_path %></li>
+</ul>
+<ul class="login">
+	<li><%= link_to "LOGOUT", destroy_teacher_session_path %></li>
+</ul>
