@@ -420,6 +420,9 @@ table.course_listings td div.course_info {
 	margin: 8px auto;
 	padding: 0px;
 }
+table.course_listings td div.course_info a img {
+	margin-left: 5px;
+}
 table.course_listings td input {
 	margin-right: 10px;
 }

@@ -1,9 +1,7 @@
-<h1>Programs: <%= @program.name %></h1>
-<p>
-	<%= @program.name %>
-	<br /><%= @program.language %>
-	<br /><%= @program.level %>
-</p>
-<p><%= @program.description %></p>
+<h1><%= @program.name %></h1>
 
-<p><%= link_to "View all programs", programs_path %> | <%= link_to "Edit this program", edit_program_path(@program) %></p>
+<p><%= @program.description.html_safe %></p>
+
+<% if can? :manage, @program %>
+	<p><%= link_to "View all programs", programs_path %> | <%= link_to "Edit this program", edit_program_path(@program) %></p>
+<% end %>

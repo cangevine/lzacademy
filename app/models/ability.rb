@@ -9,7 +9,7 @@ class Ability
       can :manage, :all
       
     elsif user.role?(:parent)
-      can :read, Location
+      can :read, [Course, Location, Program]
       can [:show, :update], Parent, :id => user.id
       can :create, Student
       can :manage, Student do |s|
