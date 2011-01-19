@@ -25,7 +25,7 @@ class Ability
       end
       
     elsif user.role?(:teacher)
-      can :read, [Location, SessionTerm, Course, Program, Registration, Parent, Student]
+      can :read, [Location, SessionTerm, Course, Program, Registration, Student, EmergencyForm]
       can :manage, Comment do |c|
         c.try(:registration).try(:course).try(:teacher) == user
       end

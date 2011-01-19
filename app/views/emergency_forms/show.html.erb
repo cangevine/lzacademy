@@ -1,14 +1,25 @@
 <% content_for :page_script do %>
 $(function() {
 	$("a.edit_info, a.return_btn").button();
+	$("p#cancellation_policy").hide();
+	$("p#conduct_expectations").hide();
+	
+	$("a#view_cancellation_policy").click(function() {
+		$("p#cancellation_policy").toggle();
+	})
+	$("a#view_conduct_expectations").click(function() {
+		$("p#conduct_expectations").toggle();
+	})
 })
 <% end %>
 
 
 
-<%= link_to "return to parent page", parent_path(@emergency_form.student.parent), :class => "return_btn right_control_btn" %>
+<%= link_to "return to parent page", parent_path(@emergency_form.student.parent), 
+					:class => "return_btn right_control_btn" if can? :read, Parent %>
 <h1>Information form</h1>
-<%= link_to "edit", edit_student_emergency_form_path(@emergency_form.student), :class => "edit_info right_control_btn" %>
+<%= link_to "edit", edit_student_emergency_form_path(@emergency_form.student), 
+					:class => "edit_info right_control_btn" if can? :manage, @emergency_form %>
 <p>Please keep this information up-to-date.</p>
 
 <table>
@@ -65,36 +76,36 @@ $(function() {
 
 <table>
 	<tr>
-		<th colspan="2">Help us be prepared</th>
+		<th colspan="2">Learning differences, issues with behavior or social situations</th>
 	</tr>
 	<tr>
-		<td>Learning differences, issues with behavior or social situations</td>
-		<td><%= @emergency_form.learning_differences %></td>
+		<td colspan="2"><%= @emergency_form.learning_differences %></td>
 	</tr>
 </table>
 
 <table>
 	<tr>
-		<th colspan="2">Student conduct expectations</th>
+		<th colspan="2">Student conduct expectations and cancellation policy</th>
 	</tr>
 	<tr>
 		<td colspan="2">
+			<%= link_to "View student conduct expectations", "#", :id => "view_conduct_expectations", :remote => true %>
+			<p id="conduct_expectations">
 			LinguaZone Language Academy expects all students to behave with respect for each other and for the learning environment we foster. A fun camp experience requires that all students behave responsibly and remain attentive to their teachers. When we study world languages, we come to appreciate and celebrate our diversity; it is important that every student respect the differences among us (age, race, gender, learning ability, background, etc).
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<%= link_to "View cancellation policy", "#", :id => "view_cancellation_policy", :remote => true %>
+			<p id="cancellation_policy">
+			Classes run with a minimum enrollment of 3 students during the summer and 5 students during the school year. If LinguaZone cancels class due to insufficient enrollment, any payments made will be returned to you. Refunds will not be issued for cancellations made by parents within two weeks of class. All other cancellations are subject to a 20% cancellation fee. Expulsion from class due to inappropriate behavior will be subject to refund.
+			</p>
 		</td>
 	</tr>
 	<tr>
 		<td>Your initials marked as agreement</td>
 		<td><%= @emergency_form.conduct_expectations %></td>
-	</tr>
-</table>
-
-<table>
-	<tr>
-		<th colspan="2">Cancellation policy</th>
-	</tr>
-	<tr>
-		<td colspan="2">Classes run with a minimum enrollment of 3 students during the summer and 5 students during the school year. If LinguaZone cancels class due to insufficient enrollment, any payments made will be returned to you. Refunds will not be issued for cancellations made by parents within two weeks of class. All other cancellations are subject to a 20% cancellation fee. Expulsion from class due to inappropriate behavior will be subject to refund.
-		</td>
 	</tr>
 </table>
 

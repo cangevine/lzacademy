@@ -34,14 +34,19 @@ $(function() {
 				<% c.registrations.each do |r| %>
 					<tr>
 						<td>
-							<%= link_to r.student.display_name, student_path(r.student) %>
+							<% if r.student.emergency_form.nil? %>
+								<%= r.student.display_name %>
+							<% else %>
+								<%= link_to r.student.display_name, student_emergency_form_path(r.student) %>
+							<% end %>
 							<span class="detail">(<%= r.student.age %> years old)</span>
 						</td>
 						<td>
-							<%= link_to pluralize(r.comments.length, "comment"), registration_comments_path(r) %>
+							(0 comments)
+							<%# link_to pluralize(r.comments.length, "comment"), registration_comments_path(r) %>
 							<span class="detail"><%= "(last on #{format_short_date(r.last_comment_date)})" unless r.comments.empty? %></span>
 						</td>
-						<td align="right"><%= link_to "Write a new comment", new_registration_comment_path(r), :class => "write_new_link" %></td>
+						<td align="right">(Write a new comment)<%# link_to "Write a new comment", new_registration_comment_path(r), :class => "write_new_link" %></td>
 					</tr>
 				<% end %>
 			<% end %>
