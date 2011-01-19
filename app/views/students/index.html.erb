@@ -2,16 +2,16 @@
 
 <table>
 	<tr>
-		<th>ID</th>
 		<th>Name</th>
 		<th>Age</th>
+		<th>Forms</th>
 		<th>Registrations</th>
 	</tr>
 	<% @students.each do |s| %>
 		<tr>
-			<td><%= link_to s.id, student_path(s) %></td>
-			<td><%= s.display_name %></td>
+			<td><%= link_to s.display_name, student_path(s) %></td>
 			<td><%= "#{s.age} years old" %></td>
+			<td><%= link_to "view", student_emergency_form_path(s) unless s.emergency_form.nil? %></td>
 			<td>
 				<% s.registrations.each do |r| %>
 					<%= link_to "#{r.course.program.name} at #{r.course.location.name}", registration_path(r) %>

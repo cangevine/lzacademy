@@ -2,16 +2,16 @@
 
 <table>
 	<tr>
-		<th>School name</th>
+		<th>School</th>
 		<th>Address</th>
-		<th>URL</th>
+		<th>Website</th>
 		<th></th>
 	</tr>
 	<% @locations.each do |l| %>
 		<tr>
-			<td><%= l.name %></td>
+			<td><%= link_to l.name, location_path(l) %></td>
 			<td><%= l.address %>, <%= l.city %></td>
-			<td><em><%= link_to l.url, l.url %></em></td>
+			<td><%= link_to "Visit website", l.url %></td>
 			<td><%= link_to "Edit", edit_location_path(l) %></td>
 		</tr>
 	<% end %>
