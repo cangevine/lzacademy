@@ -1,3 +1,33 @@
 <div class="comment">
-	wahoo!
+	<div class="date ui-corner-all">
+		<% if comment.published %>
+			<p class="month"><%= format_short_month(comment.published_at) %></p>
+			<p class="day"><%= format_day_num(comment.published_at) %></p>
+		<% else %>
+			<p class="month"><%= format_short_month(comment.updated_at) %></p>
+			<p class="day"><%= format_day_num(comment.updated_at) %></p>
+		<% end %>
+	</div>
+	<div class="body">
+		<% if comment_counter == 0 && !pending %>
+			<%= simple_format(comment.body) %>
+		<% else %>
+			<% if comment.body.length > 300 %>
+				<%= simple_format(truncate(comment.body, :length => 300, :separator => " ")) %> 
+				<p><%= link_to 'Continue reading comment &rarr;'.html_safe, registration_comment_path(registration, comment) %></p>
+			<% else %>
+				<%= simple_format(comment.body) %>
+				<% if can?(:edit, comment) && pending %>
+					<p><%= link_to 'Continue reading comment &rarr;'.html_safe, registration_comment_path(registration, comment) %></p>
+				<% end %>
+			<% end %>
+		<% end %>
+
+		<% if pending && !comment.admin_feedback.blank? %>
+			<blockquote class="feedback ui-corner-all">
+				<cite>Feedback from <%= format_date_time(comment.admin_feedback_updated_at) %></cite>
+				<%= simple_format(comment.admin_feedback) %>
+			</blockquote>
+		<% end %>
+	</div>
 </div>

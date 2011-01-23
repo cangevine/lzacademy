@@ -28,6 +28,12 @@ module ApplicationHelper
   def format_short_date(val)
     val.strftime '%D' unless val.nil?
   end
+  def format_short_month(val)
+    val.strftime '%b' unless val.nil?
+  end
+  def format_day_num(val)
+    val.strftime '%d' unless val.nil?
+  end
   
   def format_balance(val)
     if val < 0

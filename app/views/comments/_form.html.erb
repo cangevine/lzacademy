@@ -1,13 +1,18 @@
-<%= f.input :body %>
-<%= f.input :registration_id, :as => :hidden, :value => reg.id %>
+<%= f.inputs do %>
+	<%= f.input :body, :label => "Your comment" %>
+	<%= f.input :registration_id, :as => :hidden, :value => reg.id %>
+	<%= f.input :published, :as => :hidden, :value => 0 %>
+<% end %>
 
 <% if admin %>
 	<h2>Admin options</h2>
-	<%= f.input :published, :as => :radio %>
-	<% unless @comment.published_at.nil? %>
-		<%= "Published on #{@comment.published_at}" %>
+	<%= f.inputs do %>
+		<%= f.input :published, :as => :radio %>
+		<% unless @comment.published_at.nil? %>
+			<%= "Published on #{@comment.published_at}" %>
+		<% end %>
+		<%= f.input :admin_feedback %>
 	<% end %>
-	<%= f.input :admin_feedback %>
 <% end %>
 
 <%= f.buttons %> or <%= link_to "cancel", :back %>

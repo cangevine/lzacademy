@@ -1,0 +1,11 @@
+<h2>A comment from <%= @comment.registration.course.teacher.display_name %></h2>
+<h3><%= format_date(@comment.published_at) %></h3>
+
+<%= simple_format(@comment.body) %>
+
+<p>
+	<%= link_to "&larr; Return to all comments".html_safe, registration_comments_path(@comment.registration) %>
+	<% if can?(:edit, @comment) && !@comment.published %>
+		| <%= link_to "Edit this comment", edit_registration_comment_path(@comment.registration, @comment) %>
+	<% end %>
+</p>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>A new comment from LinguaZone</h1>
+    <p>written by <%= @reg.course.teacher.display_name %> for <%= @reg.student.display_name %> in <%= @reg.course.program.name %>:</p>
+	<br />
+	<p>----------------</p>
+	<%= simple_format(@comment.body) %>
+	<p>----------------</p>
+	<br />
+	<p>
+		All comments from <%= @reg.course.teacher.display_name %> and more information on your enrollment are available in the Parents section of LZAcademy.com. <%= link_to "Click here to sign in", new_parent_session_url %>, or if you are not sure what your password is, <%= link_to "click here to create a new one", new_parent_password_url %>.
+	</p>
+  </body>
+</html>

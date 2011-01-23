@@ -2,3 +2,57 @@ a.write_new_link {
 	font-size: .9em;
 	font-weight: normal;
 }
+
+blockquote.feedback cite { font-style: normal; font-weight: bold; margin-top: 3px; }
+blockquote.feedback {
+	padding: 10px 10px 0px 30px;
+	margin: 0px 10px 10px 10px;
+	border: 1px solid #ffd324;
+	background: url("../images/shared/swirl_right_arrow.jpg") no-repeat white;
+}
+blockquote.feedback p { font-size: .9em; color: #333; }
+
+div.comment {
+	margin-top: 20px;
+	border-bottom: 2px dashed #CCC;
+	min-height: 85px;
+}
+div#pending_comments div.comment:last-child { margin: 15px 0px; border-bottom: none; }
+div#published_comments div.comment:last-child { margin: 15px 0px 0px 0px; border-bottom: none; }
+
+div.comment div.date { 
+	float: left;
+	width: 60px; 
+	height: 60px;
+	font-family: "Trebuchet MS";
+	font-weight: bold;
+	margin-right: 15px; 
+	padding: 2px;
+	color: #94e89f;
+	background-color: #f2f7ff; 
+	border: 1px solid #ccc; 
+}
+div.comment div.date p.month { 
+	text-transform: uppercase; 
+	text-align: center;
+	font-size: 1.5em;
+	padding-bottom: 0px;
+}
+div.comment div.date p.day { 
+	text-align: center;
+	font-size: 2.2em;
+	line-height: .6em;
+	padding-bottom: 0px;
+}
+
+div.comment div.body {
+	margin-left: 80px;
+}
+
+div#pending_comments {
+	border: 2px solid #ffd324;
+	background-color: #fff6bf; 
+	padding: 0px 10px;
+	margin: 25px 0px;
+}
+

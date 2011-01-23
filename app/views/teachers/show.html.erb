@@ -44,11 +44,10 @@ $(function() {
 							<span class="detail">(<%= r.student.age %> years old)</span>
 						</td>
 						<td>
-							(0 comments)
-							<%# link_to pluralize(r.comments.length, "comment"), registration_comments_path(r) %>
+							<%= link_to pluralize(r.comments.length, "comment"), registration_comments_path(r) %>
 							<span class="detail"><%= "(last on #{format_short_date(r.last_comment_date)})" unless r.comments.empty? %></span>
 						</td>
-						<td align="right">(Write a new comment)<%# link_to "Write a new comment", new_registration_comment_path(r), :class => "write_new_link" %></td>
+						<td align="right"><%= link_to "Write a new comment", new_registration_comment_path(r), :class => "write_new_link" %></td>
 					</tr>
 				<% end %>
 			<% end %>

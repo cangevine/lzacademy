@@ -2,8 +2,8 @@
 <%= formtastic_stylesheet_link_tag %>
 <% end %>
 
-<h1>Write a new comment</h1>
+<h1>Edit comment</h1>
 <p>for <%= @registration.student.display_name %> in <%= @registration.course.program.name %></p>
 <%= semantic_form_for @comment do |f| %>
-	<%= render :partial => "form", :locals => { :f => f, :reg => @registration, :admin => false } %>
+	<%= render :partial => "form", :locals => { :f => f, :reg => @registration, :admin => true } %>
 <% end %>

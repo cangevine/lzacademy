@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>New feedback on your comment</h1>
+    <p>for <%= @reg.student.display_name %> in <%= @reg.course.program.name %></p>
+	<p>----------------</p>
+	<%= simple_format(@comment.admin_feedback) %>
+	<p>----------------</p>
+	<p>
+		Please update your comment and resubmit it on the website:<br /> 
+		<%= auto_link edit_registration_comment_url(@reg, @comment) %>.
+	</p>
+	<p>
+		Thanks so much,<br />
+		BC and Margaret<br />
+		215.948.2153
+	</p>
+  </body>
+</html>

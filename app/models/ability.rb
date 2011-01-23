@@ -23,6 +23,9 @@ class Ability
       can :manage, EmergencyForm do |ef|
         ef.try(:student).try(:parent).try(:id) == user.id
       end
+      can :read, Comment do |c|
+        c.try(:registration).try(:student).try(:parent) == user
+      end
       
     elsif user.role?(:teacher)
       can :read, [Location, SessionTerm, Course, Program, Registration, Student, EmergencyForm]

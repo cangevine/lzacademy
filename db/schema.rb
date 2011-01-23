@@ -10,14 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110118044722) do
+ActiveRecord::Schema.define(:version => 20110121130855) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
     t.text     "admin_feedback"
     t.boolean  "published"
     t.integer  "registration_id"
-    t.integer  "teacher_id"
     t.datetime "published_at"
     t.datetime "admin_feedback_updated_at"
     t.datetime "created_at"

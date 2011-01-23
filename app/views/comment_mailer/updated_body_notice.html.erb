@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Updated comment</h1>
+    <p>by <%= @reg.course.teacher.display_name %> for <%= @reg.student.display_name %> in <%= @reg.course.program.name %></p>
+	<p>----------------</p>
+	<%= simple_format(@comment.body) %>
+	<p>----------------</p>
+	<p><%= link_to "Write feedback or publish.", edit_registration_comment_url(@reg, @comment) %></p>
+  </body>
+</html>

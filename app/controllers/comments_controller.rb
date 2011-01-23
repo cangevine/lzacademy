@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
   respond_to :html, :xml, :json
+  load_and_authorize_resource
   
   def index
     @registration = Registration.find(params[:registration_id])
-    @comments = Comment.find_by_registration_id(params[:registration_id]).published
-    respond_with @comments
+    @published_comments = @registration.comments.published.order("published_at DESC")
+    @pending_comments = @registration.comments.pending.order("updated_at DESC")
+    respond_with @published_comments, @pending_comments
   end
 
   def show
@@ -21,6 +23,7 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @registration = Registration.find(params[:registration_id])
     @comment = Comment.find(params[:id])
     respond_with @comment
   end
@@ -37,12 +40,13 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
+    
     if @comment.update_attributes(params[:comment])
       flash[:success] = "Updated the comment successfully."
     else
       flash[:alert] = "Could not update the comment."
     end
-    respond_with @comment
+    respond_with @comment, :location => teacher_path(@comment.registration.course.teacher)
   end
 
   def destroy

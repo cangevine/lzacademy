@@ -18,8 +18,33 @@
 class Comment < ActiveRecord::Base
   belongs_to :registration
   
+  after_create :new_comment_notice
+  before_update :update_comment_notices
+  
   scope :published, lambda {
     where("published = ?", 1)
   }
+  
+  scope :pending, lambda {
+    where("published != ?", 1)
+  }
+  
+  
+  private
+    def new_comment_notice
+      CommentMailer.created_notice(self).deliver
+    end
+  
+    def update_comment_notices
+      if self.published_changed? && self.published
+        self.published_at = Time.now
+        CommentMailer.published_notice(self).deliver
+      elsif self.body_changed?
+        CommentMailer.updated_body_notice(self).deliver
+      elsif self.admin_feedback_changed? && !self.published
+        self.admin_feedback_updated_at = Time.now
+        CommentMailer.updated_feedback_notice(self).deliver
+      end
+    end
   
 end

@@ -12,7 +12,8 @@
 		<tr>
 			<td>Teacher comments...</td>
 			<td>
-				No teacher comments yet.
+				<%= link_to pluralize(reg.comments.length, "comment"), registration_comments_path(reg) %>
+				<span class="detail"><%= "(last on #{format_short_date(reg.last_comment_date)})" unless reg.comments.empty? %></span>
 			</td>
 		</tr>
 		<tr>

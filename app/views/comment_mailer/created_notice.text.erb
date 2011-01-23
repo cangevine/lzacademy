@@ -1,0 +1,7 @@
+New comment submitted
+======================
+by <%= @reg.course.teacher.display_name %> for <%= @reg.student.display_name %> in <%= @reg.course.program.name %>
+----------------
+<%= simple_format(@comment.body) %>
+----------------
+Login to provide feedback
