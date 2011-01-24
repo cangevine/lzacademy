@@ -32,6 +32,7 @@ class Ability
       can :manage, Comment do |c|
         c.try(:registration).try(:course).try(:teacher) == user
       end
+      can :create, Comment
       can :manage, Teacher do |t|
         t.id == user.id
       end
