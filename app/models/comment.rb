@@ -22,11 +22,11 @@ class Comment < ActiveRecord::Base
   before_update :update_comment_notices
   
   scope :published, lambda {
-    where("published = ?", 1)
+    where("published = ?", true)
   }
   
   scope :pending, lambda {
-    where("published != ?", 1)
+    where("published = ?", false)
   }
   
   
