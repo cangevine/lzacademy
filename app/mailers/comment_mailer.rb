@@ -2,11 +2,10 @@ class CommentMailer < ActionMailer::Base
   default :from => "LinguaZone Academy <info@lzacademy.com>"
   default_url_options[:host] = "lzacademy.com"
   
-  def created_notice(comment)
+  def created_notice(comment, email)
     @comment = comment
     @reg = @comment.registration
-    mail(:to => "info@lzacademy.com", :subject => "[PENDING] Comment by #{@reg.course.teacher.display_name}")
-    mail(:to => "magistraroberts@hotmail.com", :subject => "[PENDING] Comment by #{@reg.course.teacher.display_name}")
+    mail(:to => email, :subject => "[PENDING] Comment by #{@reg.course.teacher.display_name}")
   end
   
   def updated_body_notice(comment)

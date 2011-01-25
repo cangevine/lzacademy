@@ -32,7 +32,8 @@ class Comment < ActiveRecord::Base
   
   private
     def new_comment_notice
-      CommentMailer.created_notice(self).deliver
+      CommentMailer.created_notice(self, "magistraroberts@hotmail.com").deliver
+      CommentMailer.created_notice(self, "info@lzacademy.com").deliver
     end
   
     def update_comment_notices
