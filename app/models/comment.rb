@@ -39,12 +39,15 @@ class Comment < ActiveRecord::Base
     def update_comment_notices
       if self.published_changed? && self.published
         self.published_at = Time.now
-        CommentMailer.published_notice(self).deliver
+        CommentMailer.published_notice(self, "colinangevine@gmail.com").deliver
+        CommentMailer.published_notice(self, self.registration.student.parent.email).deliver
       elsif self.body_changed?
-        CommentMailer.updated_body_notice(self).deliver
+        CommentMailer.updated_body_notice(self, "magistraroberts@hotmail.com").deliver
+        CommentMailer.updated_body_notice(self, "info@lzacademy.com").deliver
       elsif self.admin_feedback_changed? && !self.published
         self.admin_feedback_updated_at = Time.now
-        CommentMailer.updated_feedback_notice(self).deliver
+        CommentMailer.updated_feedback_notice(self, "colinangevine@gmail.com").deliver
+        CommentMailer.updated_feedback_notice(self, self.registration.course.teacher.email).deliver
       end
     end
   
