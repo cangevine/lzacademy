@@ -20,7 +20,7 @@ class CommentMailer < ActionMailer::Base
     mail(:to => email, :subject => "New feedback on your comment for #{@reg.student.display_name}")
   end
   
-  def published_notice(comment)
+  def published_notice(comment, email)
     @comment = comment
     @reg = @comment.registration
     mail(:to => email, :subject => "[LinguaZone] A new comment from #{@reg.course.teacher.display_name}")
