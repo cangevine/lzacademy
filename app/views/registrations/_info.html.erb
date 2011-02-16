@@ -17,6 +17,19 @@
 			</td>
 		</tr>
 		<tr>
+			<td>Send comment notifications to...</td>
+			<td class="notification_addresses">
+				<%= "#{reg.student.parent.display_name}" %>
+				<span class="email"><%= "#{reg.student.parent.email}" %></span><br />
+				<% reg.notification_addresses.each do |na| %>
+					<%= "#{na.display_name}" %>
+					<span class="email"><%= "#{na.email}" %></span> 
+					<%= link_to "edit", edit_registration_notification_address_path(reg, na) %><br />
+				<% end %>
+				<%= link_to "notify another email address", new_registration_notification_address_path(reg) %>
+			</td>
+		</tr>
+		<tr>
 			<td>Cancel</td>
 			<td><%= link_to "Cancel registration", reg, :class => "warning",
 						:confirm => "Are you sure you want to cancel your registration in this class?", 			

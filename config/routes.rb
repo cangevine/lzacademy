@@ -4,7 +4,7 @@ Lzacademy::Application.routes.draw do
 
   devise_for :parents
 
-  resources :registrations, :courses, :locations, :programs, :session_terms, :teachers, :parents, :students, :emergency_forms, :comments
+  resources :registrations, :courses, :locations, :programs, :session_terms, :teachers, :parents, :students, :emergency_forms
   
   resources :parents do
     resources :students
@@ -17,6 +17,7 @@ Lzacademy::Application.routes.draw do
   
   resources :registrations do
     resources :comments
+    resources :notification_addresses
   end
   
   root :to => "about#index"

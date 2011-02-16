@@ -115,6 +115,6 @@ $(function() {
 	</tr>
 	<tr>
 		<td>Your permission to use pictures and video in LinguaZone advertising materials</td>
-		<td><%= @emergency_form.advertisement_permission %></td>
+		<td><%= (@emergency_form.advertisement_permission) ? "Yes, I give my permission" : "No, I do not give my permission" %></td>
 	</tr>
 </table>

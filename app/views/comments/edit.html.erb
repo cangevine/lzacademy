@@ -4,6 +4,6 @@
 
 <h1>Edit comment</h1>
 <p>for <%= @registration.student.display_name %> in <%= @registration.course.program.name %></p>
-<%= semantic_form_for @comment do |f| %>
+<%= semantic_form_for [@registration, @comment] do |f| %>
 	<%= render :partial => "form", :locals => { :f => f, :reg => @registration, :admin => true } %>
 <% end %>

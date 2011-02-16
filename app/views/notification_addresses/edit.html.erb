@@ -1,0 +1,7 @@
+<h1>Notification address:</h1>
+
+<%= render :partial => "form" %>
+
+<br />
+<p>or <%= link_to "delete this notification address", registration_notification_address_path(@registration, @notification_address),
+ 				:method => "DELETE", :class => "warning" %></p>

@@ -17,6 +17,7 @@
 class Student < ActiveRecord::Base
   belongs_to :parent
   has_many :registrations
+  has_many :courses, :through => :registrations
   has_one :emergency_form
   
   attr_accessible :first_name, :last_name, :nickname, :birthday, :shirt_size, :parent_id

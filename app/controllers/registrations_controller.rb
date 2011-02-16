@@ -49,6 +49,7 @@ class RegistrationsController < ApplicationController
 
   def destroy
     RegistrationMailer.registration_canceled(@registration).deliver
+    #TODO: Move the mailer logic to the model
     @registration.destroy
     flash[:notice] = "The registration has been cancelled."
     respond_with @registration, :location => :back

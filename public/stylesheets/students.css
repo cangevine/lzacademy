@@ -32,3 +32,8 @@ table.required_forms td a span.edit {
 	font-size: .5em;
 	display: block;
 }
+
+td.notification_addresses span.email {
+	color: #666;
+	font-style: italic;
+}

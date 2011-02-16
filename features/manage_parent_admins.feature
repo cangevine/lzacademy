@@ -2,62 +2,48 @@ Feature: Parents manage student info
 	In order manage student info and registrations
 	As a parent
 	I want to manage my data
-  	
+  
+	@javascript
 	Scenario: Register new camper and new parent
 		Given I am on the new parent page
-		
-		And I fill in "First name" with "Joe" within the student info section
-		And I fill in "Last name" with "Student" within the student info section
-		And I select "1999" from "Year" within the student info section
-		And I select "March" from "Month" within the student info section
-		And I select "13" from "Day" within the student info section
-		And I fill in "First name" with "Suzy" within the parent info section
-		And I fill in "Last name" with "Parent" within the parent info section
-		And I fill in "Address" with "123 Street Rd" within the parent info section
-		And I fill in "City" with "Cityville" within the parent info section
-		And I fill in "Zip" with "12345" within the parent info section
-		And I fill in "Email" with "suzy@example.com" within the parent info section
-		And I fill in "Home phone" with "555-555-5555" within the parent info section
-		And I fill in "Cell phone" with "123-555-6789" within the parent info section
-		And I press "Save and continue" within the body
-		
-		Then I should see "Information saved successfully" within the success flash
-		And I should see "Suzy" within the body
-		And I should see "Joe" within the body
+		When I fill in student info for "Joe"
+			And I fill in parent info for "Suzy"
+			And I press "Save and continue"
+		Then I should see "successfully"
+			And I should see "Suzy"
+			And I should see "Joe"
 
 	@javascript
-	Scenario: Register two new campers and one new parent
+	Scenario: Register two new campers and new parent
 		Given I am on the new parent page
+		When I fill in student info for "Joe"
+			And I follow "Add a student"
+			And I fill in student info for "Steve"
+			And I fill in parent info for "Suzy"
+			And I press "Save and continue"
+		Then I should see "successfully"
+			And I should see "Suzy"
+			And I should see "Steve"
+			And I should see "Joe"
 
-		And I fill in "First name" with "Joe" within the student info section
-		And I fill in "Last name" with "Student" within the student info section
-		And I select "1999" from "Year" within the student info section
-		And I select "March" from "Month" within the student info section
-		And I select "13" from "Day" within the student info section
-		
-		And I click "Add a student" within the body
-		And I fill in "First name" with "Bobby" within the student info section
-		
-		And I fill in "First name" with "Suzy" within the parent info section
-		And I fill in "Last name" with "Parent" within the parent info section
-		And I fill in "Address" with "123 Street Rd" within the parent info section
-		And I fill in "City" with "Cityville" within the parent info section
-		And I fill in "Zip" with "12345" within the parent info section
-		And I fill in "Email" with "suzy@example.com" within the parent info section
-		And I fill in "Home phone" with "555-555-5555" within the parent info section
-		And I fill in "Cell phone" with "123-555-6789" within the parent info section
-		And I press "Save and continue" within the body
-
-		Then I should see "Information saved successfully" within the success flash
-		And I should see "Suzy" within the body
-		And I should see "Joe" within the body
+	
+	Scenario Outline: Login as an existing parent
+	  Given 1 parent
+	  When I go to the parent sign in page
+	  And I fill in "Email" with <email>
+	  And I fill in "Password" with <password>
+	  And I press "Sign in"
+	  Then I should see <feedback>
+	  
+	  Examples:
+	    | email | password | feedback |
+      | "parent@example.com" | "password" | "Signed in successfully" |
+      | "parent@example.com" | "fail"     | "Invalid"                |	
 	
 	Scenario: Edit parent information
-		Given I am on the 1st parent page
-		When I follow "edit" within ".parent_info"
-		Then I should be on the edit 1st parent page
-	
-	Scenario: Edit student information
-		Given I am on the 1st parent page
-		When I follow "edit" within ".students_info"
-		Then I should be on the edit 1st student page
+		Given 1 parent
+		And I am logged in as that parent
+		And I am on that parent's edit page
+		When I fill in "First name" with "Julie" 
+		And I press "Update"
+		Then I should see "Julie"

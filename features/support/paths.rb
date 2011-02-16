@@ -18,8 +18,15 @@ module NavigationHelpers
       edit_student_path(Student.find($1))
     when /the (\d+)(?:st|nd|rd|th) teacher page/
       teacher_path(Teacher.find($1))
-    
-
+    when /that student's teacher's page/
+      teacher_path(@registered_student.courses.first.teacher)
+    when /the teacher sign in page/
+      new_teacher_session_path
+    when /the parent sign in page/
+      new_parent_session_path
+    when /that parent's edit page/
+      edit_parent_path(@parent)
+      
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

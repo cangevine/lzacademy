@@ -1,0 +1,11 @@
+<% content_for :head do %>
+<%= formtastic_stylesheet_link_tag %>
+<% end %>
+
+<%= semantic_form_for [@registration, @notification_address] do |f| %>
+	<%= f.inputs :first_name, :last_name, :email %>
+	<%= f.input :registration_id, :as => :hidden %>
+	<%= f.buttons do %>
+		<%= f.commit_button %>
+	<% end %>
+<% end %>

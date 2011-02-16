@@ -14,10 +14,10 @@
 
 class Registration < ActiveRecord::Base
   belongs_to :student
-  belongs_to :teacher
   belongs_to :course
   
   has_many :comments
+  has_many :notification_addresses
   
   def remaining_balance
     if self.balance.nil?
@@ -32,6 +32,10 @@ class Registration < ActiveRecord::Base
       c = self.comments.last
       c.updated_at
     end
+  end
+  
+  def all_notification_addresses
+    [self.student.parent.email]
   end
   
 end

@@ -24,6 +24,6 @@ class SessionTerm < ActiveRecord::Base
   }
   
   def date_range
-    self.start_date.strftime('%D') + ' - ' + self.end_date.strftime('%D')
+    "#{self.start_date.strftime('%D')} - #{self.end_date.strftime('%D')}"
   end
 end

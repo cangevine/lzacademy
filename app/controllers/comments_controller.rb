@@ -29,13 +29,15 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @registration = Registration.find(params[:comment][:registration_id])
     @comment = Comment.new(params[:comment])
     if @comment.save
       flash[:success] = "New comment saved successfully."
+      respond_with @comment, :location => teacher_path(@comment.registration.course.teacher)
     else
       flash[:alert] = "Could not save the new comment."
+      respond_with @comment, :location => new_registration_comment_path(@registration, @comment)
     end
-    respond_with @comment, :location => teacher_path(@comment.registration.course.teacher)
   end
 
   def update
