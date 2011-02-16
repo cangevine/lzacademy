@@ -6,7 +6,7 @@ class CorrectEmergencyFormTypes < ActiveRecord::Migration
       change_column :emergency_forms, :food_restrictions, :text
       
       add_column :emergency_forms, :advertisement_permission_tmp, :boolean
-      EmergencyForm.each do |ef|
+      EmergencyForm.all.each do |ef|
         ef.advertisement_permission_tmp = advertisement_permission == 'true'
         ef.save
       end
