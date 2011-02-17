@@ -1,7 +1,12 @@
-Cancelation confirmed.
-==========================
-This email is to confirm that you have cancelled your registration in ___ with LZ Academy..
-many thanks,
+**Cancelation confirmed**
+This email confirms that you have cancelled your registration with LinguaZone Language Academy.
+
+
+**Details**
+<%= "#{@reg.student.display_name}, child of #{@reg.student.parent.display_name} <#{@reg.student.parent.email}>" %>
+<%= @reg.course.program.name %> at <%= @reg.course.location.name %> from <%= @reg.course.session_term.date_range %>
+
+All the best,
 Colin Angevine and Margaret Roberts
 Directors, LinguaZone
 215.948.2153

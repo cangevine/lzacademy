@@ -19,6 +19,9 @@ class Registration < ActiveRecord::Base
   has_many :comments
   has_many :notification_addresses
   
+  # New registrations are mailed out via the controller
+  before_destroy :notify_cancelation
+  
   def remaining_balance
     if self.balance.nil?
       "Pending"
@@ -37,5 +40,10 @@ class Registration < ActiveRecord::Base
   def all_notification_addresses
     [self.student.parent.email]
   end
+  
+  private
+    def notify_cancelation
+      RegistrationMailer.registration_canceled(self).deliver
+    end
   
 end

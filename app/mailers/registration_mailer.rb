@@ -4,11 +4,13 @@ class RegistrationMailer < ActionMailer::Base
   
   def application_received(regs)
     @regs = regs
-    mail(:to => "colinangevine@gmail.com", :subject => "Your LinguaZone Application")
+    mail(:to => @regs[0].student.parent.email, :bcc => "info@lzacademy.com, magistraroberts@hotmail.com",
+              :subject => "Your LinguaZone Application")
   end
   
   def registration_canceled(reg)
     @reg = reg
-    mail(:to => "colinangevine@gmail.com", :subject => "[CANCELLED] Update on your LinguaZone Application")
+    mail(:to => @reg.student.parent.email, :bcc => "info@lzacademy.com, magistraroberts@hotmail.com",
+              :subject => "[CANCELED] Update on your LinguaZone Application")
   end
 end

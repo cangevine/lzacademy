@@ -5,9 +5,18 @@
   </head>
   <body>
     <h1>We have received your application.</h1>
-    <p>The rest of the process takes just a few extra minutes of your time.</p>
-	<p><%= debug @regs %></p>
-	<p>To make sure we place your child in an appropriate class, please make sure to fill out this form... and have a teacher submit this form...</p>
+		<p>We just need a few more pieces of information before we are all set.</p>
+		<h3>Details</h3>
+		<% @regs.each do |r| %>
+		<p>
+			<%= "#{r.student.display_name} in #{r.course.program.name}" %><br />
+			<%= "at #{r.course.location.name} during #{r.course.session_term.date_range}" %>
+		</p>
+		<% end %>
+		<h3>Placing your child in the right class</h3>
+		<p>The application process is not finished just yet. We need your help to make sure we place your child in the appropriate class.</p>
+		<p>Please take a moment to complete the <strong>Emergency Info form</strong> and the <strong>teacher recommendation form</strong>. Both forms are located on your homepage when you login to LZAcademy.com and they should only take a few minutes to complete. If you have any questions, please let us know.</p>
+		<p>Once we have these forms on file, we will follow up with additional details regarding your application.</p>
     <p>many thanks,</p>
 	<p>Colin Angevine and Margaret Roberts</p>
 	<p>Directors, LinguaZone<br />215.948.2153<br />info@lzacademy.com</p>

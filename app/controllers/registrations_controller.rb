@@ -29,6 +29,7 @@ class RegistrationsController < ApplicationController
       
       if @success
         flash[:success] = "Registration information saved."
+        # Cannot move logic to the model because registrations can be created in a batch
         RegistrationMailer.application_received(@regs).deliver
       else
         flash[:alert] = "Could not save your registration information."
@@ -48,10 +49,8 @@ class RegistrationsController < ApplicationController
   end
 
   def destroy
-    RegistrationMailer.registration_canceled(@registration).deliver
-    #TODO: Move the mailer logic to the model
     @registration.destroy
-    flash[:notice] = "The registration has been cancelled."
+    flash[:notice] = "The registration has been canceled."
     respond_with @registration, :location => :back
   end
 

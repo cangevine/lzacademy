@@ -1,7 +1,19 @@
-We have received your application.
-==================================
-The rest of the process takes just a few extra minutes of your time.
-To make sure we place your child in an appropriate class, please make sure to fill out this form... and have a teacher submit this form...
+**We have received your application.**
+We just need a few more pieces of information before we are all set.
+
+=================================
+
+**Details**
+<% @regs.each do |r| %>
+	<%= "#{r.student.display_name} in #{r.course.program.name}" %>
+	<%= "at #{r.course.location.name} during #{r.course.session_term.date_range}" %>
+<% end %>
+
+**Placing your child in the right class**
+The application process is not finished just yet. We need your help to make sure we place your child in the appropriate classes.
+Please take a moment to complete the _Emergency Info form_ and the _teacher recommendation form_. Both forms are located on your homepage when you login to LZAcademy.com, and they should only take a few minutes to complete. If you have any questions, please let us know.
+
+Once we have these forms on file, we will follow up with additional details regarding your application.
 many thanks,
 Colin Angevine and Margaret Roberts
 Directors, LinguaZone
