@@ -1,6 +1,6 @@
 class RegistrationMailer < ActionMailer::Base
   default :from => "LinguaZone Academy <info@lzacademy.com>"
-  default :bcc => ["info@lzacademy.com", "magistraroberts@hotmail.com"]
+  default :cc => ["colinangevine@gmail.com", "magistraroberts@hotmail.com"]
   default_url_options[:host] = "lzacademy.com"
   
   def application_received(regs)

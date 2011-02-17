@@ -1,8 +1,7 @@
-Cancelation confirmed.
-==========================
-This email is to confirm that you have cancelled your registration in ___ with LZ Academy..
-many thanks,
-Colin Angevine and Margaret Roberts
-Directors, LinguaZone
-215.948.2153
-info@lzacademy.com
+Updated comment
+================
+by <%= @reg.course.teacher.display_name %> for <%= @reg.student.display_name %> in <%= @reg.course.program.name %>
+----------------
+<%= simple_format(@comment.body) %>
+----------------
+<%= link_to "Write feedback or publish.", edit_registration_comment_url(@reg, @comment) %>
