@@ -8,13 +8,15 @@
     <p>This email confirms that you have cancelled your registration with LinguaZone Language Academy.</p>
 		<h3>Details</h3>
 		<p>
-			<%= "#{@reg.student.display_name}, child of #{@reg.student.parent.display_name} <#{@reg.student.parent.email}>".html_safe %>
+			<%= "#{@reg.student.display_name}, child of #{@reg.student.parent.display_name} (#{@reg.student.parent.email})" %>
 		</p>
 		<p>
 			<%= @reg.course.program.name %> at <%= @reg.course.location.name %> from <%= @reg.course.session_term.date_range %>.
 		</p>
-    <p>All the best,</p>
-	<p>Colin Angevine and Margaret Roberts</p>
-	<p>Directors, LinguaZone<br />215.948.2153<br />info@lzacademy.com</p>
+    <p>
+			All the best,<br />
+			Colin Angevine and Margaret Roberts
+		</p>
+		<p>Directors, LinguaZone<br />215.948.2153<br />info@lzacademy.com</p>
   </body>
 </html>
