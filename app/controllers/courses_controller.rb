@@ -5,12 +5,12 @@ class CoursesController < ApplicationController
   def index
     @school_new_eagle = Course.school(2011).all
     
-    @summer_ea_1 = Course.older.camp(2011).during("Session 1").all
-    @summer_ea_2 = Course.older.camp(2011).during("Session 2").all
+    @summer_ea_1 = Course.older.camp(2011).during("Session 1").order("programs.language ASC").all
+    @summer_ea_2 = Course.older.camp(2011).during("Session 2").order("programs.language ASC").all
     
-    @summer_haverford_1 = Course.younger.camp(2011).during("Session 1").all
-    @summer_haverford_2 = Course.younger.camp(2011).during("Session 2").all
-    respond_with @winter_new_eagle
+    @summer_haverford_1 = Course.younger.camp(2011).during("Session 1").order("programs.language ASC").all
+    @summer_haverford_2 = Course.younger.camp(2011).during("Session 2").order("programs.language ASC").all
+    respond_with @winter_new_eagle, @summer_ea_1, @summer_ea_2, @summer_haverford_1, @summer_haverford_2
   end
 
   def show

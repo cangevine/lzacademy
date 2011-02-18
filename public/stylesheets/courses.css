@@ -14,23 +14,10 @@ li.summary_empty, li.summary_active, li.summary_confirmed, li.summary_full {
 	border: 1px solid #CCC;
 	list-style-type: none;
 }
-
-li.summary_empty {
-	background: url('../images/courses/status_empty.jpg') no-repeat;
-}
-
-li.summary_active {
-	background: url('../images/courses/status_active.jpg') no-repeat;
-}
-
-li.summary_confirmed {
-	background: url('../images/courses/status_confirmed.jpg') no-repeat;
-}
-
-li.summary_full {
-	background: url('../images/courses/status_full.jpg') no-repeat;
-}
-
+li.summary_empty { background: url('../images/courses/status_empty.jpg') no-repeat; }
+li.summary_active { background: url('../images/courses/status_active.jpg') no-repeat; }
+li.summary_confirmed { background: url('../images/courses/status_confirmed.jpg') no-repeat; }
+li.summary_full { background: url('../images/courses/status_full.jpg') no-repeat; }
 
 li.summary_empty span.details, li.summary_active span.details, li.summary_confirmed span.details, li.summary_full span.details {
 	font-size: .85em;
