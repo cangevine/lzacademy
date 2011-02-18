@@ -14,11 +14,11 @@
 		<% else %>
 			<% if comment.body.length > 300 %>
 				<%= simple_format(truncate(comment.body, :length => 300, :separator => " ")) %> 
-				<p><%= link_to 'Continue reading comment &rarr;'.html_safe, registration_comment_path(registration, comment) %></p>
+				<p><%= link_to 'Continue reading comment &rarr;'.html_safe, registration_comment_path(comment.registration, comment) %></p>
 			<% else %>
 				<%= simple_format(comment.body) %>
 				<% if can?(:edit, comment) && pending %>
-					<p><%= link_to 'Continue reading comment &rarr;'.html_safe, registration_comment_path(registration, comment) %></p>
+					<p><%= link_to 'Continue reading comment &rarr;'.html_safe, registration_comment_path(comment.registration, comment) %></p>
 				<% end %>
 			<% end %>
 		<% end %>

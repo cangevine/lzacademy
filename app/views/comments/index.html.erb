@@ -10,27 +10,39 @@ $(function() {
 })
 <% end %>
 
-<h1>Notes from the teacher</h1>
-<% if can?(:create, Comment) %>
-	<%= link_to "Write a new comment", new_registration_comment_path(@registration), :class => "write_new_link float_right" %>
-<% end %>
-<p>for <%= @registration.student.display_name %> in <%= @registration.course.program.name %></p>
+<% if @registration.nil? %>
+	<% if @pending_comments.empty? %>
+		<p>There are no pending comments! We're all caught up.</p>
+		<p>Read published comments through the <%= link_to "students", students_path %> or <%= link_to "teachers", teachers_path %> links.</p>
+	<% else %>
+		<div id="pending_comments" class="ui-corner-all">
+			<h2>Currently pending</h2>
+			<%= render :partial => "info", :collection => @pending_comments, :as => :comment, 
+							:locals => { :pending => true } %>
+		</div>
+	<% end %>
 
-<% if can?(:create, Comment) && !@pending_comments.empty? %>
-	<div id="pending_comments" class="ui-corner-all">
-		<h2>Currently pending</h2>
-		<%= render :partial => "info", :collection => @pending_comments, :as => :comment, 
-						:locals => { :pending => true, :registration => @registration } %>
-	</div>
-<% end %>
-
-
-<% if @published_comments.empty? %>
-	<p><%= @registration.student.display_name %> does not have any comments for this class yet.</p>
 <% else %>
-	<div id="published_comments" class="ui-corner-all">
-		<h2>Comments</h2>
-		<%= render :partial => "info", :collection => @published_comments, :as => :comment, 
-					:locals => { :pending => false, :registration => @registration } %>
-	</div>
+	<h1>Notes from the teacher</h1>
+	<% if can?(:create, Comment) %>
+		<%= link_to "Write a new comment", new_registration_comment_path(@registration), :class => "write_new_link float_right" %>
+	<% end %>
+	<p>for <%= @registration.student.display_name %> in <%= @registration.course.program.name %></p>
+
+	<% if can?(:create, Comment) && !@pending_comments.empty? %>
+		<div id="pending_comments" class="ui-corner-all">
+			<h2>Currently pending</h2>
+			<%= render :partial => "info", :collection => @pending_comments, :as => :comment, :locals => { :pending => true } %>
+		</div>
+	<% end %>
+
+
+	<% if @published_comments.empty? %>
+		<p><%= @registration.student.display_name %> does not have any comments for this class yet.</p>
+	<% else %>
+		<div id="published_comments" class="ui-corner-all">
+			<h2>Comments</h2>
+			<%= render :partial => "info", :collection => @published_comments, :as => :comment, :locals => { :pending => false } %>
+		</div>
+	<% end %>
 <% end %>
