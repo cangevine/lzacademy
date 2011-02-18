@@ -20,7 +20,7 @@ class SessionTerm < ActiveRecord::Base
   }
   
   scope :school_year, lambda { |year|
-    where("start_date >= ? AND end_date <= ?", String(year)+"-09-01 00:00:00", String((year + 1))+"-07-01 00:00:00")
+    where("start_date >= ? AND end_date <= ?", String((year - 1))+"-09-01 00:00:00", String(year)+"-07-01 00:00:00")
   }
   
   def date_range

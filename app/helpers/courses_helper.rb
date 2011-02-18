@@ -3,9 +3,9 @@ module CoursesHelper
     case course.registrations.length
     when 0
       "empty"
-    when 1..3
+    when 1, 2
       "active"
-    when 4..10
+    when 3..10
       "confirmed"
     else
       "full"
