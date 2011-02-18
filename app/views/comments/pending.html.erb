@@ -1,0 +1,10 @@
+<% if @pending_comments.empty? %>
+	<p>There are no pending comments! We're all caught up.</p>
+	<p>Read published comments through the <%= link_to "students", students_path %> or <%= link_to "teachers", teachers_path %> links.</p>
+<% else %>
+	<div id="pending_comments" class="ui-corner-all">
+		<h2>Currently pending</h2>
+		<%= render :partial => "info", :collection => @pending_comments, :as => :comment, 
+						:locals => { :pending => true } %>
+	</div>
+<% end %>

@@ -3,14 +3,14 @@ class CommentsController < ApplicationController
   load_and_authorize_resource
   
   def index
-    if params[:registration_id]
-      @registration = Registration.find(params[:registration_id])
-      @published_comments = @registration.comments.published.order("published_at DESC")
-      @pending_comments = @registration.comments.pending.order("updated_at DESC")
-    else
-      @pending_comments = Comment.pending.order("updated_at DESC").all
-    end
+    @registration = Registration.find(params[:registration_id])
+    @published_comments = @registration.comments.published.order("published_at DESC")
+    @pending_comments = @registration.comments.pending.order("updated_at DESC")
     respond_with @published_comments, @pending_comments
+  end
+  
+  def pending
+    @pending_comments = Comment.pending.order("updated_at DESC").all
   end
 
   def show
