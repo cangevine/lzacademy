@@ -1,0 +1,4 @@
+<li class="summary_<%= course_enrollment_status(course) %> ui-corner-all">
+	<%= link_to "#{course.program.name} with #{course.teacher.display_name}", course_path(course) %><br />
+	<span class="details">at <%= course.location.name %> from <%= course.session_term.date_range %></span>
+</li>

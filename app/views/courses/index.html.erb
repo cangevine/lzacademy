@@ -1,24 +1,28 @@
+<% stylesheet "courses" %>
+
 <h1>All courses offered at LinguaZone Academy</h1>
 
-<table>
-	<tr>
-		<th>ID</th>
-		<th>Dates</th>
-		<th>Program</th>
-		<th>Location</th>
-		<th>Teacher</th>
-		<th></th>
-	</tr>
-	<% @courses.each do |c| %>
-		<tr>
-			<td><%= link_to c.id, course_path(c) %></td>
-			<td><%= c.session_term.date_range %></td>
-			<td><%= link_to c.program.name, program_path(c.program) %></td>
-			<td><%= link_to c.location.name, location_path(c.location) %></td>
-			<td><%= link_to c.teacher.display_name, teacher_path(c.teacher) %></td>
-			<td><%= link_to "Edit", edit_course_path(c) %></td>
-		</tr>
-	<% end %>
-</table>
+<h2>After-school at New Eagle</h2>
+<ul class="course_listing">
+	<%= render :partial => "summary", :collection => @school_new_eagle, :as => :course %>
+</ul>
+
+<h2>Ages 4 - 10</h2>
+<ul class="course_listing session_1">
+	<%= render :partial => "summary", :collection => @summer_haverford_1, :as => :course %>
+</ul>
+<ul class="course_listing session_2">
+	<%= render :partial => "summary", :collection => @summer_haverford_2, :as => :course %>
+</ul>
+<br class="clearFloat" />
+
+<h2>Ages 11 - 17</h2>
+<ul class="course_listing session_1">
+	<%= render :partial => "summary", :collection => @summer_ea_1, :as => :course %>
+</ul>
+<ul class="course_listing session_2">
+	<%= render :partial => "summary", :collection => @summer_ea_2, :as => :course %>
+</ul>
+<br class="clearFloat" />
 
 <p><%= link_to "Add a new course", new_course_path %></p>

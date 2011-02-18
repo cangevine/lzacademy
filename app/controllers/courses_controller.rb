@@ -3,8 +3,14 @@ class CoursesController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @courses = Course.all
-    respond_with @courses
+    @school_new_eagle = Course.school(2011)
+    
+    @summer_ea_1 = Course.older.camp(2011).during("Session 1").all
+    @summer_ea_2 = Course.older.camp(2011).during("Session 2").all
+    
+    @summer_haverford_1 = Course.younger.camp(2011).during("Session 1").all
+    @summer_haverford_2 = Course.younger.camp(2011).during("Session 2").all
+    respond_with @winter_new_eagle
   end
 
   def show

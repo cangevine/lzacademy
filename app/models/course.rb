@@ -36,6 +36,16 @@ class Course < ActiveRecord::Base
     joins(:session_term, :program) & SessionTerm.school_year(year)
   }
   
+  scope :at, lambda { |loc|
+    joins(:location).
+    where("locations.name = ?", loc)
+  }
+  
+  scope :during, lambda { |sess|
+    joins(:session_term).
+    where("session_terms.name = ?", sess)
+  }
+  
   scope :younger, lambda {
     where("max_age <= ?", 10)
   }
