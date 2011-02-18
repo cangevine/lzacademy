@@ -23,7 +23,7 @@ Lzacademy::Application.routes.draw do
   root :to => "about#index"
   
   match "contact" => "about#contact"
-  match "pending_comments" => "comments#pending"
+  match "comments/pending" => "comments#pending", :as => :pending_comments
   
   get "school/locations"
   get "school/schedule"
