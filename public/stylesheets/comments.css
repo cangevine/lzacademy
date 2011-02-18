@@ -56,3 +56,11 @@ div#pending_comments {
 	margin: 25px 0px;
 }
 
+div#admin_no_pending_comments {
+	width: 75%;
+	margin: 10px auto;
+	padding: 10px;
+	text-align: center;
+	border: 2px solid #99c5ff;
+	background-color: #d7e6ff;
+}

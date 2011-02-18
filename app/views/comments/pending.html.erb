@@ -1,8 +1,9 @@
 <% stylesheet 'comments' %>
 
 <% if @pending_comments.empty? %>
-	<p>There are no pending comments! We're all caught up.</p>
-	<p>Read published comments through the <%= link_to "students", students_path %> or <%= link_to "teachers", teachers_path %> links.</p>
+	<div id="admin_no_pending_comments" class="ui-corner-all">
+		<p>There are <strong>no</strong> pending comments! We are all caught up.</p>
+	</div>
 <% else %>
 	<div id="pending_comments" class="ui-corner-all">
 		<h2>Currently pending</h2>
