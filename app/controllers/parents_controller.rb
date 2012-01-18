@@ -13,8 +13,8 @@ class ParentsController < ApplicationController
   end
 
   def new
-    @young_camp_courses = Course.camp(2011).younger.all
-    @old_camp_courses = Course.camp(2011).older.all
+    @young_camp_courses = Course.camp(2012).younger.all
+    @old_camp_courses = Course.camp(2012).older.all
     
     @parent = Parent.new
     @parent.students.build

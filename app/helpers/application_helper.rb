@@ -105,9 +105,9 @@ module ApplicationHelper
           concat(link_to (image_tag "info.jpg", :alt => "Learn more"), program_path(c.program))
           if show_schedule
             concat(content_tag :span, "#{c.schedule_details}", :class => "course_details")
-          else
-            concat(content_tag :span, "at #{c.location.name}  $#{c.cost}", :class => "course_details")
           end
+          #concat(content_tag :span, "at #{c.location.name}  $#{c.cost}", :class => "course_details")
+          #TODO: Keep some info here?
         end
         na = false
       end

@@ -54,6 +54,10 @@ class Course < ActiveRecord::Base
     where("min_age > ?", 10)
   }
   
+  scope :active, lambda {
+    where("end_date > ")
+  }
+  
   def schedule_details
     return "#{self.days_of_week} @ #{self.time_range}"
   end

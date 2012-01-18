@@ -28,20 +28,9 @@ $(document).ready(function() {
 
 
 <h1>Photo and Video Gallery</h1>
-
-<p>Take a look at some memorable highlights from the past few years of LinguaZone Language Camp.</p>
+<p>What do we mean by engaging, activity-based learning? Take a look at some memorable highlights from the past few years of LinguaZone Language Camp.</p>
 
 <div id="gallery">
-	<h2>Photos</h2>
-	<p>What do we mean by engaging, activity-based learning? Take a look!</p>
-	<% for i in 1..48 do %>
-		<% if i != 5 && i != 15 && i != 25 %>
-			<a class="galleryView" rel="lzGallery" href="/images/about/gallery/fullsize/<%= i %>.jpg">
-				<img src="/images/about/gallery/thumbs/<%= i %>-thumb.jpg" alt=""/>
-			</a>
-		<% end %>
-	<% end %>
-	
 	<h2>Videos</h2>
 	<p>Check out videos made by the campers</p>
 	<a class="fancyYoutube" href="http://www.youtube.com/v/BjytDUB-nZc" title="Cooking show with food!">
@@ -50,11 +39,32 @@ $(document).ready(function() {
 	<a class="fancyYoutube" href="http://www.youtube.com/v/-AZF3L4pExY" title="LinguaZone a nuit">
 		<img src="/images/about/gallery/thumbs/vid-2-thumb.jpg" alt=""/>
 	</a>
-	<a class="fancyYoutube" href="http://www.youtube.com/v/m2duYe3Y0NQ" title="LinguaZone a nuit">
+	<a class="fancyYoutube" href="http://www.youtube.com/v/m2duYe3Y0NQ" title="Don Quixote">
 		<img src="/images/about/gallery/thumbs/vid-3-thumb.jpg" alt=""/>
 	</a>
-	<a class="fancyYoutube" href="http://www.youtube.com/v/l_q5tcL5p3c" title="LinguaZone a nuit">
+	<a class="fancyYoutube" href="http://www.youtube.com/v/l_q5tcL5p3c" title="Daphne et Apollo">
 		<img src="/images/about/gallery/thumbs/vid-4-thumb.jpg" alt=""/>
 	</a>
+	<a class="fancyYoutube" href="http://www.youtube.com/v/oqmTEl8BSuI" title="Harry Potter">
+		<img src="/images/about/gallery/thumbs/vid-5-thumb.jpg" alt=""/>
+	</a>
+	<a class="fancyYoutube" href="http://www.youtube.com/v/esY0kaTRR4k" title="Watching TV at LZ Camp">
+		<img src="/images/about/gallery/thumbs/vid-6-thumb.jpg" alt=""/>
+	</a>
+	<a class="fancyYoutube" href="http://www.youtube.com/v/w8SlkdNz_I0" title="Alice in Wonderland">
+		<img src="/images/about/gallery/thumbs/vid-7-thumb.jpg" alt=""/>
+	</a>
+	<a class="fancyYoutube" href="http://www.youtube.com/v/ZhL3mXQ105Q" title="Rana Cannoli">
+		<img src="/images/about/gallery/thumbs/vid-8-thumb.jpg" alt=""/>
+	</a>
+	
+	<h2>Photos</h2>
+	<% for i in 1..48 do %>
+		<% if i != 5 && i != 15 && i != 25 %>
+			<a class="galleryView" rel="lzGallery" href="/images/about/gallery/fullsize/<%= i %>.jpg">
+				<img src="/images/about/gallery/thumbs/<%= i %>-thumb.jpg" alt=""/>
+			</a>
+		<% end %>
+	<% end %>
 </div>
 <br class="clearFloat" />

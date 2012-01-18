@@ -3,14 +3,12 @@ class CoursesController < ApplicationController
   load_and_authorize_resource
   
   def index
-    @school_new_eagle = Course.school(2011).all
+    @summer_fcs_young_1 = Course.younger.camp(2012).during("Session 1").order("programs.language ASC").all
+    @summer_fcs_young_2 = Course.younger.camp(2012).during("Session 12").order("programs.language ASC").all
+    @summer_fcs_old_1 = Course.older.camp(2012).during("Session 1").order("programs.language ASC").all
+    @summer_fcs_old_2 = Course.older.camp(2012).during("Session 2").order("programs.language ASC").all
     
-    @summer_ea_1 = Course.older.camp(2011).during("Session 1").order("programs.language ASC").all
-    @summer_ea_2 = Course.older.camp(2011).during("Session 2").order("programs.language ASC").all
-    
-    @summer_haverford_1 = Course.younger.camp(2011).during("Session 1").order("programs.language ASC").all
-    @summer_haverford_2 = Course.younger.camp(2011).during("Session 2").order("programs.language ASC").all
-    respond_with @winter_new_eagle, @summer_ea_1, @summer_ea_2, @summer_haverford_1, @summer_haverford_2
+    respond_with @summer_fcs_young, @summer_fcs_old
   end
 
   def show

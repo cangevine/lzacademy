@@ -3,42 +3,49 @@
 $(function() {
 	$(".map").hide();
 	
-	$("#view_map_haverford").click(function() {
-		$("#map_haverford").show();
-	});
-	$("#view_map_ea").click(function() {
-		$("#map_ea").show();
+	$("#view_map_fcs").click(function() {
+		$("#map_fcs").show();
 	});
 })
 <% end %>
 
 <%= render :partial => "layouts/about_nav" %>
 
-<h1>Just outside of Philadelphia</h1>
-<p>LinguaZone Language Camps run at two prestigious independent schools in Suburban Philadelphia.</p>
+<h1>Bridging city and suburb</h1>
+<p>LinguaZone Language Camp is hosted by Friends' Central School, just on the border of Philadelphia.</p>
 
 <div class="schools">
 	<div class="school">
-		<%= image_tag "camp/locations/Episcopal_logo.jpg", :class => "float_right" %>
-		<h2>The Episcopal Academy</h2>
+		<%= image_tag "camp/locations/fcs_logo.jpg", :class => "float_right" %>
+		<h2>Friends' Central School</h2>
 		<p>Programs for ages 4 - 17 from June 28 - August 5.</p>
 		<p>Languages offered: Spanish, Latin, French, German, Italian, Chinese, Modern Hebrew, Arabic, American Sign Language, Ancient Greek, Russian.</p>
-		<p>Website: <a href="http://www.episcopalacademy.org">Visit the Episcopal Academy online</a></p>
-		<p>Address: 1785 White Bishop Drive, Newtown Square, PA 19073 (<%= link_to "view map", "#", :remote => true, :id => "view_map_ea" %>)</p>
-		<div class="map" id="map_ea">
-			<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?ie=UTF8&amp;q=episcopal+academy+newtown+square+map&amp;fb=1&amp;gl=us&amp;hq=episcopal+academy+newtown+square+map&amp;hnear=episcopal+academy+newtown+square+map&amp;cid=0,0,14531512555041311557&amp;ll=40.006448,-75.422687&amp;spn=0.006295,0.006295&amp;t=h&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?ie=UTF8&amp;q=episcopal+academy+newtown+square+map&amp;fb=1&amp;gl=us&amp;hq=episcopal+academy+newtown+square+map&amp;hnear=episcopal+academy+newtown+square+map&amp;cid=0,0,14531512555041311557&amp;ll=40.006448,-75.422687&amp;spn=0.006295,0.006295&amp;t=h&amp;iwloc=A&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+		<p>Visit <a href="http://www.friendscentral.org">Friends' Central School</a> online<br />
+		1101 City Avenue, Wynnewood PA 19096 (<%= link_to "view map", "#", :remote => true, :id => "view_map_fcs" %>)</p>
+		<div class="map" id="map_fcs">
+			<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?q=1101+city+ave,+wynnewood+pa+19096+friends'+central+school&amp;hl=en&amp;ie=UTF8&amp;view=map&amp;cid=11192193186237240078&amp;t=m&amp;vpsrc=6&amp;source=embed&amp;ll=39.991983,-75.273514&amp;spn=0.023015,0.036478&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?q=1101+city+ave,+wynnewood+pa+19096+friends'+central+school&amp;hl=en&amp;ie=UTF8&amp;view=map&amp;cid=11192193186237240078&amp;t=m&amp;vpsrc=6&amp;source=embed&amp;ll=39.991983,-75.273514&amp;spn=0.023015,0.036478&amp;z=14&amp;iwloc=A" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 		</div>
+		<%= image_tag "camp/locations/fcs.jpg" %>
+		<p>
+			Friends' Central School’s campus, set on 23 acres that bridge city and suburb, offers the	best facilities in the area. LinguaZone programs enjoy beautiful classrooms, large group rooms, and picturesque outdoors spaces. Access to educational technology is readily available, allowing us to utilize <%= link_to "LinguaZone.com", "http://www.linguazone.com" %>, our website featuring online games and audio blogs used by language teachers all over the world.
+		</p>
+		
+	</div>
+</div>
+
+<div class="schools">
+	<h1>Past host schools for LZ Camp</h1>
+	<div class="school">
+		<%= image_tag "camp/locations/Episcopal_logo.jpg", :class => "float_right" %>
+		<h2>The Episcopal Academy</h2>
+		<p>Visit the <a href="http://www.episcopalacademy.org">Episcopal Academy</a> online<br />
+		1785 White Bishop Drive, Newtown Square, PA 19073</p>
 	</div>
 
 	<div class="school">
 		<%= image_tag "camp/locations/Haverford_logo.jpg", :class => "float_right" %>
 		<h2>The Haverford School</h2>
-		<p>Programs for ages 4 - 10 from July 18 - July 29.</p>
-		<p>Language offered: Spanish.</p>
-		<p>Website: <a href="http://www.haverford.org">Visit The Haverford School online</a></p>
-		<p>Address: 450 Lancaster Avenue, Haverford, PA (<%= link_to "view map", "#", :remote => true, :id => "view_map_haverford" %>)</p>
-		<div class="map" id="map_haverford">
-			<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=the+haverford+school+map&amp;sll=40.023211,-75.418482&amp;sspn=0.044761,0.06609&amp;gl=us&amp;ie=UTF8&amp;hq=Haverford+School&amp;hnear=Haverford+School,+450+Lancaster+Ave,+Haverford,+Pennsylvania+19041-1397&amp;ll=40.014082,-75.304724&amp;spn=0.043114,0.06609&amp;t=h&amp;z=14&amp;iwloc=A&amp;cid=8778948369623611848&amp;output=embed"></iframe><br /><small><a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=the+haverford+school+map&amp;sll=40.023211,-75.418482&amp;sspn=0.044761,0.06609&amp;gl=us&amp;ie=UTF8&amp;hq=Haverford+School&amp;hnear=Haverford+School,+450+Lancaster+Ave,+Haverford,+Pennsylvania+19041-1397&amp;ll=40.014082,-75.304724&amp;spn=0.043114,0.06609&amp;t=h&amp;z=14&amp;iwloc=A&amp;cid=8778948369623611848" style="color:#0000FF;text-align:left">View Larger Map</a></small>
-		</div>
+		<p>Visit the <a href="http://www.haverford.org">Haverford School</a> online<br />
+		450 Lancaster Avenue, Haverford, PA</p>
 	</div>
 </div>

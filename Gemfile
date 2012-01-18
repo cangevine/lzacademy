@@ -23,13 +23,13 @@ gem 'formtastic'
 # gem 'aws-s3', :require => 'aws/s3'
 
 group :development, :test do
-	gem 'ruby-debug19'
+	gem 'ruby-debug'
 	gem 'fabrication'
 end
 
 group :development do
 	gem 'rspec-rails', '2.0.1'
-	gem 'annotate-models', '1.0.4'
+	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 group :test do
@@ -38,5 +38,4 @@ group :test do
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'launchy'
-	gem 'ruby-debug19'
 end

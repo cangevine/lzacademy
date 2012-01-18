@@ -33,6 +33,7 @@ Lzacademy::Application.routes.draw do
   get "camp/locations"
   get "camp/schedule"
   get "camp/typical_day"
+  get "camp/typical_session"
   get "camp/discounts"
   get "camp/register"
   

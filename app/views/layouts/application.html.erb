@@ -11,6 +11,9 @@
 	<%= javascript_include_tag "/javascripts/rails.js" %>
 	<%= csrf_meta_tag %>
 	<%= yield(:head) %>
+	<style type="text/css">
+		#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; text-align: center;}
+	</style>
 	<script type="text/javascript"><%= yield(:page_script) %></script>
 	<script type="text/javascript">
 
@@ -68,6 +71,22 @@
 		<div id="body_footer"></div>
 	</div>
 	<div id="footer">
+		<table>
+			<tr>
+				<td class="form">
+					<div id="mc_embed_signup">
+						<form action="http://LinguaZoneCamps.us1.list-manage.com/subscribe/post?u=d6a024dc4f0564c07a5b52708&amp;id=3561c4e383" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+							<label for="mce-EMAIL">Subscribe to our mailing list</label>
+							<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+						</form>
+					</div>
+				</td>
+				<td>
+					<p>Receive updates about discounts, course offerings and more! You can opt out at any time and your email address will never be shared with anyone.</p>
+				</td>
+			</tr>
+		</table>
 		<div id="animat_links">
 			<div id="prima_lingua">
 				<%= link_to image_tag("footer/prima_lingua_frog.gif"), "http://www.primalingua.net" %>
@@ -83,10 +102,10 @@
 		</div>
 		<div id="get_to_know_us">
 			<h4>GET TO KNOW US</h4>
-			<p>We love languages, games, and technology. LinguaZone.com is the way we fuse all three together and offer fun and creative ways for teachers to interact with their 21st century students. We're all about activity-based programs and engaging language learning. <%= link_to "Get in touch", contact_path %> if you're interested in learning more.</p>
+			<p>LinguaZone Language Academy offers engaging, activity-based programs to build proficiency and self-confidence in world languages and communication. Based just outside of Philadelphia, PA.<br />Contact us directly at 215.948.2153 or <%= link_to "info@lzacademy.com", "mailto:info@lzacademy.com" %>.</p>
 		</div>
 		<br class="clearFloat" />
-		<p class="copyright">&copy; Animat, LLC 2006 - 2011</p>
+		<p class="copyright">&copy; Animat, LLC 2006 - <%= Time.now.year %></p>
 	</div>
 </body>
 </html>
