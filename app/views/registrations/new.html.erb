@@ -17,11 +17,6 @@
 		<%= build_course_header_and_rows("Camps for 11 &mdash; 17 year-olds", @old_camp_courses, true, false) %>
 	</table>
 	
-	<h2>Before- and after-school at New Eagle</h2>
-	<table class="course_listings">
-		<%= build_course_header_and_rows("New Eagle Elementary", @new_eagle_courses, true, true) %>
-	</table>
-	
 	<%= f.hidden_field :student_id %>
 	<%= f.commit_button "Save and continue" %>
 <% end %>
