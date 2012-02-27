@@ -1,7 +1,7 @@
 <%= semantic_form_for @course do |f| %>
 	<%= f.inputs :program, :location, :teacher, :days_of_week, :start_time, :end_time %>
-	<%= f.input :min_age, :as => :select, :collection => (4..17).to_a %>
-	<%= f.input :max_age, :as => :select, :collection => (4..17).to_a %>
+	<%= f.input :min_age, :as => :select, :collection => (5..17).to_a %>
+	<%= f.input :max_age, :as => :select, :collection => (5..17).to_a %>
 	<%= f.input :session_term, :as => :select %>
 	<%= f.input :cost %>
 	<%= f.buttons %> or <%= link_to "cancel", courses_path %>
