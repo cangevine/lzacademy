@@ -1,4 +1,14 @@
 <% stylesheet 'about' %>
+<% stylesheet 'camera' %>
+<% content_for(:head) do %>
+<%= javascript_include_tag "camera.min.js" %>
+<script type="text/javascript">
+$(function() {
+	$("#intro_pics").camera({height: "600px", height: "430px", fx: "simpleFade", hover: false, thumbnails: true});
+	$("#intro_pics").cameraPlay();
+})
+</script>
+<% end %>
 
 <%= render :partial => "layouts/about_nav" %>
 
@@ -6,8 +16,25 @@
 
 <p>Programs for students, ages 5 - 17. Opportunities to learn world languages year-round. Try something new, advance in your school studies, or just have fun learning how to speak more fluently.</p>
 
-<div id="student_close_up">
-	<%= image_tag "about/index/student_close_up.jpg" %>
+<div style="width: 600px; margin: 0px; padding: 0px; float: right">
+	<div class="camera_wrap" id="intro_pics">
+		<div data-src="images/about/index/student_close_up.jpg"></div>
+		<div data-src="images/about/index/outdoor_bench.jpg">
+			<div class="camera_caption">Waiting for pick-up at the end of the day</div>
+		</div>
+		<div data-src="images/about/index/outdoor_soccer.jpg">
+			<div class="camera_caption">Inter-lingual soccer game during World Cup Week</div>
+		</div>
+		<div data-src="images/about/index/goody_bag.jpg">
+			<div class="camera_caption">Wrapping up the new creations of the day</div>
+		</div>
+		<div data-src="images/about/index/fashion_show.jpg">
+			<div class="camera_caption">Celebrating after a multi-lingual fashion show</div>
+		</div>
+		<div data-src="images/about/index/bucket_helmet.jpg">
+			<div class="camera_caption">The Latin students and Italian students compete for ancient and modern Rome</div>
+		</div>
+	</div>
 </div>
 
 <div id="language_list">

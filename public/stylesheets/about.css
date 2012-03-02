@@ -3,6 +3,10 @@ div#student_close_up {
 	margin: 25px auto;
 }
 
+div#focus_pics {
+	visibility: none;
+}
+
 div#language_list {
 	margin: 0px auto;
 }
