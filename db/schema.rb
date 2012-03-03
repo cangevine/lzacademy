@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110126224355) do
+ActiveRecord::Schema.define(:version => 20120303170556) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -109,6 +109,26 @@ ActiveRecord::Schema.define(:version => 20110126224355) do
     t.datetime "updated_at"
   end
 
+  create_table "recommendations", :force => true do |t|
+    t.string   "teacher_name"
+    t.string   "teacher_email"
+    t.string   "teacher_school"
+    t.string   "teacher_position"
+    t.text     "notes"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "last_emailed_at"
+    t.string   "guid"
+    t.string   "courses_taught"
+    t.string   "textbook_used"
+    t.text     "grammar_covered"
+    t.text     "summer_goals"
+    t.string   "placement_exam"
+    t.text     "placement_exam_topics"
+    t.datetime "completed_at"
+  end
+
   create_table "registrations", :force => true do |t|
     t.integer  "student_id"
     t.integer  "course_id"
@@ -148,6 +168,16 @@ ActiveRecord::Schema.define(:version => 20110126224355) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+  end
+
+  create_table "teacher_recommendations", :force => true do |t|
+    t.string   "teacher_name"
+    t.string   "teacher_email"
+    t.string   "access_token"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "student_id"
   end
 
   create_table "teachers", :force => true do |t|

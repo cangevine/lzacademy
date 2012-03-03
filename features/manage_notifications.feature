@@ -11,7 +11,6 @@ Feature: Manage family notifications
     Given I follow "notify another email address"
     When I create a new notification address
 		Then I should see "Steve Johnson"
-		And show me the page
 	
 	@javascript
 	Scenario: Delete a notification address

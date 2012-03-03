@@ -1,0 +1,19 @@
+<% content_for :head do %>
+<%= formtastic_stylesheet_link_tag %>
+<% end %>
+<%= stylesheet 'recommendations' %>
+
+<h1>Teacher recommendation form</h1>
+
+<% unless @valid_guid %>
+	<p>An email will be sent out to the teacher you name asking him or her to submit a brief form. The form will only take a few minutes to complete, but it is always useful to ask your teacher before submitting the request below. The form will help us place your camper in the appropriate class this summer.</p>
+	<%= render :partial => "form" %>
+	
+<% else %>
+	<p>Thank you, <%= "#{@recommendation.teacher_name}"%>, for entering a recommendation on behalf of <%= "#{@student.display_name}" %>. This form will be used to help us place <%= "#{@student.display_name}" %> in the appropriate class and it will be entirely confidential &mdash; the form will only be seen by LinguaZone Language Academy Faculty, never the student's family.</p>
+	
+	<h2>Recommendation for <%= "#{@student.display_name}" %></h2>
+	<p>Submitted by <%= "#{@recommendation.teacher_name} (#{@recommendation.teacher_email})" %></p>
+	<%= render :partial => "complete_form" %>
+
+<% end %>

@@ -1,0 +1,17 @@
+**Your student is requesting your support**
+Dear <%= "#{@recommendation.teacher_name}"%>,
+<%= "#{@student.parent.display_name}"%>, parent of <%= "#{@student.display_name}" %>, is asking you to fill out a quick form for <%= "#{@student.first_name}" %> to join a class with LinguaZone Language Academy. Submitting this form will only take a moment of your time.
+
+=================================
+
+Please take a moment to fill out the teacher recommendation form on <%= "#{@student.first_name}" %>'s behalf. It should only take a few minutes. The recommendation form is available online at:
+
+<%= "#{edit_student_recommendation_url(@student)}?guid=#{@recommendation.guid}" %>
+
+The form will be used in order to place <%= "#{@student.first_name}"%> in the appropriate language class. Your submission in the form will only be available to LinguaZone faculty.
+
+many thanks,
+Colin Angevine and Margaret Roberts
+Directors, LinguaZone
+215.948.2153
+info@lzacademy.com

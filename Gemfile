@@ -10,18 +10,6 @@ gem 'devise'
 gem 'cancan'
 gem 'formtastic'
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-
-# Bundle the extra gems:
-# gem 'aws-s3', :require => 'aws/s3'
-
 group :development, :test do
 	gem 'ruby-debug'
 	gem 'fabrication'
@@ -38,4 +26,5 @@ group :test do
 	gem 'capybara'
 	gem 'database_cleaner'
 	gem 'launchy'
+	gem 'email_spec'
 end

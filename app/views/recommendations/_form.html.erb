@@ -1,0 +1,18 @@
+<%= semantic_form_for @recommendation do |f| %>
+	<%= f.semantic_errors %>
+	<%= f.inputs do %>
+		<%= f.input :teacher_name %>
+		<%= f.input :teacher_email %>
+		<% unless @recommendation.last_emailed_at.nil? %>
+			<p class="hint">Last sent <%= format_date_time(@recommendation.last_emailed_at) %></p>
+		<% end %>
+		<%= f.hidden_field :student_id %>
+		<%= f.buttons do %>
+			<% if @recommendation.last_emailed_at.nil? %>
+				<%= f.submit "Send recommendation request" %>
+			<% else %>
+				<%= f.submit "Re-send updated recommendation request" %>
+			<% end %>
+		<% end %>
+	<% end %>
+<% end %>

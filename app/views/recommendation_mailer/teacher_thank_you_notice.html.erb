@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+		<h1>Thank you from LinguaZone Language Academy</h1>
+		<p>
+			Dear <%= "#{@recommendation.teacher_name}" %>,<br />
+			Thank you for taking the time to complete the recommendation form on behalf of <%= "#{@student.display_name}" %>. Your insight will help us place <%= "#{@student.first_name}" %> in the appropriate class this summer.
+		</p>
+
+		<p>We are looking forward to a fun, enriching summer. If you can point more students in our direction, whether they are hoping to get ahead, try something new, or brush up before the fall.</p>
+
+		<p>If you can refer 3 students to LinguaZone Language Camps, we can return the favor by offering you a premium subscription to <%= link_to "LinguaZone.com", "http://www.linguazone.com" %> for free for one year! LinguaZone.com is a website with thousands of customized, online teaching tools made by and for language teachers.</p>
+
+	<p>thank you again for your support,</p>
+	<p>Colin Angevine and Margaret Roberts</p>
+	<p>Directors, LinguaZone<br />215.948.2153<br />info@lzacademy.com</p>
+  </body>
+</html>

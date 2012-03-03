@@ -1,0 +1,29 @@
+<%= semantic_form_for @recommendation do |f| %>
+	<%= f.semantic_errors %>
+	
+	<%= f.inputs do %>
+		<%= f.hidden_field :student_id %>
+		<%= f.hidden_field :guid %>
+		<%= f.input :teacher_school, :label => "Your school" %>
+		<%= f.input :teacher_position, :label => "Your position at school" %>
+		<%= f.input :courses_taught, :label => "Course(s) you taught #{@student.first_name}" %>
+		<%= f.input :textbook_used, :label => "Textbook used with  #{@student.first_name}" %>
+		<%= f.input :grammar_covered, :label => "A brief overview of the grammar covered this year" %>
+		<%= f.input :summer_goals, :label => "Your understanding of #{@student.first_name}'s goals for this summer" %>
+	<% end %>
+	
+	<h2>If <%= "#{@student.first_name}" %> intends to advance a level at school...</h2>
+	<%= f.inputs do %>
+		<%= f.input :placement_exam, :label => "Does your school offer a placement exam at the end of the summer?" %>
+		<%= f.input :placement_exam_topics, :label => "A brief overview of the topics covered in the placement exam" %>
+	<% end %>
+	
+	<h2>And finally...</h2>
+	<%= f.inputs do %>
+		<%= f.input :notes, :label => "Is there anything else it would be useful to know when placing this student? (e.g. learning style, personality, strengths and difficulties, etc)" %>
+	<% end %>
+		
+	<%= f.buttons do %>
+		<%= f.submit "Submit your recommendation" %>
+	<% end %>
+<% end %>

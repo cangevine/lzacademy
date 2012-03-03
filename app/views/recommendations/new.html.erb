@@ -1,0 +1,9 @@
+<% stylesheet 'recommendations' %>
+<% content_for :head do %>
+<%= formtastic_stylesheet_link_tag %>
+<% end %>
+
+<h1>Teacher recommendation form</h1>
+<p>Please help us place your camper in the appropriate class. The form will take your child's teacher just a few minutes to complete.</p>
+
+<%= render :partial => "form" %>

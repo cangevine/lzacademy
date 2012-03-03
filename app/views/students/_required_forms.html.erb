@@ -1,6 +1,7 @@
 <table class="required_forms">
 	<tr>
 		<td class="complete"><%# link_to root_path do Classroom info form <span class="edit">VIEW / EDIT</span> end %></td>
+
 		<% if student.emergency_form.nil? %>
 			<td class="incomplete">
 				<%= link_to new_student_emergency_form_path(student) do %>Emergency contact form <span class="edit">COMPLETE FORM NOW</span><% end %>
@@ -10,6 +11,26 @@
 				<%= link_to student_emergency_form_path(student) do %>Emergency contact form <span class="edit">VIEW / EDIT</span><% end %>
 			</td>
 		<% end %>
+		
+		<% if student.recommendation.nil? %>
+			<td class="incomplete">
+				<%= link_to new_student_recommendation_path(student), :id => "new_recommendation" do %>
+						Recommendation form <span class="edit">COMPLETE FORM NOW</span>
+				<% end %>
+			</td>
+		<% else %>
+			<% if student.recommendation.completed %>
+				<td class="complete">
+					Recommendation form <span class="edit">COMPLETED</span>
+				</td>
+			<% else %>
+				<td class="incomplete">
+					<%= link_to edit_student_recommendation_path(student) do %>Recommendation form <span class="edit">PENDING</span><% end %>
+				</td>
+			<% end %>
+		<% end %>
+
+
 		<td class="complete"><%# link_to root_path do Teacher recommendation <span class="edit">VIEW / EDIT</span> end %></td>
 	</tr>
 </table>

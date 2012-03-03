@@ -2,7 +2,6 @@ module FabricationMethods
   def create_from_table(model_name, table, extra = {})
     fabricator_name = generate_fabricator_name(model_name)
     is_singular = (model_name.to_s.singularize == model_name.to_s) or (model_name.to_s == "notification_address")
-    puts "Is singular? :: #{is_singular} :: fabricator_name :: #{fabricator_name} :: model name :: #{model_name}"
     hashes = is_singular ? [table.rows_hash] : table.hashes
     @they = hashes.map do |hash|
       hash = hash.merge(extra).inject({}) {|h,(k,v)| h.update(k.gsub(/\W+/,'_').to_sym => v)}

@@ -1,0 +1,34 @@
+<% if can?(:create, Comment) %>
+	<h1>Recommendation form for <%= "#{@recommendation.student.display_name}" %></h1>
+	<p>Submitted on <%= format_date_with_year(@recommendation.completed_at) %></p>
+	<h2>General information</h2>
+	<p>
+		Recommended by 
+		<strong><%= "#{@recommendation.teacher_name}"%></strong>, 
+		<strong><%= "#{@recommendation.teacher_position}"%></strong>
+		at <%= "#{@recommendation.teacher_school}"%></strong>.<br />
+		Last taught student using textbook: <strong><%= "#{@recommendation.textbook_used}"%></strong>
+		in course: <strong><%= "#{@recommendation.courses_taught}" %></strong>.
+	</p>
+	<p>
+		Grammar covered:<br />
+		<strong><%= simple_format(@recommendation.grammar_covered) %></strong>
+	</p>
+	<p>Summer goals (as stated by teacher):<br />
+		<strong><%= simple_format(@recommendation.summer_goals) %></strong>
+	</p>
+	
+	<h2>Advancing a level...</h2>
+	<p>
+		Placement exam details:<br />
+		<strong><%= "#{@recommendation.placement_exam}"%></strong><br />
+		<strong><%= simple_format(@recommendation.placement_exam_topics)%></strong>
+	</p>
+	
+	<h2>Additional notes...</h2>
+	<p><strong><%= simple_format(@recommendation.notes) %></strong></p>
+		
+<% else %>
+	<h1>Teacher recommendation form</h1>
+	<p>Teacher recommendation forms are only used to help place your child in the appropriate class. Please contact us if you have any questions.</p>
+<% end %>

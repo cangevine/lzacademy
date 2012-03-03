@@ -1,0 +1,8 @@
+form.formtastic fieldset.inputs, form.formtastic fieldset.buttons {
+	border: none;
+	margin: 10px 5px;
+}
+
+form.formtastic fieldset > ol > li label {
+	width: 80%;
+}

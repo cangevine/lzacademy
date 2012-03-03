@@ -19,6 +19,7 @@ class Student < ActiveRecord::Base
   has_many :registrations
   has_many :courses, :through => :registrations
   has_one :emergency_form
+  has_one :recommendation
   
   attr_accessible :first_name, :last_name, :nickname, :birthday, :shirt_size, :parent_id
   
@@ -31,4 +32,5 @@ class Student < ActiveRecord::Base
   def age
     ((Time.now - self.birthday) / 1.year).floor
   end
+  
 end

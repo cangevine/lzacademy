@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Your student is requesting your support</h1>
+		<p>Dear <%= "#{@recommendation.teacher_name}" %>,<br />
+			<%= "#{@student.parent.display_name}"%>, parent of <%= "#{@student.display_name}" %>, is asking you to fill out a quick form for <%= "#{@student.first_name}" %> to participate in <strong>LinguaZone Language Camp</strong> this summer. The form will be used in order to place <%= "#{@student.first_name}"%> in the appropriate language class. Your submission in the form will only be available to LinguaZone faculty.</p>
+		<p><strong>
+			<%= link_to "Click here to fill out the recommendation form", 
+							"#{edit_student_recommendation_url(@student)}?guid=#{@recommendation.guid}" %>
+		</strong></p>
+		
+  <p>many thanks for your support,</p>
+	<p>Colin Angevine and Margaret Roberts</p>
+	<p>Directors, LinguaZone<br />215.948.2153<br />info@lzacademy.com</p>
+  </body>
+</html>

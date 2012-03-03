@@ -26,7 +26,6 @@ Feature: Parents manage student info
 			And I should see "Steve"
 			And I should see "Joe"
 
-	
 	Scenario Outline: Login as an existing parent
 	  Given 1 parent
 	  When I go to the parent sign in page
@@ -36,9 +35,9 @@ Feature: Parents manage student info
 	  Then I should see <feedback>
 	  
 	  Examples:
-	    | email | password | feedback |
-      | "parent@example.com" | "password" | "Signed in successfully" |
-      | "parent@example.com" | "fail"     | "Invalid"                |	
+	    | email                | password   | feedback                 |
+	    | "parent@example.com" | "password" | "Signed in successfully" |
+	    | "parent@example.com" | "fail"     | "Invalid"                |
 	
 	Scenario: Edit parent information
 		Given 1 parent
