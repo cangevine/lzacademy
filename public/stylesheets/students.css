@@ -28,7 +28,7 @@ table.required_forms td.incomplete a {
 	font-size: 1em;
 	font-weight: normal;
 }
-table.required_forms td a span.edit {
+table.required_forms td span.edit {
 	font-size: .5em;
 	display: block;
 }
