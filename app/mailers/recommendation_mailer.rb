@@ -1,7 +1,7 @@
 class RecommendationMailer < ActionMailer::Base
   default :from => "LinguaZone Academy <info@lzacademy.com>"
-#  default :bcc => ["colinangevine@gmail.com", "magistraroberts@hotmail.com"]
-  default :bcc => ["colinangevine@gmail.com"]
+  default :bcc => ["colinangevine@gmail.com", "magistraroberts@hotmail.com"]
+#  default :bcc => ["colinangevine@gmail.com"]
   default_url_options[:host] = "lzacademy.com"
   
   def teacher_request_notice(rec, stu)

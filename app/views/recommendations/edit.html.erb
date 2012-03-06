@@ -10,7 +10,7 @@
 	<%= render :partial => "form" %>
 	
 <% else %>
-	<p>Thank you, <%= "#{@recommendation.teacher_name}"%>, for entering a recommendation on behalf of <%= "#{@student.display_name}" %>. This form will be used to help us place <%= "#{@student.display_name}" %> in the appropriate class and it will be entirely confidential &mdash; the form will only be seen by LinguaZone Language Academy Faculty, never the student's family.</p>
+	<p>Thank you, <%= "#{@recommendation.teacher_name}"%>, for entering a recommendation on behalf of <%= "#{@student.display_name}" %>. This form will be used to help us place <%= "#{@student.display_name}" %> in the appropriate class and it will be entirely confidential &mdash; the form will only be seen by LinguaZone Language Academy Faculty.</p>
 	
 	<h2>Recommendation for <%= "#{@student.display_name}" %></h2>
 	<p>Submitted by <%= "#{@recommendation.teacher_name} (#{@recommendation.teacher_email})" %></p>
