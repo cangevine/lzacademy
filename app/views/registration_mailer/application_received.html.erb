@@ -4,8 +4,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>We have received your application.</h1>
-		<p>We just need a few more pieces of information before we are all set.</p>
+    <h1>Thank you! We have received your application.</h1>
 		<h3>Details</h3>
 		<% @regs.each do |r| %>
 		<p>
@@ -13,6 +12,12 @@
 			<%= "at #{r.course.location.name} during #{r.course.session_term.date_range}" %>
 		</p>
 		<% end %>
+		<h3>Next steps</h3>
+		<ul>
+			<li>Sign in to your parent account with the login you created in the application</li>
+			<li>Make sure to fill in the Emergency Info form and Teacher Recommendation form</li>
+			<li>If you are not sure about the level for your child, please contact us. We will be working hard to place each student in the appropriate class.</li>
+		</ul>
 		<h3>Placing your child in the right class</h3>
 		<p>The application process is not finished just yet. We need your help to make sure we place your child in the appropriate class.</p>
 		<p>Please take a moment to complete the <strong>Emergency Info form</strong> and the <strong>teacher recommendation form</strong>. Both forms are located on your homepage when you login to LZAcademy.com and they should only take a few minutes to complete. If you have any questions, please let us know.</p>

@@ -34,6 +34,9 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    airbrake (3.0.9)
+      activesupport
+      builder
     arel (2.0.4)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
@@ -155,6 +158,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   annotate!
   cancan
   capybara
