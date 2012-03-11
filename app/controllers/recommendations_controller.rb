@@ -44,8 +44,8 @@ class RecommendationsController < ApplicationController
   def update
     @recommendation = Recommendation.find(params[:id])
     @student = Student.find(@recommendation.student_id)
-
-    if @recommendation.guid.nil?
+    
+    if params[:recommendation][:guid].nil?
       @recommendation.last_emailed_at = Time.now
       if @recommendation.update_attributes(params[:recommendation])
         RecommendationMailer.teacher_request_notice(@recommendation, @student).deliver
