@@ -1,0 +1,20 @@
+<% stylesheet "courses" %>
+
+<h1>Course overview</h1>
+
+<h2>Ages 5 - 10</h2>
+<ul class="course_details session_1">
+	<%= render :partial => "detail_list", :collection => @summer_fcs_young_1, :as => :course %>
+</ul>
+<ul class="course_details session_2">
+	<%= render :partial => "detail_list", :collection => @summer_fcs_young_2, :as => :course %>
+</ul>
+<br class="clearFloat" />
+
+<h2>Ages 11 - 17</h2>
+<ul class="course_details session_1">
+	<%= render :partial => "detail_list", :collection => @summer_fcs_old_1, :as => :course %>
+</ul>
+<ul class="course_details session_2">
+	<%= render :partial => "detail_list", :collection => @summer_fcs_old_2, :as => :course %>
+</ul>

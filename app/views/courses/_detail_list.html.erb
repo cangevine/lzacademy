@@ -1,0 +1,8 @@
+<li class="detail_list_<%= course_enrollment_status(course) %> ui-corner-all">
+	<%= link_to course.program.name, course_path(course) %> (<%= course.registrations.length %>)<br />
+	<ul>
+		<% course.registrations.each do |r| %>
+			<li><%= "#{r.student.display_name} (#{r.student.age})" %></li>
+		<% end %>
+	</ul>
+</li>

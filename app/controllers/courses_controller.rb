@@ -7,8 +7,13 @@ class CoursesController < ApplicationController
     @summer_fcs_young_2 = Course.younger.camp(2012).during("Session 2").order("programs.language ASC").all
     @summer_fcs_old_1 = Course.older.camp(2012).during("Session 1").order("programs.language ASC").all
     @summer_fcs_old_2 = Course.older.camp(2012).during("Session 2").order("programs.language ASC").all
-    
-    respond_with @summer_fcs_young, @summer_fcs_old
+  end
+  
+  def overview
+    @summer_fcs_young_1 = Course.younger.camp(2012).during("Session 1")#.order("count(registrations) DESC").all
+    @summer_fcs_young_2 = Course.younger.camp(2012).during("Session 2")#.order("count(registrations) DESC").all
+    @summer_fcs_old_1 = Course.older.camp(2012).during("Session 1")#.order("count(registrations) DESC").all
+    @summer_fcs_old_2 = Course.older.camp(2012).during("Session 2")#.order("count(registrations) DESC").all
   end
 
   def show

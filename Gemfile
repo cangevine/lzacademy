@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 
-gem 'mysql2'
+gem 'mysql2', '< 0.3'
 gem 'devise'
 gem 'cancan'
 gem 'formtastic'
@@ -12,6 +12,7 @@ gem 'airbrake'
 group :development, :test do
 	gem 'ruby-debug'
 	gem 'fabrication'
+	gem 'taps'
 end
 
 group :development do
