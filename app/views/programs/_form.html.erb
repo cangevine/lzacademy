@@ -1,7 +1,3 @@
-<% content_for :head do %>
-<%= formtastic_stylesheet_link_tag %>
-<% end %>
-
 <%= semantic_form_for @program do |f| %>
 	<%= f.inputs :name, :language, :level, :description %>
 	<%= f.buttons do %>

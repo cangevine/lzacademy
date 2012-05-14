@@ -1,7 +1,3 @@
-<% content_for :head do %>
-<%= formtastic_stylesheet_link_tag %>
-<% end %>
-
 <h1>Edit comment</h1>
 <p>for <%= @registration.student.display_name %> in <%= @registration.course.program.name %></p>
 <%= semantic_form_for [@registration, @comment] do |f| %>

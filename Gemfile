@@ -5,7 +5,7 @@ gem 'rails', '3.0.3'
 gem 'mysql2', '< 0.3'
 gem 'devise'
 gem 'cancan'
-gem 'formtastic'
+gem 'formtastic', '2.1.0'
 
 gem 'airbrake'
 
