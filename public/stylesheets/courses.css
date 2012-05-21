@@ -26,6 +26,7 @@ li.detail_list_confirmed { background-color: #CCFCD0; }
 li.detail_list_full { background-color: #CCE4FC; }
 
 ul.course_details span.student_age {color: #999; font-size: .9em;}
+ul.course_details span.parent_name {color: #333; font-size: .6em;}
 ul.course_details span.parent_email {color: #3B6AEB; font-size: .5em;}
 
 li.summary_empty span.details, li.summary_active span.details, li.summary_confirmed span.details, li.summary_full span.details {
