@@ -2,7 +2,11 @@
 	<%= link_to course.program.name, course_path(course) %> (<%= course.registrations.length %>)<br />
 	<ul>
 		<% course.registrations.each do |r| %>
-			<li><%= "#{r.student.display_name} (#{r.student.age})" %></li>
+			<li>
+				<%= "#{r.student.display_name}" %>
+				<span class="student_age"><%= "(#{r.student.age})" %></span>
+				<span class="parent_email"><%= "#{r.student.parent.email}" %></span>
+			</li>
 		<% end %>
 	</ul>
 </li>
