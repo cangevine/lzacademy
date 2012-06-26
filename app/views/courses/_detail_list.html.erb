@@ -4,7 +4,8 @@
 		<% course.registrations.each do |r| %>
 			<li>
 				<%= "#{r.student.display_name}" %>
-				<span class="student_age"><%= "(#{r.student.age})" %></span>
+				<span class="student_age"><%= "(#{r.student.age}, #{r.student.shirt_size})" %></span>
+				<br />
 				<span class="parent_name"><%= "#{r.student.parent.display_name}"%></span>
 				<span class="parent_email"><%= "#{r.student.parent.email}" %></span>
 			</li>
