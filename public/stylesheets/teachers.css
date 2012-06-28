@@ -4,6 +4,12 @@ span.detail {
 	margin-left: 5px;
 }
 
+a.archive_toggle {
+	float: right;
+	font-size: .75em;
+	font-weight: normal;
+}
+
 table.course_listing th, table.course_listing th a {
 	color: white;
 }

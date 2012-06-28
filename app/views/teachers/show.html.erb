@@ -13,7 +13,7 @@ $(function() {
 	$(".archived").hide();
 	
 	$("a.archive_toggle").click(function() {
-		$('tbody', $(this).parent.parent).toggle("slow");
+		$('tbody', $(this).parent().parent().parent().parent()).toggle("slow");
 		return false;
 	})
 })
@@ -40,7 +40,7 @@ $(function() {
 						<span class="schedule"><%= c.session_term.date_range %></span>
 					</th>
 					<th>
-						<%= link_to "view/hide", "#", :class => "subtle archive_toggle" %>
+						<%= link_to "view / hide", "#", :class => "subtle archive_toggle" %>
 					</th>
 				</tr>
 			</thead>
@@ -53,9 +53,11 @@ $(function() {
 								<span class="detail">(<%= r.student.age %> years old)</span>
 							</td>
 							<td>
+								<span class="detail">
 								<%= if r.student.emergency_form.nil? then "Emergency form" else link_to "Emergency form", student_emergency_form_path(r.student) end %>
 								|
 								<%= if r.student.recommendation.nil? then "Recommendation" else link_to "Recommendation", student_recommendation_path(r.student) end %>
+								</span>
 							</td>
 							<td>
 								<%= link_to pluralize(r.comments.length, "comment"), registration_comments_path(r) %>
