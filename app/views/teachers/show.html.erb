@@ -9,6 +9,13 @@ $(function() {
 		}
 	})
 	$("a.edit_info").button();
+	
+	$(".archived").hide();
+	
+	$("a.archive_toggle").click(function() {
+		$('tbody', $(this).parent.parent).toggle("slow");
+		return false;
+	})
 })
 <% end %>
 
@@ -24,34 +31,41 @@ $(function() {
 
 <% unless @teacher.courses.empty? %>
 	<% @teacher.courses.each do |c| %>
-		<table class="course_listing">
-			<tr>
-				<th colspan="3">
-					<%= link_to c.program.name, program_path(c.program), :class => "subtle" %>
-					at <%= link_to c.location.name, location_path(c.location), :class => "subtle" %>
-					<span class="schedule"><%= c.session_term.date_range %></span>
-				</th>
-			</tr>
-			<% unless c.registrations.empty? %>
-				<% c.registrations.each do |r| %>
-					<tr>
-						<td>
-							<%= r.student.display_name %>
-							<span class="detail">(<%= r.student.age %> years old)</span>
-						</td>
-						<td>
-							<%= if r.student.emergency_form.nil? then "Emergency form" else link_to "Emergency form", student_emergency_form_path(r.student) end %>
-							|
-							<%= if r.student.recommendation.nil? then "Recommendation" else link_to "Recommendation", student_recommendation_path(r.student) end %>
-						</td>
-						<td>
-							<%= link_to pluralize(r.comments.length, "comment"), registration_comments_path(r) %>
-							<span class="detail"><%= "(last on #{format_short_date(r.last_comment_date)})" unless r.comments.empty? %></span>
-						</td>
-						<td align="right"><%= link_to "Write a new comment", new_registration_comment_path(r), :class => "write_new_link" %></td>
-					</tr>
+		<table id="<%= dom_id(c) %>" class="course_listing">
+			<thead>
+				<tr>
+					<th colspan="3">
+						<%= link_to c.program.name, program_path(c.program), :class => "subtle" %>
+						at <%= link_to c.location.name, location_path(c.location), :class => "subtle" %>
+						<span class="schedule"><%= c.session_term.date_range %></span>
+					</th>
+					<th>
+						<%= link_to "view/hide", "#", :class => "subtle archive_toggle" %>
+					</th>
+				</tr>
+			</thead>
+			<tbody class="<%= course_is_archived(c) %>">
+				<% unless c.registrations.empty? %>
+					<% c.registrations.each do |r| %>
+						<tr>
+							<td>
+								<%= r.student.display_name %>
+								<span class="detail">(<%= r.student.age %> years old)</span>
+							</td>
+							<td>
+								<%= if r.student.emergency_form.nil? then "Emergency form" else link_to "Emergency form", student_emergency_form_path(r.student) end %>
+								|
+								<%= if r.student.recommendation.nil? then "Recommendation" else link_to "Recommendation", student_recommendation_path(r.student) end %>
+							</td>
+							<td>
+								<%= link_to pluralize(r.comments.length, "comment"), registration_comments_path(r) %>
+								<span class="detail"><%= "(last on #{format_short_date(r.last_comment_date)})" unless r.comments.empty? %></span>
+							</td>
+							<td align="right"><%= link_to "Write a new comment", new_registration_comment_path(r), :class => "write_new_link" %></td>
+						</tr>
+					<% end %>
 				<% end %>
-			<% end %>
+			</tbody>
 		</table>
 	<% end %>
 <% end %>
