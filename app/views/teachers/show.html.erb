@@ -36,12 +36,13 @@ $(function() {
 				<% c.registrations.each do |r| %>
 					<tr>
 						<td>
-							<% if r.student.emergency_form.nil? %>
-								<%= r.student.display_name %>
-							<% else %>
-								<%= link_to r.student.display_name, student_emergency_form_path(r.student) %>
-							<% end %>
+							<%= r.student.display_name %>
 							<span class="detail">(<%= r.student.age %> years old)</span>
+						</td>
+						<td>
+							<%= if r.student.emergency_form.nil? then "Emergency form" else link_to "Emergency form", student_emergency_form_path(r.student) end %>
+							|
+							<%= if r.student.recommendation.nil? then "Recommendation" else link_to "Recommendation", student_recommendation_path(r.student) end %>
 						</td>
 						<td>
 							<%= link_to pluralize(r.comments.length, "comment"), registration_comments_path(r) %>

@@ -9,6 +9,7 @@ class TeachersController < ApplicationController
 
   def show
     @teacher = Teacher.includes(:registrations).find(params[:id])
+    @teacher.courses.sort! {|a,b| b.session_term.end_date <=> a.session_term.end_date}
     respond_with @teacher
   end
 
