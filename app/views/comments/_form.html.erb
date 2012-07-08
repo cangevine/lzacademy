@@ -7,9 +7,11 @@
 <% if admin %>
 	<h2>Admin options</h2>
 	<%= f.inputs do %>
-		<%= f.input :published, :as => :radio %>
-		<% unless @comment.published_at.nil? %>
-			<%= "Published on #{@comment.published_at}" %>
+		<% if @comment.published_at.nil? %>
+			<%= f.input :published, :label => "Publish this comment" %>
+		<% else %>
+			<%= f.input :published, :label => "This comment has already been published", :input_html => {:disabled => true} %>
+			<%= "Published on #{format_date_time(@comment.published_at)}" %>
 		<% end %>
 		<%= f.input :admin_feedback %>
 	<% end %>
