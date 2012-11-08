@@ -21,7 +21,8 @@ class CoursesController < ApplicationController
   end
 
   def new
-    @course = Course.new
+    @course = Course.new(:teacher_id => 1, :location_id => 4, :days_of_week => "Mon - Fri", 
+                          :start_time => "8:30", :end_time => "3:30", :cost => "1425")
     respond_with @course
   end
 
