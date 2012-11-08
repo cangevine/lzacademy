@@ -7,8 +7,8 @@ class RegistrationsController < ApplicationController
   end
 
   def new
-    @young_camp_courses = Course.camp(2012).younger.all
-    @old_camp_courses = Course.camp(2012).older.all
+    @young_camp_courses = Course.camp(2013).younger.all
+    @old_camp_courses = Course.camp(2013).older.all
     
     @registration = Registration.new
     @registration.student_id = params[:student_id] unless params[:student_id].nil?

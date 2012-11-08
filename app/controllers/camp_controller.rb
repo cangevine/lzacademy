@@ -3,8 +3,8 @@ class CampController < ApplicationController
   end
 
   def schedule
-    @young_camp_courses = Course.camp(2012).younger.all
-    @old_camp_courses = Course.camp(2012).older.all
+    @young_camp_courses = Course.camp(2013).younger.all
+    @old_camp_courses = Course.camp(2013).older.all
   end
   
   def typical_day

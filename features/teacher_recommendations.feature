@@ -21,7 +21,7 @@ Feature: Parents submit a request for a teacher to submit a recommendation
 		And I click the first link in the email
 		Then I should see "Thank you, Joe Teacher"
 		
-	@wip
+	
 	Scenario: Fill out a recommendation
 		Given a parent creates a new recommendation request
 		And "teacher@example.com" should receive an email with subject "An academic request on behalf of"
