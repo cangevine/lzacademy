@@ -73,7 +73,7 @@ module ApplicationHelper
       session_terms.push(c.session_term) unless session_terms.include?(c.session_term)
       languages.push(c.program.language) unless languages.include?(c.program.language)
     end
-    
+    session_terms.sort! {|a, b| a.start_date <=> b.start_date }
     content = build_course_headers(title, session_terms)
     content << build_course_rows(languages, courses, session_terms, registerable, show_schedule)
   end
