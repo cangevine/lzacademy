@@ -496,6 +496,23 @@ a.right_control_btn:link {
 	margin-left: 85px;
 }
 /************************
+	Banner announcements
+*************************/
+div#announcement_banner {
+	width: 793px;
+	height: 115px;
+	margin: 0px auto;
+	background: url("../images/banner_announcement_bg.png") no-repeat;
+	padding: 0px;
+	text-align: left;
+	z-index: 500;
+}
+div#announcement_banner > p > span {
+	font-weight: bold;
+	font-style: italic;
+}
+
+/************************
 	Embed newsletter signup
 *************************/
 #footer table {
