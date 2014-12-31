@@ -1,16 +1,18 @@
 source 'http://rubygems.org'
-
+ruby "1.9.3"
 gem 'rails', '3.0.3'
 
-gem 'mysql2', '< 0.3'
+#gem 'mysql2', '< 0.3'
+gem 'pg'
 gem 'devise'
 gem 'cancan'
 gem 'formtastic', '2.1.0'
-
+gem 'unicorn'
 gem 'airbrake'
+gem 'newrelic_rpm'
 
 group :development, :test do
-	gem 'ruby-debug'
+	gem 'debugger'
 	gem 'fabrication'
 	gem 'taps'
 end
